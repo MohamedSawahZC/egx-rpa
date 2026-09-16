@@ -1,0 +1,311 @@
+/* Tradução para Português do Brasil, última atualização 07-Jun-2025 */
+
+FriendlyName:										"Portuguese (Português [Brasil])";
+
+MenuCaptionFile:									"Arquivo";
+MenuCaptionFileNewProject:							"Novo Projeto";
+MenuCaptionFileOpenProject:							"Abrir Projeto";
+MenuCaptionFileOpenRecent:							"Abrir Recentes";
+MenuCaptionFileCloseProject:						"Fechar Projeto";
+MenuCaptionFileSaveProject:							"Salvar Projeto";
+MenuCaptionFileSaveProjectAs:						"Salvar Projeto Como";
+MenuCaptionFileExportProject:						"Exportar Projeto";
+MenuCaptionFileSaveCurrentDocument:					"Salvar Documento Atual";
+MenuCaptionFileBuild:								"Compilar";
+MenuCaptionFileClean:								"Limpar";
+MenuCaptionFileExit:								"Sair";
+MenuCaptionEdit:									"Editar";
+MenuCaptionEditUndo:								"Desfazer";
+MenuCaptionEditRedo:								"Refazer";
+MenuCaptionEditCut:									"Recortar";
+MenuCaptionEditCopy:								"Copiar";
+MenuCaptionEditPaste:								"Colar";
+MenuCaptionEditPasteAsComment:						"Colar como comentário";
+MenuCaptionEditDelete:								"Excluir";
+MenuCaptionEditSelectAll:							"Selecionar tudo";
+MenuCaptionEditFind:								"Localizar";
+MenuCaptionEditReplace:								"Substituir";
+MenuCaptionEditFindInProject:						"Localizar no Projeto";
+MenuCaptionEditIndent:								"Aumentar recuo";
+MenuCaptionEditOutdent:								"Diminuir recuo";
+MenuCaptionView:									"Exibir";
+MenuCaptionViewCodeEditor:							"Editor de código";
+MenuCaptionViewObjectDesigner:						"Designer de objetos";
+MenuCaptionViewDefinition:							"Definição";
+MenuCaptionViewLastPosition:						"Última posição";
+MenuCaptionViewObjectBrowser:						"Explorador de objetos";
+MenuCaptionViewIncreaseFontSize:					"Aumentar tamanho da fonte";
+MenuCaptionViewDecreaseFontSize:					"Diminuir tamanho da fonte";
+MenuCaptionViewZoomIn:								"Aproximar zoom";
+MenuCaptionViewZoomOut:								"Afastar zoom";
+MenuCaptionProject:									"Projeto";
+MenuCaptionProjectAdd:								"Adicionar";
+MenuCaptionProjectAddFolder:						"Adicionar pasta";
+MenuCaptionProjectAddWindowsForm:					"Adicionar formulário do Windows";
+MenuCaptionProjectAddWindowsMDIForm:				"Adicionar formulário MDI do Windows";
+MenuCaptionProjectAddWindowsUserControl:			"Adicionar controle de usuário do Windows";
+MenuCaptionProjectAddWindowsPropertyPage:			"Adicionar página de propriedades do Windows";
+MenuCaptionProjectAddWindowsReport:					"Adicionar relatório do Windows";
+MenuCaptionProjectAddCustomControlsForm:			"Adicionar formulário de controles personalizados";
+MenuCaptionProjectAddModuleTWIN:					"Adicionar módulo (.TWIN com suporte Unicode)";
+MenuCaptionProjectAddClassTWIN:						"Adicionar classe (.TWIN com suporte Unicode)";
+MenuCaptionProjectAddModuleBAS:						"Adicionar módulo (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Adicionar classe (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Adicionar outro arquivo";
+MenuCaptionProjectAddImportFile:					"Importar arquivo(s)";
+MenuCaptionProjectAddResourceVisualStyles:			"Adicionar recurso: Manifesto de estilos visuais";
+MenuCaptionProjectAddResourceStringTable:			"Adicionar recurso: Tabela de strings";
+MenuCaptionProjectReferences:						"Referências";
+MenuCaptionProjectSettings:							"Configurações do projeto";
+MenuCaptionProjectOpenProjectFolder:				"Abrir pasta do projeto";
+MenuCaptionProjectOpenBuildOutputFolder:			"Abrir pasta de saída da compilação";
+MenuCaptionFormat:									"Formatar";
+MenuCaptionFormatAlign:								"Alinhar";
+MenuCaptionFormatAlignLeft:							"À Esquerda";
+MenuCaptionFormatAlignCenterHorz:					"Centralizar (Horizontal)";
+MenuCaptionFormatAlignRight:						"À Direita";
+MenuCaptionFormatAlignTop:							"Em Cima";
+MenuCaptionFormatAlignCenterVert:					"Centralizar (Vertical)";
+MenuCaptionFormatAlignBottom:						"Em Baixo";
+MenuCaptionFormatAlignToGrid:						"Alinhar à grade";
+MenuCaptionFormatMakeSameSize:						"Igualar tamanho";
+MenuCaptionFormatMakeSameSizeWidest:				"Largura (o mais largo)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Largura (o mais estreito)";
+MenuCaptionFormatMakeSameSizeTallest:				"Altura (o mais alto)";
+MenuCaptionFormatMakeSameSizeShortest:				"Altura (o mais baixo)";
+MenuCaptionFormatHorizontalSpacing:					"Espaçamento horizontal";
+MenuCaptionFormatVerticalSpacing:					"Espaçamento vertical";
+MenuCaptionFormatCenterInContainerHorz:				"Alinhar à grade (Horizontal)";
+MenuCaptionFormatCenterInContainerVert:				"Alinhar à grade (Vertical)";
+MenuCaptionFormatBringToFront:						"Trazer para frente";
+MenuCaptionFormatSendToBack:						"Enviar para o fundo";
+MenuCaptionFormatLockControls:						"Bloquear controles";
+MenuCaptionDebug:									"Depurar";
+MenuCaptionDebugStepInto:							"Depurar entrando (Step Into)";
+MenuCaptionDebugStepOver:							"Depurar pulando (Step Over)";
+MenuCaptionDebugAddWatch:							"Adicionar inspeção";
+MenuCaptionDebugClearWatches:						"Limpar inspeções";
+MenuCaptionDebugToggleBreakpoint:					"Alternar ponto de interrupção";
+MenuCaptionDebugClearAllBreakpoints:				"Limpar todos os pontos de interrupção";
+MenuCaptionDebugSetNextStatement:					"Definir próxima instrução (Pular para linha)";
+MenuCaptionRun:										"Executar";
+MenuCaptionRunStart:								"Iniciar";
+MenuCaptionRunBreak:								"Pausar";
+MenuCaptionRunEnd:									"Finalizar";
+MenuCaptionTools:									"Ferramentas";
+MenuCaptionToolsIDEOptions:							"Opções da IDE";
+MenuCaptionAddins:									"Suplementos";
+MenuCaptionWindow:									"Janela";
+MenuCaptionWindowPanelLayouts:						"Layouts de painel";
+MenuCaptionWindowPanelLayoutsDefault:				"Layout padrão integrado";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Layout de editor em tela cheia";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Layout personalizado (não salvo)";
+MenuCaptionWindowPanelLayoutsCustom:				"Personalizado";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Salvar layout de painel atual como";
+MenuCaptionWindowPanelLayoutsManage:				"Gerenciar layouts de painel";
+MenuCaptionWindowPanelFeatures:						"Recursos do painel";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Permitir redimensionar painéis acoplados";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Permitir reorganizar painéis acoplados";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Permitir desacoplar painéis";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Permitir redimensionar painéis flutuantes";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Permitir mover painéis flutuantes";
+MenuCaptionWindowKeyboardShortcuts:					"Atalhos de teclado";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Atalhos de teclado padrão integrados";
+MenuCaptionWindowKeyboardShortcutsManage:			"Gerenciar atalhos de teclado";
+MenuCaptionWindowTheme:								"Tema";
+MenuCaptionWindowLanguage:							"Idioma";
+MenuCaptionHelp:									"Ajuda";
+MenuCaptionHelpAbout:								"Sobre o twinBASIC";
+MenuCaptionHelpLicence:								"Contrato de licença";
+MenuCaptionHelpDiscord:								"Ajuda e suporte (Servidor do Discord)";
+MenuCaptionHelpGitHub:								"Ajuda e suporte (Repositório no GitHub)";
+MenuCaptionHelpTwitter:								"Twitter (Notícias)";
+MenuCaptionHelpPurchaseLicence:						"Comprar uma licença";
+MenuCaptionHelpEnterLicence:						"Inserir chave de licença";
+MenuCaptionHelpKofi:								"Pague-nos um café (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Modo TRACE dos serviços do compilador";
+
+GeneralEnabled:										"Habilitado";
+GeneralDisabled:									"Desabilitado";
+GeneralIncrease:									"Aumentar";
+GeneralDecrease:									"Diminuir";
+GeneralRemove:										"Remover";
+GeneralMakeEqual:									"Igualar";
+
+PaneTitleCodeEditor:								"EDITOR";
+PaneTitleProjectExplorer:							"PROJETOS";
+PaneTitleOpenEditors:								"EDITORES ABERTOS";
+PaneTitleHistory:									"HISTÓRICO";
+PaneTitleOutline:									"ESTRUTURA DE TÓPICOS";
+PaneTitleCallStack:									"PILHA DE CHAMADAS";
+PaneTitleVariables:									"VARIÁVEIS";
+PaneTitleWatches:									"INSPEÇÕES";
+PaneTitleDebugConsole:								"CONSOLE DE DEPURAÇÃO";
+PaneTitleDiagnostics:								"DIAGNÓSTICO";
+PaneTitlePackagePublishing:							"PUBLICAÇÃO DE PACOTES";
+PaneTitleToolbar:									"BARRA DE FERRAMENTAS";
+PaneTitleToolbox:									"FERRAMENTAS";
+PaneTitleProperties:								"PROPRIEDADES";
+PaneTitleWebPage:									"PÁGINA DA WEB";
+
+/* adicionado em 17-Jan-2025 */
+
+GeneralCompiler:									"COMPILADOR";
+GeneralMainThread:									"THREAD_PRINCIPAL";
+GeneralStatusIdle:									"OCIOSO";
+GeneralStatusExecuting:								"EXECUTANDO";
+GeneralStatusBreakpoint:							"PONTO DE INTERRUPÇÃO";
+GeneralStatusOperational:							"OPERACIONAL";
+GeneralStatusLimited:								"LIMITADO";
+GeneralStatusUnavailable:							"INDISPONÍVEL";
+GeneralStatusNotReady:								"NÃO PRONTO";
+ToolbarPreviewButtonCaption:						"EXIBIR";
+MenuCaptionEditPasteSameNameControlArray: 			"Colar (mesmo nome, matriz de controles)";
+MenuCaptionEditDuplicateNewName:					"Duplicar (novo nome)";
+MenuCaptionEditDuplicateSameNameControlArray:		"Duplicar (mesmo nome, matriz de controles)";
+MenuCaptionEditAlignToGrid:							"Alinhar à grade";
+MenuCaptionEditLockAllControls:						"Bloquear todos os controles";
+MenuCaptionEditUnlockAllControls:					"Desbloquear todos os controles";
+MenuCaptionEditUnlockControls:						"Desbloquear controles";
+
+ProjectFolderImportedTypeLibrariesCaption:			"Bibliotecas de tipos importadas";
+ProjectFolderMiscellaneousCaption:					"Diversos";
+ProjectFolderPackagesCaption:						"Pacotes";
+ProjectFolderReferencesCaption:						"Referências";
+ProjectFolderResourcesCaption:						"Recursos";
+ProjectFolderSourcesCaption:						"Fontes";
+
+PropertySheetGroupHeaderCaptionDesign:				"DESIGN";
+PropertySheetGroupHeaderCaptionAppearance:			"APARÊNCIA";
+PropertySheetGroupHeaderCaptionDrawing:				"DESENHO";
+PropertySheetGroupHeaderCaptionBehaviour:			"COMPORTAMENTO";
+PropertySheetGroupHeaderCaptionMouse:				"MOUSE";
+PropertySheetGroupHeaderCaptionWindow:				"JANELA";
+PropertySheetGroupHeaderCaptionHelp:				"AJUDA";
+PropertySheetGroupHeaderCaptionKeyboard:			"TECLADO";
+PropertySheetGroupHeaderCaptionScale:				"ESCALA";
+PropertySheetGroupHeaderCaptionLayout:				"LAYOUT";
+PropertySheetGroupHeaderCaptionGeneral:				"GERAL";
+PropertySheetGroupHeaderCaptionDDE:					"DDE";
+PropertySheetGroupHeaderCaptionBindings:			"VÍNCULOS";
+PropertySheetGroupHeaderCaptionData:				"DADOS";
+
+ObjectDesignerAddMenuCaption:						"menu";
+PropertySheetPropertiesTabCaption:					"PROPRIEDADES";
+PropertySheetEventsTabCaption:						"EVENTOS";
+ObjectDesignerMenuCaptionViewCode:					"Exibir código";
+LiveResourcesInUseCaption:							"em uso";
+LiveResourcesUIObjectsCaption:						"objetos de UI";
+LiveResourcesGDIObjectsCaption:						"objetos GDI";
+
+/* adicionado em 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SHIFT";
+MenuShortcutKeyARROWLEFT:							"SETA ESQ.";
+MenuShortcutKeyARROWUP:								"SETA CIMA";
+MenuShortcutKeyARROWRIGHT:							"SETA DIR.";
+MenuShortcutKeyARROWDOWN:							"SETA BAIXO";
+MenuShortcutKeyENTER:								"ENTER";
+MenuShortcutKeyBACKSPACE:							"BACKSPACE";
+MenuShortcutKeySPACE:								"ESPAÇO";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"BREAK";
+MenuShortcutKeyESCAPE:								"ESC";
+MenuShortcutKeyHOME:								"HOME";
+MenuShortcutKeyEND:									"END";
+MenuShortcutKeyPAGEUP:								"PAGE UP";
+MenuShortcutKeyPAGEDOWN:							"PAGE DOWN";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"DELETE";
+
+DialogLoadingPleaseWait:							"Carregando, por favor aguarde";
+DialogNewProjectTitle:								"Novo / Abrir projeto";
+DialogNewProjectCaptionNewTab:						"Novo";
+DialogNewProjectCaptionSamplesTab:					"Exemplos";
+DialogNewProjectCaptionRecentTab:					"Recentes";
+DialogNewProjectCaptionBrowseButton:				"Procurar";
+DialogNewProjectCaptionOpenButton:					"Abrir";
+DialogCaptionCancelButton:							"Cancelar";
+DialogCaptionCloseButton:							"Fechar";
+DialogCaptionContinueButton:						"Continuar";
+DialogCaptionContinueAnywayButton:					"Continuar mesmo assim";
+DialogCaptionSaveButton:							"Salvar";
+DialogCaptionSaveChangesButton:						"Salvar alterações";
+DialogCaptionAddNewButton:							"Adicionar novo";
+DialogCaptionTryAgainButton:						"Tentar novamente";
+DialogCaptionDeleteButton:							"Excluir";
+DialogCaptionDeleteBothButton:						"Excluir ambos";
+DialogCaptionOKButton:								"OK";
+DialogCaptionRemoveItButton:						"Remover";
+DialogCaptionKeepItButton:							"Manter";
+DialogCaptionDiscardChangesButton:					"Descartar alterações";
+DialogProgressTitle:								"Por favor aguarde";
+DialogProjectSettingsTitle:							"Configurações do projeto";
+DialogSaveChangesCaptionMain:						"Deseja salvar as alterações feitas em {%1}?";
+DialogSaveChangesCaptionSubText:					"Suas alterações serão perdidas se você não as salvar.";
+DialogEditMultiLineValueTitle:						"Editar valor (múltiplas linhas)";
+DialogFindInProjectTitle:							"Localizar no projeto";
+DialogFindInProjectCaptionMain:						"Insira o texto a ser localizado (busca de texto simples)";
+DialogFindInProjectCaptionInsidePackages:			"Localizar em pacotes referenciados";
+DialogFindInProjectCaptionMatchCase:				"Diferenciar maiúsculas/minúsculas";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Coincidir palavra inteira";
+DialogFindInProjectCaptionSearchButton:				"Localizar no projeto";
+DialogBuildSaveCaptionMain:							"Você deve salvar o projeto primeiro. Salvar agora?";
+DialogFileAlreadyExists:							"O arquivo já existe:"
+""
+"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Substituí-lo";
+DialogPackageNeededAddButton:						"Adicionar pacote {%1}";
+DialogPackageNeededCaptionMain:						"Pacote necessário: {%1}"
+""
+"Você deve adicionar uma referência ao pacote {%1} neste projeto."
+"Após clicar em `Adicionar pacote {%1}`, o compilador será reiniciado,"
+"pronto para adicionar formulários a este projeto.";
+DialogFileRenameFailed:								"Erro ao renomear/mover. Feche os seguintes editores que impedem a operação:
+""
+"{%1}";
+DialogProjectSettingsUnsavedChanges:				"AVISO: você fez alterações, mas não as salvou."
+""
+"Fechar sem salvar?";
+DialogBuildUnregisterFailedCaptionMain:				"Falha na compilação: não foi possível cancelar o registro da DLL anterior. Continuar mesmo assim?";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Removê-la e continuar";
+DialogGeneralYouWillNotBeAbleToUndo:				"Você não poderá desfazer esta operação.";
+DialogDeleteConfirmationMultiCaptionMain:			"Tem certeza de que deseja excluir os seguintes arquivos?
+"{%1}"
+"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Tem certeza de que deseja excluir os itens selecionados?";
+DialogDeleteConfirmationSingleaptionMain:			"Tem certeza de que deseja excluir '{%1}'?";
+DialogSafeModeCaption:								"O modo de segurança foi projetado para permitir o acesso ao sistema de arquivos"
+"do seu projeto sem iniciar todos os serviços associados ao compilador."
+""
+"Use-o para investigar / corrigir / recuperar seu código antes de salvar"
+"e reiniciar em modo normal.";
+DialogHKLMWarning:									"AVISO: Este projeto se registra em HKEY_LOCAL_MACHINE,"
+"o que requer permissões de administrador."
+""
+"A IDE do twinBASIC não está sendo executada com privilégios elevados,"
+"portanto, o registro da DLL falhará durante a compilação."
+""
+"Para que a compilação tenha sucesso, reinicie a IDE do twinBASIC"
+"usando a opção `Executar como administrador` do Windows.";
+DialogFailedSaveProject:							"Não foi possível salvar o projeto. Verifique o caminho e faça os ajustes necessários.";
+DialogFailedOpenProject:							"Não foi possível carregar o projeto (código de erro {%1})"
+"{%2}"
+""
+"Deseja removê-lo da lista de projetos recentes?";
+DialogEnterLicenceTitle:							"Inserir chave de licença";
+DialogEnterLicenceCaptionMain:						"Dica: copie e cole a chave do seu e-mail de confirmação."
+"Se você inserir uma chave inválida, a licença COMMUNITY será aplicada.";
+DialogEnterLicenceCaptionPurchaseButton:			"Comprar uma licença";
+DialogNewProjectOptionsTitle:						"Opções do novo projeto";
+DialogPublisherLoginSignupTitle:					"Login / Registro de Publicador";
+DialogSaveFailedCaptionMain:						"Não foi possível salvar as alterações. Descartá-las?";
+DialogSaveChangesToProjectCaptionMain:				"Você fez alterações neste projeto. Salvar agora?";
+
+/* Adicionado em 02-Fev-2024 */
+MenuCaptionProjectAddResourceMessageTable:			"Adicionar recurso: MESSAGETABLE";
+
+/* Adicionado em 01-Mai-2025 */
+PaneTitleFindReplace:								"LOCALIZAR / SUBSTITUIR"

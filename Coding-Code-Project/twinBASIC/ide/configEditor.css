@@ -1,0 +1,699 @@
+:root {
+	--inheritsFromText: "blah";
+}
+
+/*body {
+	justify-content: center;
+	align-items: center;
+	min-width: 700px;
+	background-color: rgb(245, 247, 238);
+	padding: 0;
+	margin: 0;
+}*/
+
+/* fixme this is a mess, redesign using flex boxes */
+
+  .optionDisabled, .optionEnabled
+  {
+    border: 2px solid rgba(128, 128, 128, 0.411);
+    border-radius: 5px;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    padding-bottom: 7px;
+    padding-top: 7px;
+    border-bottom: 1px dotted #8b7373;
+  }
+  
+  .optionEnabler
+  {
+	  display: inline-block;
+    width: 11px;
+    padding: 0 !important;
+	  margin: 0 !important;
+	  vertical-align: top;
+	  transform: scale(1.5);
+	  cursor: pointer;
+	  margin-left: 20px !important;
+    margin-top: 3px !important;
+    float: right;
+    margin-right: 20px !important;
+    display: none;
+  }
+
+  .optionHeader
+  {
+	display: inline-block;
+	font-weight: bold;
+	width: calc(100% - 45px);
+	text-align: left;
+	padding: 0;
+	margin: 0;
+	vertical-align: top;
+	color: rgb(44, 44, 44);
+	margin-right: 10px;
+	margin-top: 0;
+	padding-bottom: 5px;
+	padding-left: 8px;
+  font-size: 100%;
+
+  width: 230px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.vscode-dark .optionHeader
+{
+	color: rgb(163, 167, 150);
+}
+
+  .optionContent
+  {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+  margin-top: 2px;
+}
+
+.optionContentInner
+{
+	display: inline-block;
+}
+
+.optionDisabled .optionContent
+{
+	width: auto;
+}
+
+.optionDisabled .optionContentInner
+{
+	pointer-events: none; 
+}
+
+.optionDisabled .optionHeader::after
+{
+  aacontent: var(--inheritsFromText);
+  width: auto;
+  font-size: 80%;
+  float: right;
+  /* font-style: italic; */
+  border-radius: 3px;
+  padding-left: 15px;
+  /* position: absolute; */
+  /* float: right; */
+  padding-right: 15px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.vscode-dark .optionDisabled .optionContent::after
+{
+	color: rgb(155, 137, 172);
+	
+}
+
+  .optionDescription, .optionErrors, .optionSaveWarning
+  {
+	  font-style: normal;
+	  padding: 0;
+	  margin: 0;
+	  margin-left: 47px;
+	  margin-right: 30px;
+    color:#222222;
+    margin-left: 240px;
+  }
+
+  .optionDescription
+  {
+    margin-top: 5px;
+        color: #303030;
+  }
+
+  .optionSaveWarning
+  {
+	font-weight: bold;
+    color: rgb(181 94 94);
+    background-color: #222222;
+    padding: 10px;
+    border-radius: 3px;
+  }
+
+
+  .optionErrors
+  {
+	  font-weight: bold;
+	  color: rgb(80, 22, 22);
+	  background-color: rgb(202, 202, 148);
+	  margin: 5px;
+	  padding: 10px;
+	  margin-left: 47px;
+	  margin-right: 20px;
+	  border-radius: 5px;
+  }
+
+  .optionErrors:empty
+  {
+	  display: none;
+  }
+
+  .optionContentInner, .optionContentInner:focus
+  {
+	  padding: 2px;
+	  margin: 0;
+	  border: 1px solid rgb(129, 128, 128);
+	  outline: 0 !important;
+  }
+
+  .optionContentInnerText
+  {
+	  aheight: 10px;
+  }
+
+.configEditorContainer input[type="text"], .configEditorContainer input[type="number"], .configEditorContainer textarea {
+	background-color: white;
+	  color: black;
+	  outline: 1px solid rgb(173, 173, 173);
+	  padding: 2px;	  
+	  border-radius: 3px;
+	  padding-left: 5px;
+    outline: 1px solid #cfcfcf !important;
+  }
+
+  .configEditorContainer input[type="text"]:disabled, .configEditorContainer input[type="number"]:disabled, .configEditorContainer textarea:disabled {
+	background-color: rgba(255, 255, 255, 0.582);
+	  color: rgb(73, 73, 73);
+  }
+
+  .references, .references:focus
+  {
+	  width: 470px;
+	  margin-left: 47px;
+	  min-height: 180px;
+	  margin-bottom: 10px;
+	  overflow-x: auto;
+  }
+
+  .selectedReferenceInfo
+  {
+	width: 470px;
+    margin-left: 20px;
+    background-color: #9f9f9233;
+    vertical-align: top;
+    border: 1px dashed white;
+    border-radius: 10px;
+    color: white;
+    padding: 10px 0;
+    display: none;
+    margin-right: 10px;
+    text-align: left;
+    flex-grow: 1;
+    display: none;
+    flex-grow: 1;
+    width: calc(100% - 584px);
+	height: fit-content;
+	min-width: 380px;
+  }
+
+  .referenceSearchButton:hover
+  {
+	  border-radius: 3px;
+	  filter: hue-rotate(180deg);
+  }
+
+  .referenceSearchButton, .referenceSearchButtonClear, .referenceSearchButtonClearInvisible
+  {
+	  float: right;
+	  margin-right: 5px;
+	  cursor: pointer;
+	  width: 18px;
+	  height: 18px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAYAAAAcjSspAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAB3RJTUUH5QwYBx0KwPYhZwAAA6BJREFUeJzd3L1uE0EQB/B/LOTSb2Apj2CJQ3kEZOo0KA8QUaakoUBClK4QckFpkBA0FCAeIcJIFHRpDEg8ACUNVOts1rM7s7c7+5GpouRud+93M2P7vMrRar35h0xxcX7GHrNab3JNpxZ3Uk6WIITOaRVoFMoYDG6cloCiUHJhhMZuAUeEEoOx3W7J3w/DIDr/4vysOswR12glID6IUHBINWGCKCEQDuLTn2MAwHK2Cx4XwqkF40WJATEA0qCgfDg1YEgUH0gsxmI+xbdff71/d3FagTlAkYBQGIv5VDypC2XjtAAzkRwUAlnMp1Eg1Dn2mL5epfl2wI0bKNTEPpAxGG64MGb82jB7lFiQXOEba8zLfK4QlY8WCDUmV0olsmXim4hakAYIcNh4Y1/icwebKWaBpUDcqFFGJIpZiPYdC4GE5tYuoYlkAo0s4TLEjtLZcpApJRYgBanVW7w9RWtBMRkSCs0SYhttztLJBaIdovcpOSIVpGRfKYKSAlKjr6ij9FIydqii9AgCKKL0CgIooeQE4Z7xakR2FK0MkX5FkiO8KOYOxVxkyZLRfDx5gDL2jvTcQ9wQlQ93wVogNfoJAExCaShZVIkMKdlPAE+mUIugLl4TJHRDtL/umHCT2IuzEUr1kNJZAgR2HQzDsP8Qtpzt9p9BSmBwZau9r2VfPtTgNe6SDfL58it7vMZzFfGbtxKvBBTIsxdr9rzcMDdQuGxZznZqOKEMKQ0j3nWQuv0iFFzJ3D+5e/A7zS/io7ZiAHlx3KyTgLx6/2H/88vnT8lxU2HInhIa1L1DsSVljne3X1B33gX5/vM3Tu5dH/fo8RNyjtRSGr29C0h/bkpBmP5Bgdhx+eV67twZw24EBPJvBuRe6t2xXBATWjAiFKDsphkbxfQQu2zs0IARv09ZrTfF957ZTdW+eDs0ekz0k7fcOL6xbBATpWBGP45MxQmdH+o5JWDEPSU2Yvba+xbruzhAt8eoocRGSzDFvkvmwrdI30UBeqXUDArQDkxTKEAbMM2hAPVhmkQB6sI0iwLowTw4fRict2kUID/Mj6srADSMyZbmUYB8MG9fvxHN1wUKkA5DgfjKqBsUYDyMNENMdIUCxMOYHhIT3aEAchgO5OM7OoO6RAF4mDEZYqJbFGBcjzFBZYkZr2sUwA/jKw3ub0BDz1NSI/XBuo3bfaaYSH00asetQQHGwVDn3CoUIA7Gd2zSvx9qNdyLjf2HNf8BA3dMKYRfW6sAAAAASUVORK5CYII=');
+	  background-size: cover;
+  }
+
+  .referenceSearchButtonClear
+  {
+    background-image: url('data:image/png;base64,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');
+  }
+
+  .referenceSearchButton2
+  {
+	background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAABFCAYAAAAcjSspAAAAxHpUWHRSYXcgcHJvZmlsZSB0eXBlIGV4aWYAAHjabVBbDsQgCPznFHsEBFQ8jn1ssjfY4y8KbdpmJ3FEhowA7N/PG14DlAQkVy2tFDRIk0bdAkVHn5xQJk9IDi3d83AKZCm2m/2pJeqPfDoN/OoW5YuRriEsd6FJ+OvDKD7i0RFZsIVRCyMmF1IYdB8LS9N6HWHZ8Q71A4PKinOQFO7Pt1Tb3pbtHybaOTEaM4s3wOMwcB/C5GqFHiPr5Bad2EL+7ekA/ABRwFnnlJ2aZgAAAYRpQ0NQSUNDIHByb2ZpbGUAAHicfZE9SMNAHMVfU6VaKiJ2UHHIUJ3soiKOpYpFsFDaCq06mFz6ITRpSFJcHAXXgoMfi1UHF2ddHVwFQfADxNXFSdFFSvxfUmgR48FxP97de9y9A4RGhalmVwxQNctIJ+JiLr8iBl4RxAB6EcCwxEw9mVnIwnN83cPH17soz/I+9+foUwomA3wicYzphkW8Tjyzaemc94nDrCwpxOfEEwZdkPiR67LLb5xLDgs8M2xk03PEYWKx1MFyB7OyoRJPE0cUVaN8IeeywnmLs1qpsdY9+QtDBW05w3Wao0hgEUmkIEJGDRuowEKUVo0UE2naj3v4Rxx/ilwyuTbAyDGPKlRIjh/8D353axanJt2kUBzofrHtjzEgsAs067b9fWzbzRPA/wxcaW1/tQHMfpJeb2uRI6B/G7i4bmvyHnC5Aww96ZIhOZKfplAsAu9n9E15YPAWCK66vbX2cfoAZKmrpRvg4BAYL1H2mse7ezp7+/dMq78fZVFyodljA4UAAA12aVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/Pgo8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJYTVAgQ29yZSA0LjQuMC1FeGl2MiI+CiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPgogIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiCiAgICB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIKICAgIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiCiAgICB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iCiAgICB4bWxuczpHSU1QPSJodHRwOi8vd3d3LmdpbXAub3JnL3htcC8iCiAgICB4bWxuczp0aWZmPSJodHRwOi8vbnMuYWRvYmUuY29tL3RpZmYvMS4wLyIKICAgIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIKICAgeG1wTU06RG9jdW1lbnRJRD0iZ2ltcDpkb2NpZDpnaW1wOjkzZmIxYTljLTg1MTUtNGUxNS1iMDQyLWM4YWQyMTBmNjBlOCIKICAgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo0ZDQzOGFlMy01MDAyLTRkZDgtOWVkMy0xY2M5MmY1NDg0MzciCiAgIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4ZTBmNTA3NS1jYWUyLTRkMDUtYjFlMS1kMzFhYjE1N2ExNGYiCiAgIGRjOkZvcm1hdD0iaW1hZ2UvcG5nIgogICBHSU1QOkFQST0iMi4wIgogICBHSU1QOlBsYXRmb3JtPSJXaW5kb3dzIgogICBHSU1QOlRpbWVTdGFtcD0iMTY5NzUzMzY5MTQ1OTQ2NSIKICAgR0lNUDpWZXJzaW9uPSIyLjEwLjM0IgogICB0aWZmOk9yaWVudGF0aW9uPSIxIgogICB4bXA6Q3JlYXRvclRvb2w9IkdJTVAgMi4xMCIKICAgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyMzoxMDoxN1QxMDowODowOSswMTowMCIKICAgeG1wOk1vZGlmeURhdGU9IjIwMjM6MTA6MTdUMTA6MDg6MDkrMDE6MDAiPgogICA8eG1wTU06SGlzdG9yeT4KICAgIDxyZGY6U2VxPgogICAgIDxyZGY6bGkKICAgICAgc3RFdnQ6YWN0aW9uPSJzYXZlZCIKICAgICAgc3RFdnQ6Y2hhbmdlZD0iLyIKICAgICAgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDplMWQ1ODdjOS1hYzJmLTRkMGItYTMzNC03OGM4NWI0ODNlMDgiCiAgICAgIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkdpbXAgMi4xMCAoV2luZG93cykiCiAgICAgIHN0RXZ0OndoZW49IjIwMjMtMTAtMTdUMTA6MDg6MTEiLz4KICAgIDwvcmRmOlNlcT4KICAgPC94bXBNTTpIaXN0b3J5PgogIDwvcmRmOkRlc2NyaXB0aW9uPgogPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgCiAgICAgICAgICAgICAgICAgICAgICAgICAgIAo8P3hwYWNrZXQgZW5kPSJ3Ij8+RS4ncwAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAWJQAAFiUBSVIk8AAAAAd0SU1FB+cKEQkICzVawc4AAAL6SURBVHja3ds9Th0xEABgjwtKboDEEZDyEEdAUNPkBAhxgigSRaQoJ0CIIm2ehEhDAeIIKA8pRToaIFIOQEnjVIusxT8zXs94vK6eeOyu/Xlm1nrrBVO3OcT/gFHeQAChOyBohKEaCBRgqMOB2hir1Sr498Vi0Q0M1ACJQaQaAgm0orhSiJuXTWOMMXvrj1NwQBsKGmQAwLYQVAIHtKC4GhhbG2vm999XNI4WGCgBCWFsbayhLzqG8nE0wKBQUiAUjBSOJhgoBZmCgYmaljC2JUjqXCW3eQ6U7O21NkjonP61IjBOCsVhZooDJJRC1Fu8eKQMHZQC0ZBGNtUR7hlLgWSu7bhRHCXnpSKkZbTYFh3AgrSqLVa6Q5QIqfVzRvVCWzN1KoK0X6doAJGsK1Y7SIu6YrVHyOzSp0cQVpReQdhQaoLkfuPtAoUrQoiPSHhQhhmiDFI4ZUAMpXRGeq4hRemTGzAXSIt6MqDAlE5JRIhkPYlGSqgTocFzgmQmBCRQUNHiI0jVEOkoGWOQnvdwNuQzILaosamTt5glH+T27h5ziBOpKa3uBCGQr6fn4jDkx6ZcqZSLkM/Hh2ILOvSuA06YHMjuzgdKAQYxFA6ccUpiQL7/vHr7fPbtCwtMlU07FJzUhp1x/RiD/Hn+Z4wx5u7XihWmeHtXDGfqGmSAiYEMjROm2u5IClDuVj8+1xiEG4ZygMQe2ncoQw3Z2V6IwVgioOjeM7+o+oP3m4919OmkyoTawpSriQM5EGkYO3EwwHF8quZIwHCmgyNcI9jZxOBYa4ymV0vUwGh730YFjMaXkJrDaH11rSmM5vf5msFof8mxCYxVjhKctMSgUOuY/YOPzdYpKiPm4sfy7fP15TJoYjtBqRIxPgjXMr8rmBBILI3A9NfIqfT08BD9LpBCYDtEIUVMCmQO6UOGyYFECm23KFmYkgjpuaagakxuLRK7HfceKcmJjaVG7ru5REoyYkpw54QyBQbmGimlMDDn9CmBmev40UjoCPoPrQCphL8htbgAAAAASUVORK5CYII=);
+    margin-left: 10px;
+    margin-top: 7px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    position: absolute;
+  }
+
+  .subText
+  {
+	color: #7a7a7a;
+    font-style: italic;
+    margin-left: 10px;
+  }
+  
+  .referenceSearchButton2:hover
+  {
+	border-radius: 3px;
+	filter: hue-rotate(180deg);
+  }
+
+  .referenceSearchButtonClearInvisible
+  {
+	  visibility: hidden;
+  }
+
+  input.referencesSearchBox, input.referencesSearchBoxTransparent 
+  {
+    width: 250px;
+    background-color: #fffff0 !important;
+    border-radius: 10px !important;
+    height: 17px;
+    /* left: 20px; */
+    top: calc(-50%);
+    border: 1px solid #818181;
+    color: white;
+    margin-top: 5px;
+    /* padding: 0 10px; */
+    outline: none !important;
+    opacity: 1;
+    transition: opacity 0.5s;
+    font-weight: bold;
+    margin: 0;
+    margin: 4px 0;
+    height: calc(100% - 7px);
+    padding-left: 30px !important;
+    color: grey !important;
+    font-style: italic;
+    box-sizing: border-box;
+    padding: 0 !important;
+    padding-left: 30px !important;
+    font-size: 90%;
+    width: calc(100% - 5px);
+}
+
+input.referencesSearchBoxTransparent
+{
+	opacity: 0;
+}
+
+
+
+  .selectedReferenceInfoLabel
+  {
+	display: inline-block;
+	width: 140px;
+	  text-align: right;    
+	  color: #aba6a6;
+	  user-select: none;
+  }
+
+  .selectedReferenceInfoValue
+  {
+	display: inline-block;
+    margin-left: 10px !important;
+    max-width: calc(100% - 160px);
+    overflow-wrap: anywhere;
+    vertical-align: top;
+  }
+
+input.selectedReferenceInfoValue
+  {
+	height: 18px;
+  }
+
+  .referencesAvailable, .referencesAvailable:focus
+  {
+	  width: 470px;
+	  margin-left: 47px;
+	  display: inline-block;
+	  margin-bottom: 10px;
+	  overflow-x: auto;
+  }
+
+  .references::-webkit-scrollbar-corner,
+  .referencesAvailable::-webkit-scrollbar-corner
+  {
+  	background-color: transparent;
+  }
+
+  .configEditorContainer::-webkit-scrollbar-thumb
+  {
+    background-color: #828282;
+  }
+  .configEditorContainer::-webkit-scrollbar
+  {
+    background-color: #575757;
+  }
+  
+  .referencesAvailableHeader
+  {
+	  width: 462px;
+	  text-align: center;
+	  padding: 0px;
+	  font-weight: bold;
+	  
+	  display: block;
+	  background: #8f99a5;
+	  color: black;
+	  border-top-left-radius: 8px;
+	  border-top-right-radius: 8px;
+	  margin-left: 47px;
+	  font-size: 12px;
+	  padding: 4px;
+	  box-sizing: content-box;
+  }
+
+  .row
+  {
+	  width: auto;
+	  
+	  display: flex;
+  }
+
+  .referencesButtons
+  {
+    margin-left: 5px;
+    width: 30px;
+  }
+
+  
+
+  .references_CONTENT
+  {
+	  width: 480px;
+  }
+  .referencesContainer
+  {
+	display: inline-block; 
+}
+
+  .filter
+  {
+	font-size: 12px; 
+	padding: 0; 
+	margin: 0; 
+	padding-left: 10px; 
+	width: 150px; 
+	height: 20px; 
+	border-radius: 5px; 
+	border: 1px solid grey;
+	margin-bottom: 3px;
+	display: inline-block; 
+	outline: none;
+  }
+
+  .filterIcon
+  {
+	width: 148px;
+	text-align: right; 
+	display: inline-block; 
+	padding-right: 4px;
+  }
+
+  .optionLoadFromFileDiv
+  {
+	  padding-top: 5px;
+	  margin-left: 47px;
+	  display: inline-block;
+    margin-left: 240px;
+  }
+
+  .optionReferencesTypeDiv
+  {
+	  padding-top: 5px;
+	  display: inline-block;
+  }
+
+  .loadFromFile
+  {
+	width: 150px;
+    background-color: rgb(80, 113, 204);
+    border: 0;
+    padding: 5px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .referenceTypeButton, .referenceTypeButtonSelected
+{
+	width: 150px;
+    background-color: rgb(80, 113, 204);
+    margin-bottom: 25px;
+    margin-right: 25px;
+    vertical-align: middle;
+    border-radius: 5px;
+	opacity: 0.6;
+	position: relative;
+	color: white;
+    padding: 5px;
+    border: 0;
+    cursor: pointer;
+}
+
+.referenceTypeButtonSelected
+{
+	opacity: 1;
+}
+
+option 
+{
+	height: 20px;
+}
+
+.referencesAvailableHeaderHeader
+{
+	display: inline-block;
+}
+
+.loadFromFile:hover, .importPackage:hover, .referenceTypeButton:hover, .referenceTypeButtonSelected:hover
+{
+	background-color:rgb(125, 150, 221);
+}
+
+.applyChanges
+  {
+	width: 150px;
+	display: inline-block;
+}
+
+.discardChanges
+  {
+	width: 150px;
+	display: inline-block;
+	padding-left: 20px;
+}
+
+.configHeader
+{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgb(169, 175, 150);
+	margin: 0;
+	padding: 0;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.options
+{
+	margin-top: 0;
+}
+
+.configuration\.name_ENABLER, .configuration\.inherits_ENABLER, .project\.id_ENABLER, .project\.name_ENABLER, .project\.references_ENABLER, .compiler\.target_ENABLER, .project\.warnings_ENABLER
+{
+	visibility: hidden;
+}
+
+.project\.buildPath_TEXT, .project\.fusionBuildPath_TEXT, .project\.description_TEXT, .project\.id_TEXT, .project\.conditionalCompilationArguments_TEXT, .project\.exportPath_TEXT, .compiler\.traceOutput_TEXT
+{
+	width: 550px;
+}
+
+.project\.id_TEXT
+{
+	display: inline-block;
+}
+
+body.vscode-dark 
+{
+	background-color:transparent;
+	margin: 20px;
+}
+
+.vscode-dark .optionDisabled
+{
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-dark .optionEnabled
+{
+	background-color: rgba(231, 231, 231, 0.164);
+}
+
+.vscode-dark .optionDisabled
+{
+	background-color: rgba(71, 70, 70, 0.164);
+}
+
+.warningOptions
+{
+	max-height: 300px;
+  background: white;
+  color: black;
+  overflow: auto;
+  white-space: nowrap;
+  margin-left: 47px;
+  margin-right: 47px;
+  width: calc(100% - 250px);
+  padding: 5px;
+  /* padding: 4px 10px; */
+  /* margin-top: 9px; */
+  margin-left: 240px;
+  border: 1px solid grey;
+  margin-top: 10px;
+}
+
+.warningDescription
+{
+	display: inline-block;
+	padding-left: 20px;
+}
+
+.warningState, .warningState:focus
+{
+	display: inline-block;
+	width: auto;
+	border: 1px solid grey;
+}
+
+.refreshButton
+{
+	border-radius: 5px;
+	font-size: 25px;
+	display: inline-block;
+	font-weight: bold;
+	cursor: pointer;
+	padding: 4px;
+}
+
+.refreshButton:hover
+{
+	background-color:rgb(125, 150, 221);
+}
+
+.warningNotLoggedIn
+{
+	cursor: pointer;
+    color: rgb(79, 126, 189);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: bold;
+    margin-left: 140px;
+    float: right;
+    margin-right: 30px;
+    background: rgb(255 245 0 / 88%);
+    border-radius: 10px;
+    padding: 4px 10px;
+    margin-top: 9px;
+}
+
+.filterBanner
+{
+  position: fixed;
+  /* margin-top: -35px; */
+  width: calc(100% - 15px);
+  z-index: 9999999999;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  top: 0;
+  left: 0;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom: 1px solid #5c5b6a;
+  border-left: 1px solid #5c5b6a;
+  border-right: 1px solid #5c5b6a;
+  /* box-shadow: 0 2px 15px black;*/
+  background-color: var(--themeSettingsFilterBarBackColor) ;
+}
+
+.filterBannerUnderneathSpace
+{
+    height: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.filterBar
+{
+	font-style: italic;
+    margin-left: 75px !important;
+    width: calc(100% - 150px);
+    margin-bottom: 30px !important;
+    margin-top: 7px !important;
+    /* background-color: white; */
+    border-radius: 5px;
+    height: 15px;
+    padding-left: 10px;
+    border: 0;
+    outline: 0 !important;
+    color: #454444;
+    padding-left: 15px !important;
+    height: 25px;
+}
+
+.invalidOptionConfigValue
+{
+	background-color: orange;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+	margin-top: 5px;
+}
+
+.referencesListLocationDropDown, .referencesListLocationDropDown:focus-within
+{
+    border: 1px solid #97801c;
+    Border-radius: 2px;
+    background-color: #f3f3d4;
+}
+
+.referencesListIsLocalPackage
+{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project\.references_HEADER, .project\.warnings_HEADER, .compiler\.traceFlags_HEADER
+{
+      float: left;
+      margin-top: 7px;
+}
+
+.referencesListColFusionFlags_AsyncEvents
+{
+    height: 15px;
+    flex-basis: 160px;
+    width: 160px;
+    border-right: 1px solid grey;
+    text-align: center;
+    align-content: center;
+    align-self: center;
+}

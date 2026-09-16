@@ -1,0 +1,304 @@
+
+/* Translation by camomille22003, last updated 20th-Jan-2025 */
+
+FriendlyName:										"French (Français [France])";
+
+MenuCaptionFile:									"Fichier";
+MenuCaptionFileNewProject:							"Nouveau Projet";
+MenuCaptionFileOpenProject:							"Ouvrir Projet";
+MenuCaptionFileOpenRecent:							"Ouvrir Recent";
+MenuCaptionFileCloseProject:						"Fermer Projet";
+MenuCaptionFileSaveProject:							"Enregistrer Projet";
+MenuCaptionFileSaveProjectAs:						"Enregistrer Projet Sous";
+MenuCaptionFileExportProject:						"Exporter Projet";
+MenuCaptionFileSaveCurrentDocument:					"Enregistrer Document Courant";
+MenuCaptionFileBuild:								"Construire";
+MenuCaptionFileClean:								"Effacer";
+MenuCaptionFileExit:								"Sortir";
+MenuCaptionEdit:									"Editer";
+MenuCaptionEditUndo:								"Annuler";
+MenuCaptionEditRedo:								"Refaire";
+MenuCaptionEditCut:									"Couper";
+MenuCaptionEditCopy:								"Copier";
+MenuCaptionEditPaste:								"Coller";
+MenuCaptionEditPasteAsComment:						"Coller Un Commentaire";
+MenuCaptionEditDelete:								"Effacer";
+MenuCaptionEditSelectAll:							"Selectionner Tout";
+MenuCaptionEditFind:								"Rechercher";
+MenuCaptionEditReplace:								"Remplacer";
+MenuCaptionEditFindInProject:						"Rechercher Dans Projet";
+MenuCaptionEditIndent:								"Indent";
+MenuCaptionEditOutdent:								"Retrait";
+MenuCaptionView:									"Voir";
+MenuCaptionViewCodeEditor:							"Éditeur de Code";
+MenuCaptionViewObjectDesigner:						"Concepteur d'objets";
+MenuCaptionViewDefinition:							"Definition";
+MenuCaptionViewLastPosition:						"Dernière position";
+MenuCaptionViewObjectBrowser:						"Navigateur d'objets";
+MenuCaptionViewIncreaseFontSize:					"Augmenter Taille de Police";
+MenuCaptionViewDecreaseFontSize:					"Diminuer Taille Police";
+MenuCaptionViewZoomIn:								"Zoom Avant";
+MenuCaptionViewZoomOut:								"Zoom Arrière";
+MenuCaptionProject:									"Projet";
+MenuCaptionProjectAdd:								"Ajouter";
+MenuCaptionProjectAddFolder:						"Ajouter Dossier";
+MenuCaptionProjectAddWindowsForm:					"Ajouter Formulaire";
+MenuCaptionProjectAddWindowsMDIForm:				"Ajouter Formulaire MDI";
+MenuCaptionProjectAddWindowsUserControl:			"Ajouter Contrôle Utilisateur";
+MenuCaptionProjectAddWindowsPropertyPage:			"Ajouter Page Propriétés";
+MenuCaptionProjectAddWindowsReport:					"Ajouter Rapport";
+MenuCaptionProjectAddCustomControlsForm:			"Ajouter Formulaire CustomControls";
+MenuCaptionProjectAddModuleTWIN:					"Ajouter Module (.TWIN prend en charge Unicode)";
+MenuCaptionProjectAddClassTWIN:						"Ajouter Classe (.TWIN prend en charge Unicode)";
+MenuCaptionProjectAddModuleBAS:						"Ajouter Module (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Ajouter Classe (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Ajouter Autre Fichier";
+MenuCaptionProjectAddImportFile:					"Importer Fichier(s)";
+MenuCaptionProjectAddResourceVisualStyles:			"Ajouter Ressource : Manifeste Styles Visuels";
+MenuCaptionProjectAddResourceStringTable:			"Ajouter Ressource : Tableau Chaînes";
+MenuCaptionProjectReferences:						"Références";
+MenuCaptionProjectSettings:							"Paramètres Projet";
+MenuCaptionProjectOpenProjectFolder:				"Ouvrir Dossier Projet";
+MenuCaptionProjectOpenBuildOutputFolder:			"Ouvrir Dossier Sortie Construction";
+MenuCaptionFormat:									"Formater";
+MenuCaptionFormatAlign:								"Aligner";
+MenuCaptionFormatAlignLeft:							"Gauche";
+MenuCaptionFormatAlignCenterHorz:					"Centre (horizontal)";
+MenuCaptionFormatAlignRight:						"Droite";
+MenuCaptionFormatAlignTop:							"Haut";
+MenuCaptionFormatAlignCenterVert:					"Centre (Vertical)";
+MenuCaptionFormatAlignBottom:						"Bas";
+MenuCaptionFormatAlignToGrid:						"Vers Grille";
+MenuCaptionFormatMakeSameSize:						"Faire Même Taille";
+MenuCaptionFormatMakeSameSizeWidest:				"Largeur (Plus Large)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Largeur (Plus Etroite)";
+MenuCaptionFormatMakeSameSizeTallest:				"Hauteur (Plus Grande)";
+MenuCaptionFormatMakeSameSizeShortest:				"Hauteur (Plus Petite)";
+MenuCaptionFormatHorizontalSpacing:					"Espacement Horizontal";
+MenuCaptionFormatVerticalSpacing:					"Espacement Vertical";
+MenuCaptionFormatCenterInContainerHorz:				"Centrer Dans Conteneur (horizontalement)";
+MenuCaptionFormatCenterInContainerVert:				"Centrer Dans Conteneur (verticalement)";
+MenuCaptionFormatBringToFront:						"Mettre au Premier Plan";
+MenuCaptionFormatSendToBack:						"Envoyer à l'arrière";
+MenuCaptionFormatLockControls:						"Verrouiller les contrôles";
+MenuCaptionDebug:									"Debuger";
+MenuCaptionDebugStepInto:							"Entrez Dans";
+MenuCaptionDebugStepOver:							"Enjamber";
+MenuCaptionDebugAddWatch:							"Ajouter 'Watch'";
+MenuCaptionDebugClearWatches:						"Effacer 'Watches'";
+MenuCaptionDebugToggleBreakpoint:					"Basculer 'Breakpoint'";
+MenuCaptionDebugClearAllBreakpoints:				"Effacer Tous 'Breakpoints'";
+MenuCaptionDebugSetNextStatement:					"Définir Instruction Suivante (Sauter Ligne)";
+MenuCaptionRun:										"Run";
+MenuCaptionRunStart:								"Start";
+MenuCaptionRunBreak:								"Break";
+MenuCaptionRunEnd:									"End";
+MenuCaptionTools:									"Outils";
+MenuCaptionToolsIDEOptions:							"Options IDE";
+MenuCaptionAddins:									"Modules Complémentaires";
+MenuCaptionWindow:									"Fenêtres";
+MenuCaptionWindowPanelLayouts:						"Dispositions Panneaux";
+MenuCaptionWindowPanelLayoutsDefault:				"Disposition Intégrée Par Défaut";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Disposition de l'éditeur plein écran";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Disposition personnalisée (non enregistrée)";
+MenuCaptionWindowPanelLayoutsCustom:				"Custom";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Enregistrer Disposition Actuelle Panneau Sous";
+MenuCaptionWindowPanelLayoutsManage:				"Gérer Dispositions Panneaux";
+MenuCaptionWindowPanelFeatures:						"Caractéristiques Panneau";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Autoriser Redimensionnement Panneaux Ancrés";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Autoriser Réarrangement Panneaux Ancrés";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Autoriser Arrachement Panneaux Ancrés";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Autoriser Redimensionnement Panneaux Flottants";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Permettre Mouvement Panneaux Flottants";
+MenuCaptionWindowKeyboardShortcuts:					"Raccourcis Clavier";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Raccourcis Clavier Intégrés Défaut";
+MenuCaptionWindowKeyboardShortcutsManage:			"Gérer Raccourcis Clavier";
+MenuCaptionWindowTheme:								"Thème";
+MenuCaptionWindowLanguage:							"Langue";
+MenuCaptionHelp:									"Help";
+MenuCaptionHelpAbout:								"À propos twinBASIC";
+MenuCaptionHelpLicence:								"Contrat Licence";
+MenuCaptionHelpDiscord:								"Help & Assistance (Serveur Discord)";
+MenuCaptionHelpGitHub:								"Help & Support (dépôt GitHub)";
+MenuCaptionHelpTwitter:								"Twitter (Fil d'actualité)";
+MenuCaptionHelpPurchaseLicence:						"Acheter Licence";
+MenuCaptionHelpEnterLicence:						"Entrez Clé Licence";
+MenuCaptionHelpKofi:								"Offrez-Un Café ! (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Mode TRACE Services Compilateur";
+
+GeneralEnabled:										"Activé";
+GeneralDisabled:									"Désactivé";
+GeneralIncrease:									"Augmenter";
+GeneralDecrease:									"Diminuer";
+GeneralRemove:										"Retirer";
+GeneralMakeEqual:									"Rendre Egal";
+
+PaneTitleCodeEditor:								"EDITEUR";
+PaneTitleProjectExplorer:							"EXPLORATEUR DE PROJET";
+PaneTitleOpenEditors:								"ÉDITEURS OUVERTS";
+PaneTitleHistory:									"HISTORIQUE";
+PaneTitleOutline:									"CONTOUR";
+PaneTitleCallStack:									"PILE D'APPELS";
+PaneTitleVariables:									"VARIABLES";
+PaneTitleWatches:									"WATCHES";
+PaneTitleDebugConsole:								"CONSOLE DE DÉBOGAGE";
+PaneTitleDiagnostics:								"DIAGNOSTICS";
+PaneTitlePackagePublishing:							"ÉDITION DE PAQUETS";
+PaneTitleToolbar:									"BARRE D'OUTILS";
+PaneTitleToolbox:									"BOÎTE À OUTILS";
+PaneTitleProperties:								"PROPRIÉTÉS";
+PaneTitleWebPage:									"PAGE WEB";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:									"COMPILATEUR";
+GeneralMainThread:									"FIL_PRINCIPAL";
+GeneralStatusIdle:									"INACTIF";
+GeneralStatusExecuting:								"EXÉCUTION";
+GeneralStatusBreakpoint:							"BREAKPOINT";
+GeneralStatusOperational:							"OPÉRATIONNEL";
+GeneralStatusLimited:								"LIMITÉ";
+GeneralStatusUnavailable:							"INDISPONIBLE";
+GeneralStatusNotReady:								"PAS PRÊT";
+ToolbarPreviewButtonCaption:						"APERCU";
+MenuCaptionEditPasteSameNameControlArray: 			"Coller (même nom, tableau de contrôle)";
+MenuCaptionEditDuplicateNewName:					"Dupliqué (nouveau nom)";
+MenuCaptionEditDuplicateSameNameControlArray:		"Dupliqué (même nom, tableau de contrôle)";
+MenuCaptionEditAlignToGrid:							"Aligner sur la grille";
+MenuCaptionEditLockAllControls:						"Verrouiller toutes les commandes";
+MenuCaptionEditUnlockAllControls:					"Déverrouiller toutes les commandes";
+MenuCaptionEditUnlockControls:						"Déverrouiller les commandes";
+
+ProjectFolderImportedTypeLibrariesCaption:			"Bibliothèques de types importées";
+ProjectFolderMiscellaneousCaption:					"Divers";
+ProjectFolderPackagesCaption:						"Packages";
+ProjectFolderReferencesCaption:						"References";
+ProjectFolderResourcesCaption:						"Resources";
+ProjectFolderSourcesCaption:						"Sources";
+
+PropertySheetGroupHeaderCaptionDesign:				"CONCEPTION";
+PropertySheetGroupHeaderCaptionAppearance:			"APPARENCE";
+PropertySheetGroupHeaderCaptionDrawing:				"DESSIN";
+PropertySheetGroupHeaderCaptionBehaviour:			"COMPORTEMENT";
+PropertySheetGroupHeaderCaptionMouse:				"SOURIS";
+PropertySheetGroupHeaderCaptionWindow:				"FENÊTRE";
+PropertySheetGroupHeaderCaptionHelp:				"HELP";
+PropertySheetGroupHeaderCaptionKeyboard:			"CLAVIER";
+PropertySheetGroupHeaderCaptionScale:				"ÉCHELLE";
+PropertySheetGroupHeaderCaptionLayout:				"MISE EN PAGE";
+PropertySheetGroupHeaderCaptionGeneral:				"GENERAL";
+PropertySheetGroupHeaderCaptionDDE:					"DDE";
+PropertySheetGroupHeaderCaptionBindings:			"FIXATIONS";
+PropertySheetGroupHeaderCaptionData:				"DATA";
+
+ObjectDesignerAddMenuCaption:						"menu";
+PropertySheetPropertiesTabCaption:					"PROPRIÉTÉS";
+PropertySheetEventsTabCaption:						"ÉVÉNEMENTS";
+ObjectDesignerMenuCaptionViewCode:					"Voir Code";
+LiveResourcesInUseCaption:							"utilisé";
+LiveResourcesUIObjectsCaption:						"objets ui";
+LiveResourcesGDIObjectsCaption:						"objets gdi";
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SHIFT";
+MenuShortcutKeyARROWLEFT:							"ARROWLEFT";
+MenuShortcutKeyARROWUP:								"ARROWLUP";
+MenuShortcutKeyARROWRIGHT:							"ARROWRIGHT";
+MenuShortcutKeyARROWDOWN:							"ARROWDOWN";
+MenuShortcutKeyENTER:								"ENTER";
+MenuShortcutKeyBACKSPACE:							"BACKSPACE";
+MenuShortcutKeySPACE:								"SPACE";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"BREAK";
+MenuShortcutKeyESCAPE:								"ESCAPE";
+MenuShortcutKeyHOME:								"HOME";
+MenuShortcutKeyEND:									"END";
+MenuShortcutKeyPAGEUP:								"PAGEUP";
+MenuShortcutKeyPAGEDOWN:							"PAGEDOWN";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"DELETE";
+
+DialogLoadingPleaseWait:							"Chargement en cours, veuillez patienter";
+DialogNewProjectTitle:								"Nouveau/Projet ouvert";
+DialogNewProjectCaptionNewTab:						"Nouveau";
+DialogNewProjectCaptionSamplesTab:					"Exemples";
+DialogNewProjectCaptionRecentTab:					"Recent";
+DialogNewProjectCaptionBrowseButton:				"Parcourir";
+DialogNewProjectCaptionOpenButton:					"Ouvrir";
+DialogCaptionCancelButton:							"Annuler";
+DialogCaptionCloseButton:							"Fermer";
+DialogCaptionContinueButton:						"Continuer";
+DialogCaptionContinueAnywayButton:					"Continuer Quand Même";
+DialogCaptionSaveButton:							"Enregistrer";
+DialogCaptionSaveChangesButton:						"Enregistrer les modifications";
+DialogCaptionAddNewButton:							"Ajouter Nouveau";
+DialogCaptionTryAgainButton:						"Essayer à nouveau";
+DialogCaptionDeleteButton:							"Supprimer";
+DialogCaptionDeleteBothButton:						"Supprimer les deux";
+DialogCaptionOKButton:								"OK";
+DialogCaptionRemoveItButton:						"Enlever";
+DialogCaptionKeepItButton:							"Gardez";
+DialogCaptionDiscardChangesButton:					"Annuler les modifications";
+DialogProgressTitle:								"Attendez SVP";
+DialogProjectSettingsTitle:							"Paramètres Projet";
+DialogSaveChangesCaptionMain:						"Enregistrer les modifications que vous avez apportées à {%1} ?";
+DialogSaveChangesCaptionSubText:					"Vos modifications seront perdues si vous n'enregistrez pas.";	
+DialogEditMultiLineValueTitle:						"Modifier la valeur (multiligne)";
+DialogFindInProjectTitle:							"Trouver dans le projet";
+DialogFindInProjectCaptionMain:						"Entrez la chaîne de recherche (texte brut primitive uniquement)";
+DialogFindInProjectCaptionInsidePackages:			"Rechercher dans les packages référencés";
+DialogFindInProjectCaptionMatchCase:				"Faire correspondre case";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Faire correspondre uniquement le mot entier";
+DialogFindInProjectCaptionSearchButton:				"Recherche dans le projet";
+DialogBuildSaveCaptionMain:							"Vous devez d'abord enregistrer le projet. Enregistrer maintenant ?";
+DialogFileAlreadyExists:							"Le fichier existe déjà:"
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Remplacez-le";
+DialogPackageNeededAddButton:						"Ajouter {%1} package";
+DialogPackageNeededCaptionMain:						"Package nécessaire: {%1}"
+														""
+														"Vous devez d’abord ajouter une référence au package {%1} dans ce projet."
+														"Après avoir cliqué sur « Ajouter le package {%1} », le compilateur sera redémarré,"
+														"prêt à ajouter des formulaires à ce projet.";
+DialogFileRenameFailed:									"Échec du changement de nom/déplacement. Fermer les éditeurs suivants qui empêchent l'opération :"
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:					"ATTENTION : vous avez effectué des modifications mais ne les avez pas enregistrées."
+														""
+														"Fermer sans enregistrer ?";
+DialogBuildUnregisterFailedCaptionMain:				"Échec de la compilation : impossible d'annuler l'enregistrement de la DLL précédente. Continuer quand même ?";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Supprimez-le et continuez";
+DialogGeneralYouWillNotBeAbleToUndo:				"Vous ne pourrez pas annuler cette opération.";
+DialogDeleteConfirmationMultiCaptionMain:			"Êtes-vous sûr de vouloir supprimer les fichiers suivants ?"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Êtes-vous sûr de vouloir supprimer les éléments sélectionnés ?";
+DialogDeleteConfirmationSingleaptionMain:			"Êtes-vous sûr de vouloir supprimer '{%1}' ?";
+DialogSafeModeCaption:								"SafeMode est conçu pour vous donner accès au système de fichiers"
+														"de votre projet, sans démarrer tous les services du compilateur associés."
+														""
+														"Utilisez ce mode pour examiner/réparer/récupérer votre code avant de l'enregistrer"
+														"et redémarrer en mode normal.";
+DialogHKLMWarning:									"AVERTISSEMENT : ce projet s'enregistre dans la clé HKEY_LOCAL_MACHINE"
+														"Enregistrer nécessite des autorisations ADMIN."
+														""
+														"L'IDE twinBASIC n'est pas actuellement exécuté en mode élevé, et donc"
+														"l'enregistrement de la DLL échouera pendant le processus de construction."
+														""
+														"Pour que la construction réussisse, veuillez redémarrer l'IDE twinBASIC"
+														"et utiliser l'option « Exécuter en tant qu'administrateur ».";
+DialogFailedSaveProject:							"Impossible d'enregistrer le projet. Vérifiez le chemin d'accès au fichier de projet et ajustez-le si nécessaire.";
+DialogFailedOpenProject:							"Échec du chargement du projet (code d'erreur {%1})"
+														"{%2}"
+														""
+														"Voulez-vous le supprimer de la liste des projets récemment ouverts ?";
+DialogEnterLicenceTitle:							"Entrez la clé de licence";
+DialogEnterLicenceCaptionMain:						"Astuce : copiez et collez la clé de votre e-mail de confirmation. Si vous saisissez"
+														"une clé invalide, la licence COMMUNAUTAIRE sera appliquée.";
+DialogEnterLicenceCaptionPurchaseButton:			"Acheter une licence";
+DialogNewProjectOptionsTitle:						"Nouvelles options de projet";
+DialogPublisherLoginSignupTitle:					"Connexion / Inscription de l'éditeur";
+DialogSaveFailedCaptionMain:						"Impossible d'enregistrer les modifications. Les abandonner ?";
+DialogSaveChangesToProjectCaptionMain:				"Vous avez apporté des modifications à ce projet. Voulez-vous l'enregistrer maintenant ?;

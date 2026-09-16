@@ -1,0 +1,34 @@
+# Build outputs
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+
+# Visual Studio / Rider
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Logs and local session data
+**/logs/
+*.log
+
+# Local secrets and runtime config copies
+*.pfx
+*.pem
+.env
+.env.*
+bot-config.json
+
+# Archives and installed binaries
+*.zip
+Coding-Installed/
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+.DS_Store

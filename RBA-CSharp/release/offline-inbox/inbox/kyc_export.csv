@@ -1,0 +1,4 @@
+ID Number,Client Name,Date of Birth,Address,Gender,Occupation,Email,Phone Number,Identity Issue Date,Identity Expiry Date,Status
+29011291601031,محمد حسانين محمد زغلول,29/11/1990,القاهرة,1,شركه سيجمالتداول,client1@example.com,01098765432,01/01/2020,21/12/2026,
+28506150100115,خالد محمد حسن علي,15/06/1985,الجيزة,1,شركه سيجمالتداول,client2@example.com,01012345678,01/01/2020,21/12/2026,
+28503142200993,محمد يوسف ابراهيم خليل,14/03/1985,بني سويف,1,شركه سيجمالتداول,client3@example.com,01275917139,14/03/2020,14/03/2027,

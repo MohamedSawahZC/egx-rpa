@@ -1,0 +1,312 @@
+
+/* Translation by marcos_lm, last updated 20th-Jan-2025 */
+
+FriendlyName:										"Catalan (Català [Espanya])";
+
+MenuCaptionFile:									"Arxiu";
+MenuCaptionFileNewProject:							"Projecte nou";
+MenuCaptionFileOpenProject:							"Obrir projecte";
+MenuCaptionFileOpenRecent:							"Obrir recents";
+MenuCaptionFileCloseProject:						"Tancar projecte";
+MenuCaptionFileSaveProject:							"Desar projecte";
+MenuCaptionFileSaveProjectAs:						"Desar projecte com a";
+MenuCaptionFileExportProject:						"Exportar projecte";
+MenuCaptionFileSaveCurrentDocument:					"Desar document actual";
+MenuCaptionFileBuild:								"Compilar";
+MenuCaptionFileClean:								"Netejar";
+MenuCaptionFileExit:								"Sortir";
+MenuCaptionEdit:									"Edita";
+MenuCaptionEditUndo:								"Desfés";
+MenuCaptionEditRedo:								"Refés";
+MenuCaptionEditCut:									"Talla";
+MenuCaptionEditCopy:								"Copia";
+MenuCaptionEditPaste:								"Enganxa";
+MenuCaptionEditPasteAsComment:						"Enganxa com a comentari";
+MenuCaptionEditDelete:								"Suprimeix";
+MenuCaptionEditSelectAll:							"Selecciona-ho tot";
+MenuCaptionEditFind:								"Cerca";
+MenuCaptionEditReplace:								"Reemplaça";
+MenuCaptionEditFindInProject:						"Cerca al projecte";
+MenuCaptionEditIndent:								"Augmenta sagnat";
+MenuCaptionEditOutdent:								"Disminueix sagnat";
+MenuCaptionView:									"Visualitza";
+MenuCaptionViewCodeEditor:							"Editor de codi";
+MenuCaptionViewObjectDesigner:						"Dissenyador d'objectes";
+MenuCaptionViewDefinition:							"Definició";
+MenuCaptionViewLastPosition:						"Darrera posició";
+MenuCaptionViewObjectBrowser:						"Explorador d'objectes";
+MenuCaptionViewIncreaseFontSize:					"Augmenta mida de lletra";
+MenuCaptionViewDecreaseFontSize:					"Disminueix mida de lletra";
+MenuCaptionViewZoomIn:								"Amplia";
+MenuCaptionViewZoomOut:								"Redueix";
+MenuCaptionProject:									"Projecte";
+MenuCaptionProjectAdd:								"Afegeix";
+MenuCaptionProjectAddFolder:						"Afegeix carpeta";
+MenuCaptionProjectAddWindowsForm:					"Afegeix formulari de Windows";
+MenuCaptionProjectAddWindowsMDIForm:				"Afegeix formulari MDI de Windows";
+MenuCaptionProjectAddWindowsUserControl:			"Afegeix control d'usuari de Windows";
+MenuCaptionProjectAddWindowsPropertyPage:			"Afegeix pàgina de propietats de Windows";
+MenuCaptionProjectAddWindowsReport:					"Afegeix informe de Windows";
+MenuCaptionProjectAddCustomControlsForm:			"Afegeix formulari de controls personalitzats";
+MenuCaptionProjectAddModuleTWIN:					"Afegeix mòdul (.TWIN amb suport Unicode)";
+MenuCaptionProjectAddClassTWIN:						"Afegeix classe (.TWIN amb suport Unicode)";
+MenuCaptionProjectAddModuleBAS:						"Afegeix mòdul (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Afegeix classe (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Afegeix un altre fitxer";
+MenuCaptionProjectAddImportFile:					"Importa fitxer(s)";
+MenuCaptionProjectAddResourceVisualStyles:			"Afegeix recurs: manifest d'estils visuals";
+MenuCaptionProjectAddResourceStringTable:			"Afegeix recurs: taula de cadenes";
+MenuCaptionProjectReferences:						"Referències";
+MenuCaptionProjectSettings:							"Configuració del projecte";
+MenuCaptionProjectOpenProjectFolder:				"Obrir carpeta del projecte";
+MenuCaptionProjectOpenBuildOutputFolder:			"Obrir carpeta de sortida de compilació";
+MenuCaptionFormat:									"Format";
+MenuCaptionFormatAlign:								"Alinea";
+MenuCaptionFormatAlignLeft:							"Esquerra";
+MenuCaptionFormatAlignCenterHorz:					"Centra (horitzontal)";
+MenuCaptionFormatAlignRight:						"Dreta";
+MenuCaptionFormatAlignTop:							"A dalt";
+MenuCaptionFormatAlignCenterVert:					"Centra (vertical)";
+MenuCaptionFormatAlignBottom:						"A baix";
+MenuCaptionFormatAlignToGrid:						"A la quadrícula";
+MenuCaptionFormatMakeSameSize:						"Fes la mateixa mida";
+MenuCaptionFormatMakeSameSizeWidest:				"Amplada (la més ampla)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Amplada (la més estreta)";
+MenuCaptionFormatMakeSameSizeTallest:				"Alçada (la més alta)";
+MenuCaptionFormatMakeSameSizeShortest:				"Alçada (la més baixa)";
+MenuCaptionFormatHorizontalSpacing:					"Espaiat horitzontal";
+MenuCaptionFormatVerticalSpacing:					"Espaiat vertical";
+MenuCaptionFormatCenterInContainerHorz:				"Centra en el contenidor (horitzontal)";
+MenuCaptionFormatCenterInContainerVert:				"Centra en el contenidor (vertical)";
+MenuCaptionFormatBringToFront:						"Porta al davant";
+MenuCaptionFormatSendToBack:						"Envia al darrere";
+MenuCaptionFormatLockControls:						"Bloca controls";
+MenuCaptionDebug:									"Depura";
+MenuCaptionDebugStepInto:							"Pas a dins";
+MenuCaptionDebugStepOver:							"Pas per sobre";
+MenuCaptionDebugAddWatch:							"Afegeix inspecció";
+MenuCaptionDebugClearWatches:						"Esborra inspeccions";
+MenuCaptionDebugToggleBreakpoint:					"Alterna punt d'interrupció";
+MenuCaptionDebugClearAllBreakpoints:				"Esborra tots els punts d'interrupció";
+MenuCaptionDebugSetNextStatement:					"Estableix la següent instrucció (salta a la línia)";
+MenuCaptionRun:										"Executa";
+MenuCaptionRunStart:								"Inicia";
+MenuCaptionRunBreak:								"Pausa";
+MenuCaptionRunEnd:									"Finalitza";
+MenuCaptionTools:									"Eines";
+MenuCaptionToolsIDEOptions:							"Opcions de l'IDE";
+MenuCaptionAddins:									"Complements";
+MenuCaptionWindow:									"Finestra";
+MenuCaptionWindowPanelLayouts:						"Distribucions de panell";
+MenuCaptionWindowPanelLayoutsDefault:				"Distribució integrada predeterminada";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Distribució de l'editor a pantalla completa";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Distribució personalitzada (no desada)";
+MenuCaptionWindowPanelLayoutsCustom:				"Personalitzada";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Desa la distribució de panell actual com a";
+MenuCaptionWindowPanelLayoutsManage:				"Administrar distribucions de panell";
+MenuCaptionWindowPanelFeatures:						"Característiques de panell";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Permet canviar mida de panells acoblats";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Permet reordenar panells acoblats";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Permet desacoblar panells";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Permet canviar mida de panells flotants";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Permet moure panells flotants";
+MenuCaptionWindowKeyboardShortcuts:					"Dreceres de teclat";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Dreceres de teclat integrades predeterminades";
+MenuCaptionWindowKeyboardShortcutsManage:			"Administrar dreceres de teclat";
+MenuCaptionWindowTheme:								"Tema";
+MenuCaptionWindowLanguage:							"Idioma";
+MenuCaptionHelp:									"Ajuda";
+MenuCaptionHelpAbout:								"Quant a twinBASIC";
+MenuCaptionHelpLicence:								"Acord de llicència";
+MenuCaptionHelpDiscord:								"Ajuda i suport (Servidor de Discord)";
+MenuCaptionHelpGitHub:								"Ajuda i suport (Repositori a GitHub)";
+MenuCaptionHelpTwitter:								"Twitter (Notícies)";
+MenuCaptionHelpPurchaseLicence:						"Comprar una llicència";
+MenuCaptionHelpEnterLicence:						"Introdueix la clau de llicència";
+MenuCaptionHelpKofi:								"Convida'ns a un cafè (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Mode TRACE dels serveis del compilador";
+
+GeneralEnabled:										"Habilitat";
+GeneralDisabled:									"Deshabilitat";
+GeneralIncrease:									"Augmenta";
+GeneralDecrease:									"Disminueix";
+GeneralRemove:										"Suprimeix";
+GeneralMakeEqual:									"Iguala";
+
+PaneTitleCodeEditor:								"EDITOR";
+PaneTitleProjectExplorer:							"EXPLORADOR DEL PROJECTE";
+PaneTitleOpenEditors:								"EDITORS OBERTS";
+PaneTitleHistory:									"HISTORIAL";
+PaneTitleOutline:									"ESQUEMA";
+PaneTitleCallStack:									"PILA DE CRIDES";
+PaneTitleVariables:									"VARIABLES";
+PaneTitleWatches:									"INSPECCIONS";
+PaneTitleDebugConsole:								"CONSOLA DE DEPURACIÓ";
+PaneTitleDiagnostics:								"DIAGNÒSTICS";
+PaneTitlePackagePublishing:							"PUBLICACIÓ DE PAQUETS";
+PaneTitleToolbar:									"BARRA D'EINES";
+PaneTitleToolbox:									"CAIXA D'EINES";
+PaneTitleProperties:								"PROPIETATS";
+PaneTitleWebPage:									"PÀGINA WEB";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:									"COMPILADOR";
+GeneralMainThread:									"FIL_PRINCIPAL";
+GeneralStatusIdle:									"INACTIU";
+GeneralStatusExecuting:								"EXECUTANT";
+GeneralStatusBreakpoint:							"PUNT D'INTERRUPCIÓ";
+GeneralStatusOperational:							"OPERATIU";
+GeneralStatusLimited:								"LIMITAT";
+GeneralStatusUnavailable:							"NO DISPONIBLE";
+GeneralStatusNotReady:								"NO PREPARAT";
+ToolbarPreviewButtonCaption:						"VISTA PRÈVIA";
+MenuCaptionEditPasteSameNameControlArray: 			"Enganxa (mateix nom, matriu de controls)";
+MenuCaptionEditDuplicateNewName:					"Duplica (nom nou)";
+MenuCaptionEditDuplicateSameNameControlArray:		"Duplica (mateix nom, matriu de controls)";
+MenuCaptionEditAlignToGrid:							"Alinea a la quadrícula";
+MenuCaptionEditLockAllControls:						"Bloca tots els controls";
+MenuCaptionEditUnlockAllControls:					"Desbloca tots els controls";
+MenuCaptionEditUnlockControls:						"Desbloca controls";
+
+ProjectFolderImportedTypeLibrariesCaption:			"Biblioteques de tipus importades";
+ProjectFolderMiscellaneousCaption:					"Diversos";
+ProjectFolderPackagesCaption:						"Paquets";
+ProjectFolderReferencesCaption:						"Referències";
+ProjectFolderResourcesCaption:						"Recursos";
+ProjectFolderSourcesCaption:						"Fonts";
+
+PropertySheetGroupHeaderCaptionDesign:				"DISSENY";
+PropertySheetGroupHeaderCaptionAppearance:			"APARENÇA";
+PropertySheetGroupHeaderCaptionDrawing:				"DIBUIX";
+PropertySheetGroupHeaderCaptionBehaviour:			"COMPORTAMENT";
+PropertySheetGroupHeaderCaptionMouse:				"RATOLÍ";
+PropertySheetGroupHeaderCaptionWindow:				"FINESTRA";
+PropertySheetGroupHeaderCaptionHelp:				"AJUDA";
+PropertySheetGroupHeaderCaptionKeyboard:			"TECLAT";
+PropertySheetGroupHeaderCaptionScale:				"ESCALA";
+PropertySheetGroupHeaderCaptionLayout:				"DISPOSICIÓ";
+PropertySheetGroupHeaderCaptionGeneral:				"GENERAL";
+PropertySheetGroupHeaderCaptionDDE:					"DDE";
+PropertySheetGroupHeaderCaptionBindings:			"ASSOCIACIONS";
+PropertySheetGroupHeaderCaptionData:				"DADES";
+
+ObjectDesignerAddMenuCaption:						"menú";
+PropertySheetPropertiesTabCaption:					"PROPIETATS";
+PropertySheetEventsTabCaption:						"ESDEVENIMENTS";
+ObjectDesignerMenuCaptionViewCode:					"Visualitza codi";
+LiveResourcesInUseCaption:							"en ús";
+LiveResourcesUIObjectsCaption:						"objectes d'interfície";
+LiveResourcesGDIObjectsCaption:						"objectes GDI";
+
+/* added 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"MAJ";
+MenuShortcutKeyARROWLEFT:							"FLETXA ESQ.";
+MenuShortcutKeyARROWUP:								"FLETXA AMUNT";
+MenuShortcutKeyARROWRIGHT:							"FLETXA DRETA";
+MenuShortcutKeyARROWDOWN:							"FLETXA AVALL";
+MenuShortcutKeyENTER:								"INTRO";
+MenuShortcutKeyBACKSPACE:							"RETROCÉS";
+MenuShortcutKeySPACE:								"ESPAI";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"BREAK";
+MenuShortcutKeyESCAPE:								"ESC";
+MenuShortcutKeyHOME:								"INICI";
+MenuShortcutKeyEND:									"FI";
+MenuShortcutKeyPAGEUP:								"RE PÀG";
+MenuShortcutKeyPAGEDOWN:							"AV PÀG";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"SUPR";
+
+DialogLoadingPleaseWait:							"Carregant, espera si us plau";
+DialogNewProjectTitle:								"Nou / Obre projecte";
+DialogNewProjectCaptionNewTab:						"Nou";
+DialogNewProjectCaptionSamplesTab:					"Exemples";
+DialogNewProjectCaptionRecentTab:					"Recents";
+DialogNewProjectCaptionBrowseButton:				"Explora";
+DialogNewProjectCaptionOpenButton:					"Obre";
+DialogCaptionCancelButton:							"Cancel·la";
+DialogCaptionCloseButton: 							"Tanca";
+DialogCaptionContinueButton:						"Continua";
+DialogCaptionContinueAnywayButton:					"Continua igualment";
+DialogCaptionSaveButton:							"Desa";
+DialogCaptionSaveChangesButton:						"Desa canvis";
+DialogCaptionAddNewButton:							"Afegeix nou";
+DialogCaptionTryAgainButton:						"Torna-ho a provar";
+DialogCaptionDeleteButton:							"Suprimeix";
+DialogCaptionDeleteBothButton:						"Suprimeix tots dos";
+DialogCaptionOKButton:								"D'acord";
+DialogCaptionRemoveItButton:						"Treu";
+DialogCaptionKeepItButton:							"Mantén";
+DialogCaptionDiscardChangesButton:					"Descarta canvis";
+DialogProgressTitle:								"Espera si us plau";
+DialogProjectSettingsTitle:							"Configuració del projecte";
+DialogSaveChangesCaptionMain:						"Vols desar els canvis fets a {%1}?";
+DialogSaveChangesCaptionSubText:					"Els canvis es perdran si no els deses.";
+DialogEditMultiLineValueTitle:						"Edita valor (multi-línia)";
+DialogFindInProjectTitle:							"Cerca al projecte";
+DialogFindInProjectCaptionMain:						"Introdueix la cadena a cercar (cerca de text pla)";
+DialogFindInProjectCaptionInsidePackages:			"Cerca als paquets referenciats";
+DialogFindInProjectCaptionMatchCase:				"Distingeix majúscules/minúscules";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Coincideix paraula completa";
+DialogFindInProjectCaptionSearchButton:				"Cerca al projecte";
+DialogBuildSaveCaptionMain:							"Has de desar el projecte primer. Desar ara?";
+DialogFileAlreadyExists:							"El fitxer ja existeix:"
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Reemplaça'l";
+DialogPackageNeededAddButton:						"Afegeix el paquet {%1}";
+DialogPackageNeededCaptionMain:						"Paquet necessari: {%1}"
+														""
+														"Has d'afegir una referència al paquet {%1} en aquest projecte."
+														"Després de fer clic a `Afegeix el paquet {%1}`, es reiniciarà el compilador,"
+														"preparat per afegir formularis a aquest projecte.";
+DialogFileRenameFailed:								"Error en canviar el nom o moure. Tanca els següents editors que impedeixen l'operació:"
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:				"AVÍS: has fet canvis però no els has desat."
+														""
+														"Tancar sense desar?";
+DialogBuildUnregisterFailedCaptionMain:				"Error de compilació: no s'ha pogut desregistrar la DLL anterior. Continuar igualment?";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Elimina-la i continua";
+DialogGeneralYouWillNotBeAbleToUndo:				"No podràs desfer aquesta operació.";
+DialogDeleteConfirmationMultiCaptionMain:			"Segur que vols eliminar els fitxers següents?"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Segur que vols eliminar els elements seleccionats?";
+DialogDeleteConfirmationSingleaptionMain:			"Segur que vols eliminar '{%1}'?";
+DialogSafeModeCaption:								"El mode segur està dissenyat per permetre accedir al sistema de fitxers"
+														"del teu projecte sense iniciar tots els serveis associats al compilador."
+														""
+														"Fes-lo servir per investigar, corregir o recuperar el teu codi abans de desar-lo"
+														"i reiniciar en mode normal.";
+DialogHKLMWarning:									"AVÍS: Aquest projecte es registra a HKEY_LOCAL_MACHINE,"
+														"cosa que requereix permisos d'administrador."
+														""
+														"L'IDE de twinBASIC no s'executa amb privilegis elevats,"
+														"així que el registre de la DLL fallarà durant la compilació."
+														""
+														"Perquè la compilació tingui èxit, reinicia l'IDE de twinBASIC"
+														"usant l'opció 'Executa com a administrador' de Windows.";
+DialogFailedSaveProject:							"No s'ha pogut desar el projecte. Revisa la ruta i fes els ajustos necessaris.";
+DialogFailedOpenProject:							"No s'ha pogut carregar el projecte (codi d'error {%1})"
+														"{%2}"
+														""
+														"Vols eliminar-lo de la llista de projectes recents?";
+DialogEnterLicenceTitle:							"Introdueix la clau de llicència";
+DialogEnterLicenceCaptionMain:						"Consell: copia i enganxa la clau del correu de confirmació."
+														"Si introdueixes una clau invàlida, s'aplicarà la llicència COMMUNITY.";
+DialogEnterLicenceCaptionPurchaseButton:			"Compra una llicència";
+DialogNewProjectOptionsTitle:						"Opcions del nou projecte";
+DialogPublisherLoginSignupTitle:					"Inici de sessió / Registre de publicador";
+DialogSaveFailedCaptionMain:						"No s'han pogut desar els canvis. Vols descartar-los?";
+DialogSaveChangesToProjectCaptionMain:				"Has fet canvis en aquest projecte. Desar ara?";
+
+/* Added 02-Feb-2024 */
+MenuCaptionProjectAddResourceMessageTable:			"Afegir recurs: MESSAGETABLE";
+
+/* Added 01-May-2025 */
+PaneTitleFindReplace:								"CERCAR / REEMPLAÇAR"

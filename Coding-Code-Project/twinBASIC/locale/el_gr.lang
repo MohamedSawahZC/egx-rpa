@@ -1,0 +1,308 @@
+
+/* Translation by sokinkeso, last updated 20th-Jan-2025 */
+
+FriendlyName:										"Greek (Ελληνικά Ελλάδος)";
+
+MenuCaptionFile:									"Αρχείο";
+MenuCaptionFileNewProject:							"Νέο Έργο";
+MenuCaptionFileOpenProject:							"Άνοιγμα Έργου";
+MenuCaptionFileOpenRecent:							"Άνοιγμα Προσφάτου";
+MenuCaptionFileCloseProject:						"Κλείσιμο Έργου";
+MenuCaptionFileSaveProject:							"Αποθήκευση Έργου";
+MenuCaptionFileSaveProjectAs:						"Αποθήκευση ως";
+MenuCaptionFileExportProject:						"Εξαγωγή Έργου";
+MenuCaptionFileSaveCurrentDocument:					"Αποθήκευση Τρέχοντος Αρχείου";
+MenuCaptionFileBuild:								"Δημιουργία Εκτελέσιμου";
+MenuCaptionFileClean:								"Εκκαθάριση";
+MenuCaptionFileExit:								"Έξοδος";
+MenuCaptionEdit:									"Επεξεργασία";
+MenuCaptionEditUndo:								"Αναίρεση";
+MenuCaptionEditRedo:								"Επανάληψη";
+MenuCaptionEditCut:									"Αποκοπή";
+MenuCaptionEditCopy:								"Αντιγραφή";
+MenuCaptionEditPaste:								"Επικόλληση";
+MenuCaptionEditPasteAsComment:						"Επικόλληση ως Σχόλιο";
+MenuCaptionEditDelete:								"Διαγραφή";
+MenuCaptionEditSelectAll:							"Επιλογή Όλων";
+MenuCaptionEditFind:								"Εύρεση";
+MenuCaptionEditReplace:								"Αντικατάσταση";
+MenuCaptionEditFindInProject:						"Εύρεση στο Έργο";
+MenuCaptionEditIndent:								"Αύξηση Εσοχής";
+MenuCaptionEditOutdent:								"Μείωση Εσοχής";
+MenuCaptionView:									"Προβολή";
+MenuCaptionViewCodeEditor:							"Επεξεργαστής Κώδικα";
+MenuCaptionViewObjectDesigner:						"Σχεδιαστής Αντικειμένου";
+MenuCaptionViewDefinition:							"Ορισμός";
+MenuCaptionViewLastPosition:						"Τελευταία Θέση";
+MenuCaptionViewObjectBrowser:						"Εξερευνητής Αντικειμένων";
+MenuCaptionViewIncreaseFontSize:					"Αύξηση Μεγέθους Χαρακτήρων";
+MenuCaptionViewDecreaseFontSize:					"Μείωση Μεγέθους Χαρακτήρων";
+MenuCaptionViewZoomIn:								"Μεγέθυνση";
+MenuCaptionViewZoomOut:								"Σμίκρυνση";
+MenuCaptionProject:									"Έργο";
+MenuCaptionProjectAdd:								"Προσθήκη";
+MenuCaptionProjectAddFolder:						"Προσθήκη Φακέλου";
+MenuCaptionProjectAddWindowsForm:					"Προσθήκη Φόρμας Windows";
+MenuCaptionProjectAddWindowsMDIForm:				"Προσθήκη MDI Φόρμας Windows";
+MenuCaptionProjectAddWindowsUserControl:			"Προσθήκη Ελεγκτηρίου Χρήστη (Usercontrol)";
+MenuCaptionProjectAddWindowsPropertyPage:			"Προσθήκη Λίστας Ιδιοτήτων";
+MenuCaptionProjectAddWindowsReport:					"Προσθήκη Αναφοράς";
+MenuCaptionProjectAddCustomControlsForm:			"Προσθήκη Φόρμας Προσαρμοσμένων Ελεγκτηρίων";
+MenuCaptionProjectAddModuleTWIN:					"Προσθήκη Λειτουργικής Μονάδας (.TWIN υποστηρίζει Unicode)";
+MenuCaptionProjectAddClassTWIN:						"Προσθήκη Λειτουργικής Μονάδας Κλάσης (.TWIN υποστηρίζει Unicode)";
+MenuCaptionProjectAddModuleBAS:						"Προσθήκη Λειτουργικής Μονάδας (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Προσθήκη Λειτουργικής Μονάδας Κλάσης (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Προσθήκη Άλλου τύπου αρχείου";
+MenuCaptionProjectAddImportFile:					"Εισαγωγή Αρχείου(ων)";
+MenuCaptionProjectAddResourceVisualStyles:			"Προσθήκη Πόρων: Εμφάνιση οπτικών στυλ (Manifest)";
+MenuCaptionProjectAddResourceStringTable:			"Προσθήκη Πόρων: Πίνακας Συμβολοσειρών";
+MenuCaptionProjectReferences:						"Αναφορές";
+MenuCaptionProjectSettings:							"Ρυθμίσεις Έργου";
+MenuCaptionProjectOpenProjectFolder:				"Άνοιγμα Φακέλου Έργου";
+MenuCaptionProjectOpenBuildOutputFolder:			"Άνοιγμα φακέλου Μεταγλωτισμένου αρχείου";
+MenuCaptionFormat:									"Διαμόρφωση";
+MenuCaptionFormatAlign:								"Στοίχιση";
+MenuCaptionFormatAlignLeft:							"Αριστερά";
+MenuCaptionFormatAlignCenterHorz:					"Κέντρο (Οριζόντια)";
+MenuCaptionFormatAlignRight:						"Δεξιά";
+MenuCaptionFormatAlignTop:							"Επάνω";
+MenuCaptionFormatAlignCenterVert:					"Κέντρο (Κατακόρυφα)";
+MenuCaptionFormatAlignBottom:						"Κάτω";
+MenuCaptionFormatAlignToGrid:						"Στο Πλέγμα";
+MenuCaptionFormatMakeSameSize:						"Ίδιο Μέγεθος";
+MenuCaptionFormatMakeSameSizeWidest:				"Πλάτος (Κατά το Φαρδύτερο)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Πλάτος (Κατά το Στενότερο)";
+MenuCaptionFormatMakeSameSizeTallest:				"Ύψος (Κατά το Ψηλότερο)";
+MenuCaptionFormatMakeSameSizeShortest:				"Ύψος (Κατά το Κοντύτερο)";
+MenuCaptionFormatHorizontalSpacing:					"Οριζόντια Απόσταση";
+MenuCaptionFormatVerticalSpacing:					"Κατακόρυφη Απόσταση";
+MenuCaptionFormatCenterInContainerHorz:             "Στο Κέντρο του Υποδοχέα (Οριζόντια)";
+MenuCaptionFormatCenterInContainerVert:             "Στο Κέντρο του Υποδοχέα (Κατακόρυφα)"; 
+MenuCaptionFormatBringToFront:						"Μεταφορά στο Προσκήνιο";
+MenuCaptionFormatSendToBack:						"Μεταφορά στο Παρασκήνιο";
+MenuCaptionFormatLockControls:						"Κλείδωμα Ελεγκτηρίων";
+MenuCaptionDebug:									"Αποσφαλμάτωση";
+MenuCaptionDebugStepInto:							"Βήμα Μέσα";
+MenuCaptionDebugStepOver:							"Βήμα Έξω";
+MenuCaptionDebugAddWatch:							"Προσθήκη Παρακολούθησης";
+MenuCaptionDebugClearWatches:						"Εκκαθάριση Παρακολουθήσεων";
+MenuCaptionDebugToggleBreakpoint:					"Εναλλαγή Σημείου Διακοπής";
+MenuCaptionDebugClearAllBreakpoints:				"Εκκαθάριση Όλων των Σημείων Διακοπής";
+MenuCaptionDebugSetNextStatement:					"Επόμενη Εντολή (Πήγαινε στην Γραμμή)";
+MenuCaptionRun:										"Εκτέλεση";
+MenuCaptionRunStart:								"Έναρξη";
+MenuCaptionRunBreak:								"Διακοπή";
+MenuCaptionRunEnd:									"Τερματισμός";
+MenuCaptionTools:									"Εργαλεία";
+MenuCaptionToolsIDEOptions:							"Επιλογές Περιβάλλοντος";
+MenuCaptionAddins:									"Πρόσθετα";
+MenuCaptionWindow:									"Παράθυρο";
+MenuCaptionWindowPanelLayouts:						"Διατάξεις Πλαισίων";
+MenuCaptionWindowPanelLayoutsDefault:				"Προεπιλεγμένη Διάταξη";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Διάταξη Πλήρους Οθόνης";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Προσαρμοσμένη Διάταξη (μη αποθηκευμένη)";
+MenuCaptionWindowPanelLayoutsCustom:				"Προσαρμοσμένη";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Αποθήκευση Τρέχουσας Διάταξης Πλαισίων ως";
+MenuCaptionWindowPanelLayoutsManage:				"Διαχείριση Διατάξεων Πλαισίων";
+MenuCaptionWindowPanelFeatures:						"Χαρακτηριστικά Πλαισίων";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Επιτρέπεται η Αλλαγή Μεγέθους Προσδεδεμένων Πλαισίων";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Επιτρέπεται η Αλλαγή Διάταξης Προσδεδεμένων Πλαισίων";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Επιτρέπεται η Απόσπαση Προσδεδεμένων Πλαισίων";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Επιτρέπεται η Αλλαγή Μεγέθους των Αιωρούμενων Πλαισίων";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Επιτρέπεται η Μετακίνηση των Αιωρούμενων Πλαισίων";
+MenuCaptionWindowKeyboardShortcuts:					"Συντομεύσεις Πληκτρολογίου";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Προεπιλεγμένες Συντομεύσεις Πληκτρολογίου";
+MenuCaptionWindowKeyboardShortcutsManage:			"Διαχείριση Συντομεύσεων Πληκτρολογίου";
+MenuCaptionWindowTheme:								"Θέμα";
+MenuCaptionWindowLanguage:							"Γλώσσα";
+MenuCaptionHelp:									"Βοήθεια";
+MenuCaptionHelpAbout:								"Σχετικά με την twinBASIC";
+MenuCaptionHelpLicence:								"Συμφωνία Άδειας Χρήσης";
+MenuCaptionHelpDiscord:								"Βοήθεια & Υποστήριξη (Discord Server)";
+MenuCaptionHelpGitHub:								"Βοήθεια & Υποστήριξη (GitHub repository)";
+MenuCaptionHelpTwitter:								"Twitter (Ροή ειδήσεων)";
+MenuCaptionHelpPurchaseLicence:						"Αγοράστε Άδεια Χρήσης";
+MenuCaptionHelpEnterLicence:						"Εισαγωγή Κλειδιού Αδείας";
+MenuCaptionHelpKofi:								"Κεράστε μας έναν καφέ! (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Υπηρεσία Μεταγλωττιστή TRACE mode";
+
+GeneralEnabled:										"Ενεργοποιημένο";
+GeneralDisabled:									"Απενεργοποιημένο";
+GeneralIncrease:									"Αύξηση";
+GeneralDecrease:									"Μείωση";
+GeneralRemove:										"Αφαίρεση";
+GeneralMakeEqual:									"Κάνε ίσο";
+
+PaneTitleCodeEditor:								"ΕΠΕΞΕΡΓΑΣΤΗΣ ΚΩΔΙΚΑ";
+PaneTitleProjectExplorer:							"ΕΞΕΡΕΥΝΗΤΗΣ ΕΡΓΟΥ";
+PaneTitleOpenEditors:								"ΑΝΟΙΧΤΟΙ ΕΠΕΞΕΡΓΑΣΤΕΣ ΚΩΔΙΚΑ";
+PaneTitleHistory:									"ΙΣΤΟΡΙΚΟ";
+PaneTitleOutline:									"ΠΕΡΙΛΗΨΗ";
+PaneTitleCallStack:									"ΣΤΟΙΒΑ ΚΛΗΣΕΩΝ";
+PaneTitleVariables:									"ΜΕΤΑΒΛΗΤΕΣ";
+PaneTitleWatches:									"ΠΑΡΑΚΟΛΟΥΘΗΣΕΙΣ";
+PaneTitleDebugConsole:								"ΚΟΝΣΟΛΑ ΑΠΟΣΦΑΛΜΑΤΩΣΗΣ";
+PaneTitleDiagnostics:								"ΔΙΑΓΝΩΣΤΙΚΑ";
+PaneTitlePackagePublishing:							"ΔΗΜΟΣΙΕΥΣΗ ΠΑΚΕΤΩΝ";
+PaneTitleToolbar:									"ΓΡΑΜΜΗ ΕΡΓΑΛΕΙΩΝ";
+PaneTitleToolbox:									"ΕΡΓΑΛΕΙΟΘΗΚΗ";
+PaneTitleProperties:								"ΙΔΙΟΤΗΤΕΣ";
+PaneTitleWebPage:									"ΙΣΤΟΣΕΛΙΔΑ";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:									"ΜΕΤΑΓΛΩΤΙΣΤΗΣ";
+GeneralMainThread:									"ΚΥΡΙΟ ΝΗΜΑ";
+GeneralStatusIdle:									"ΑΔΡΑΝΕΣ";
+GeneralStatusExecuting:								"ΕΚΤΕΛΕΙΤΑΙ";
+GeneralStatusBreakpoint:							"ΣΗΜΕΙΟ ΔΙΑΚΟΠΗΣ";
+GeneralStatusOperational:							"ΛΕΙΤΟΥΡΓΙΚΟ";
+GeneralStatusLimited:								"ΠΕΡΙΟΡΙΣΜΕΝΟ";
+GeneralStatusUnavailable:							"ΜΗ ΔΙΑΘΕΣΙΜΟ";
+GeneralStatusNotReady:								"ΜΗ ΕΤΟΙΜΟ";
+ToolbarPreviewButtonCaption:						"ΠΡΟΕΠΙΣΚΟΠΗΣΗ";
+MenuCaptionEditPasteSameNameControlArray: 			"Επικόλληση (ίδιο όνομα, σειρά ελεγκτηρίων)";
+MenuCaptionEditDuplicateNewName:					"Αντίγραφο (νέο όνομα)";
+MenuCaptionEditDuplicateSameNameControlArray:		"Αντίγραφο (ίδιο όνομα, σειρά ελεγκτηρίων)";
+MenuCaptionEditAlignToGrid:							"Στοίχιση στο πλέγμα";
+MenuCaptionEditLockAllControls:						"Κλείδωμα όλων των ελεγκτηρίων";
+MenuCaptionEditUnlockAllControls:					"Ξεκλείδωμα όλων των ελεγκτηρίων";
+MenuCaptionEditUnlockControls:						"Ξεκλείδωμα ελεγκτηρίων";
+	
+ProjectFolderImportedTypeLibrariesCaption:			"Εισηγμένες Βιβλιοθήκες Τύπων";
+ProjectFolderMiscellaneousCaption:					"Διάφορα";
+ProjectFolderPackagesCaption:						"Πακέτα";
+ProjectFolderReferencesCaption:						"Αναφορές";
+ProjectFolderResourcesCaption:						"Πόροι";
+ProjectFolderSourcesCaption:						"Πηγαία Αρχεία";
+	
+PropertySheetGroupHeaderCaptionDesign:				"ΒΑΣΙΚΕΣ ΙΔΙΟΤΗΤΕΣ";
+PropertySheetGroupHeaderCaptionAppearance:			"ΕΜΦΑΝΙΣΗ";
+PropertySheetGroupHeaderCaptionDrawing:				"ΣΧΕΔΙΑΣΗ";
+PropertySheetGroupHeaderCaptionBehaviour:			"ΣΥΜΠΕΡΙΦΟΡΑ";
+PropertySheetGroupHeaderCaptionMouse:				"ΠΟΝΤΙΚΙ";
+PropertySheetGroupHeaderCaptionWindow:				"ΠΑΡΑΘΥΡΟ";
+PropertySheetGroupHeaderCaptionHelp:				"ΒΟΗΘΕΙΑ";
+PropertySheetGroupHeaderCaptionKeyboard:			"ΠΛΗΚΤΡΟΛΟΓΙΟ";
+PropertySheetGroupHeaderCaptionScale:				"ΚΛΙΜΑΚΑ";
+PropertySheetGroupHeaderCaptionLayout:				"ΔΙΑΤΑΞΗ";
+PropertySheetGroupHeaderCaptionGeneral:				"ΓΕΝΙΚΑ";
+PropertySheetGroupHeaderCaptionDDE:					"ΔΥΝΑΜΙΚΗ ΑΝΤΑΛΛΑΓΗ ΔΕΔΟΜΕΝΩΝ (DDE)";
+PropertySheetGroupHeaderCaptionBindings:			"ΔΕΣΜΕΥΣΕΙΣ";
+PropertySheetGroupHeaderCaptionData:				"ΔΕΔΟΜΕΝΑ";
+	
+ObjectDesignerAddMenuCaption:						"μενού";
+PropertySheetPropertiesTabCaption:					"ΙΔΙΟΤΗΤΕΣ";
+PropertySheetEventsTabCaption:						"ΣΥΜΒΑΝΤΑ";
+ObjectDesignerMenuCaptionViewCode:					"Προβολή Κώδικα";
+LiveResourcesInUseCaption:							"σε χρήση";
+LiveResourcesUIObjectsCaption:						"αντικείμενα ui";
+LiveResourcesGDIObjectsCaption:						"αντικείμενα gdi";
+
+/* added 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SHIFT";
+MenuShortcutKeyARROWLEFT:							"ΒΕΛΟΣ_ΑΡΙΣΤΕΡΑ";
+MenuShortcutKeyARROWUP:								"ΒΕΛΟΣ_ΕΠΑΝΩ";
+MenuShortcutKeyARROWRIGHT:							"ΒΕΛΟΣ_ΔΕΞΙΑ";
+MenuShortcutKeyARROWDOWN:							"ΒΕΛΟΣ_ΚΑΤΩ";
+MenuShortcutKeyENTER:								"ENTER";
+MenuShortcutKeyBACKSPACE:							"BACKSPACE";
+MenuShortcutKeySPACE:								"SPACE";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"BREAK";
+MenuShortcutKeyESCAPE:								"ESCAPE";
+MenuShortcutKeyHOME:								"HOME";
+MenuShortcutKeyEND:									"END";
+MenuShortcutKeyPAGEUP:								"PAGEUP";
+MenuShortcutKeyPAGEDOWN:							"PAGEDOWN";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"DELETE";
+
+DialogLoadingPleaseWait:							"Φόρτωση, παρακαλώ περιμένετε";
+DialogNewProjectTitle:								"Νέο Έργο / Άνοιγμα Έργου";
+DialogNewProjectCaptionNewTab:						"Νέο";
+DialogNewProjectCaptionSamplesTab:					"Παραδείγματα";
+DialogNewProjectCaptionRecentTab:					"Πρόσφατα";
+DialogNewProjectCaptionBrowseButton:				"Εξερεύνηση";
+DialogNewProjectCaptionOpenButton:					"Άνοιγμα";
+DialogCaptionCancelButton:							"Άκυρο";
+DialogCaptionCloseButton:							"Κλείσιμο";
+DialogCaptionContinueButton:						"Συνέχεια";
+DialogCaptionContinueAnywayButton:					"Συνέχεια ούτως ή άλλως";
+DialogCaptionSaveButton:							"Αποθήκευση";
+DialogCaptionSaveChangesButton:						"Αποθήκευση Αλλαγών";
+DialogCaptionAddNewButton:							"Προσθήκη Νέου";
+DialogCaptionTryAgainButton:						"Προσπαθήστε ξανά";
+DialogCaptionDeleteButton:							"Διαγραφή";
+DialogCaptionDeleteBothButton:						"Διαγραφή και των δύο";
+DialogCaptionOKButton:								"OK";
+DialogCaptionRemoveItButton:						"Αφαίρεσέ το";
+DialogCaptionKeepItButton:							"Κράτησέ το";
+DialogCaptionDiscardChangesButton:					"Απόρριψη Αλλαγών";
+DialogProgressTitle:								"Παρακαλώ Περιμένετε";
+DialogProjectSettingsTitle:							"Ρυθμίσεις Έργου";
+DialogSaveChangesCaptionMain:						"Θέλετε να αποθηκεύσετε τις αλλαγές που κάνατε στο {%1}?";
+DialogSaveChangesCaptionSubText:					"Οι αλλαγές που κάνατε θα χαθούν εαν δεν τις αποθηκεύσετε";	
+DialogEditMultiLineValueTitle:						"Επεξεργασία τιμής (πολλαπλών γραμμών)";
+DialogFindInProjectTitle:							"Εύρεση στο Έργο";
+DialogFindInProjectCaptionMain:						"Εισάγετε κείμενο για εύρεση (εύρεση μόνο απλού κειμένου)";
+DialogFindInProjectCaptionInsidePackages:			"Αναζήτηση στα Πακέτα που έχουν προστεθεί";
+DialogFindInProjectCaptionMatchCase:				"Ταίριασμα πεζών/κεφαλαίων";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Ταίριασμα ολόκληρης λέξης";
+DialogFindInProjectCaptionSearchButton:				"Αναζήτηση στο Έργο";
+DialogBuildSaveCaptionMain:							"Πρέπει πρώτα να αποθηκεύσετε το Έργο.  Αποθήκευση τώρα;";
+DialogFileAlreadyExists:							"Το αρχείο υπάρχει:"
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Αντικατάσταση";
+DialogPackageNeededAddButton:						"Προσθήκη {%1} Πακέτου";
+DialogPackageNeededCaptionMain:						"Απαιτείται το Πακέτο: {%1}"
+														""
+														"Πρέπει πρώτα να προσθέσετε στο Έργο, μια αναφορά για το Πακέτο {%1} ."
+														"Μόλις κάνατε κλικ στην επιλογή `Προσθήκη του Πακέτου {%1} `, ο Μεταγλωττιστής θα επανεκκινήσει,"
+														"και θα είναι έτοιμος για την εισαγωγή Φορμών σε αυτό το Έργο.";
+DialogFileRenameFailed:								"Η Μετονομασία/Μετακίνηση απέτυχε.  Κλείστε τους παρακάτω Επεξεργαστές/Σχεδιαστές, οι οποίοι εμποδίζουν τη διαδικασία:"
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:				"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: έχετε κάνει αλλαγές, όμως δεν τις έχετε αποθηκεύσει."
+														""
+														"Κλείσιμό χωρίς αποθήκευση;";
+DialogBuildUnregisterFailedCaptionMain:				"Η Δημιουργία Εκτελέσιμου Απέτυχε: αδυναμία κατάργησης της προηγούμενης βιβλιοθήκης (DLL).  Συνέχεια;";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Διαγραφή και Συνέχεια;";
+DialogGeneralYouWillNotBeAbleToUndo:				"Δεν θα μπορείτε να αναιρέσετε αυτή την ενέργεια.";
+DialogDeleteConfirmationMultiCaptionMain:			"Θέλετε σίγουρα να διαγράψετε τα ακόλουθα αρχεία;"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Θέλετε σίγουρα να διαγράψετε τα επιλεγμένα στοιχεία;";
+DialogDeleteConfirmationSingleaptionMain:			"Θέλετε σίγουρα να διαγράψετε το '{%1}';";
+DialogSafeModeCaption:								"Η Ασφαλής-Λειτουργία είναι σχεδιασμένη να σας δίνει πρόσβαση στο σύστημα αρχείων"
+														"του έργου σας, χωρίς την εκκίνηση όλων των υπηρεσιών του Μεταγλωττιστή."
+														""
+														"Χρησιμοποιείστε αυτή την λειτουργία για να διερευνήσετε / διορθώσετε / ανακτήσετε τον κώδικά σας,"
+														"πριν αποθηκεύσετε και επανεκκινήσετε σε Κανονική Λειτουργία.";
+DialogHKLMWarning:									"ΠΡΟΕΙΔΟΠΟΙΗΣΗ: Αυτό το Έργο καταχωρείται στο κλειδί HKEY_LOCAL_MACHINE"
+														"του μητρώου συστήματος, το οποίο απαιτεί δικαιώματα ΔΙΑΧΕΙΡΙΣΤΗ."
+														""
+														"Το Περιβάλλον της twinBASIC δεν εκτελείται με αυξημένα δικαιώματα, και κατα συνέπεια"
+														"η καταχώρηση της βιβλιοθήκης (DLL) θα αποτύχει κατά τη διάρκεια της μεταγλώττισης."
+														""
+														"Για να είναι επιτυχής η μεταγλώττιση, επανεκκινήστε το περιβάλλον της twinBASIC"
+														"χρησιμοποιώντας την επιλογή 'Εκτέλεση ως Διαχειριστής' στο μενού των Windows.";
+DialogFailedSaveProject:							"Αποτυχία αποθήκευσης του Έργου.  Ελέγξτε/διορθώστε τη διαδρομή αποθήκευσης του αρχείου.";
+DialogFailedOpenProject:							"Αποτυχία φόρτωσης του Έργου (Κωδικός Σφάλματος {%1})"
+														"{%2}"
+														""
+														"Θέλετε να το αφαιρέσετε απο την λίστα Προσφάτων Έργων;";
+DialogEnterLicenceTitle:							"Εισάγετε το κλειδί Αδείας Χρήσης";
+DialogEnterLicenceCaptionMain:						"Συμβουλή: αντιγράψτε και επικολλήστε το κλειδί Αδείας Χρήσης απο το email επιβεβαίωσης που λάβατε."
+														"Σε περίπτωση εισαγωγής εσφαλμένου κλειδιού, θα εφαρμοστεί η άδεια ΚΟΙΝΟΤΗΤΑΣ.";
+DialogEnterLicenceCaptionPurchaseButton:			"Αγορά Αδείας";
+DialogNewProjectOptionsTitle:						"Επιλογές Νέου Έργου";
+DialogPublisherLoginSignupTitle:					"Σύνδεση / Εγγραφή Συντάκτη";
+DialogSaveFailedCaptionMain:						"Δεν ήταν δυνατή η αποθήκευση των αλλαγών. Απόρριψη;";
+DialogSaveChangesToProjectCaptionMain:				"Έχετε κάνει αλλαγές στο Έργο.  Αποθήκευση;";
+
+

@@ -1,0 +1,61 @@
+================================================================================
+  RUN THE REVERSED CODING APP WITH LOGIN BYPASSED  (offline, no EGX database)
+================================================================================
+
+This runs the RECONSTRUCTED project (this folder) - not the simulator, and not
+the original binary. It opens with NO login and NO database, because its startup
+(Modules\modMain.bas -> BYPASS_LOGIN = True) shows the UI directly.
+
+You do NOT need the old VB6 IDE. A free, modern VB6-compatible compiler,
+twinBASIC, is included here: twinBASIC_IDE_BETA_983.zip
+
+--------------------------------------------------------------------------------
+STEPS (about 3 minutes, on any normal Windows desktop)
+--------------------------------------------------------------------------------
+1. Right-click twinBASIC_IDE_BETA_983.zip -> Extract All.  (No admin needed.)
+
+2. In the extracted folder, run  twinBASIC.exe .  It opens on a
+   "New / Open Project..." window.  (VERIFIED: this is the exact first screen.)
+
+   IMPORTANT: wait a few seconds until the bottom status bar shows tB Services
+   and tB Licence as READY (on first launch they briefly say "UNAVAILABLE" /
+   "NOT READY" while the compiler backend starts). Don't build before they're
+   ready.
+
+3. On the "New / Open Project..." window, the tiles are a 2x4 grid. Click the
+   tile in the SECOND ROW, THIRD COLUMN - labelled "Import from VBP..." (it has a
+   small "vbp" icon). Then click the  Open  button (bottom-centre).
+   A file browser appears -> navigate to this folder -> select  Coding.vbp  ->
+   Open.  twinBASIC imports the VB6 project (all forms, modules, the recovered
+   SQL in modQueries.bas, and modConnection).  Give it a moment to import.
+
+4. Press  F5  (Build + Run).
+   Because modMain.bas has  BYPASS_LOGIN = True, Sub Main runs frmMain.Show
+   directly - the app opens with NO login prompt and NO database connection.
+   That is the login bypass, on the reversed app.
+
+   (If the first build reports errors on a specific form, tell me which form and
+   the message - the generated .frm files use placeholder layouts and a few may
+   need a small fix to satisfy twinBASIC's stricter importer.)
+
+--------------------------------------------------------------------------------
+NOTES - honest expectations
+--------------------------------------------------------------------------------
+* This is the RECONSTRUCTED app: real form/control names, the real recovered SQL
+  (Modules\modQueries.bas), the real connection seam, and login bypassed. The
+  procedural logic inside each button was NOT recoverable from the native binary,
+  so buttons are stubs - the app OPENS and you can navigate the UI, but it does
+  not perform the original coding operations (those need EGX's database and the
+  original source).
+
+* First build may report a few warnings on the placeholder-laid-out forms or the
+  OCX-as-PictureBox controls; twinBASIC will still run it. Fix layouts in the IDE
+  as you like - it is fully editable.
+
+* To later run against a REAL database instead of bypassing: set BYPASS_LOGIN =
+  False in modMain.bas and set the connection in modConnection.bas.
+
+Why these steps and not a ready-made .exe: twinBASIC compiles through its GUI
+(press F5); its command line only imports/exports, so the build can't be produced
+head-less in an automated environment. On your own screen it is the four steps
+above.

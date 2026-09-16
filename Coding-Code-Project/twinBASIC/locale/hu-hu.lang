@@ -1,0 +1,312 @@
+
+/* Translation by DTZ, last updated 19th-Jun-2025 */
+
+FriendlyName:										"Hungarian (Magyar)";
+
+MenuCaptionFile:									"Fájl";
+MenuCaptionFileNewProject:							"Új projekt";
+MenuCaptionFileOpenProject:							"Projekt megnyit";
+MenuCaptionFileOpenRecent:							"Legutóbbiak megnyit";
+MenuCaptionFileCloseProject:							"Projekt bezár";
+MenuCaptionFileSaveProject:							"Projekt mentése";
+MenuCaptionFileSaveProjectAs:							"Projekt mentés másként";
+MenuCaptionFileExportProject:							"Projekt exportál";
+MenuCaptionFileSaveCurrentDocument:					"Jelenlegi dokumentum mentés";
+MenuCaptionFileBuild:								"Fordítás";
+MenuCaptionFileClean:								"Tisztítás";
+MenuCaptionFileExit:								"Kilépés";
+MenuCaptionEdit:									"Szerkeszt";
+MenuCaptionEditUndo:								"Visszavon";
+MenuCaptionEditRedo:								"Újra";
+MenuCaptionEditCut:									"Kivág";
+MenuCaptionEditCopy:								"Másol";
+MenuCaptionEditPaste:								"Beilleszt";
+MenuCaptionEditPasteAsComment:						"Beilleszt megjegyzésként";
+MenuCaptionEditDelete:								"Törlés";
+MenuCaptionEditSelectAll:							"Mindet kijelöl";
+MenuCaptionEditFind:								"Keres";
+MenuCaptionEditReplace:								"Csere";
+MenuCaptionEditFindInProject:						"Projektben keres";
+MenuCaptionEditIndent:								"Behúz";
+MenuCaptionEditOutdent:								"Kihúz";
+MenuCaptionView:									"Megjelenít";
+MenuCaptionViewCodeEditor:							"Kód szerkesztő";
+MenuCaptionViewObjectDesigner:						"Objektum tervező";
+MenuCaptionViewDefinition:							"Definíció";
+MenuCaptionViewLastPosition:						"Utolsó pozíció";
+MenuCaptionViewObjectBrowser:						"Objektum böngésző";
+MenuCaptionViewIncreaseFontSize:					"Betűméret növelés";
+MenuCaptionViewDecreaseFontSize:					"Betűméret csökkentés";
+MenuCaptionViewZoomIn:								"Nagyítás";
+MenuCaptionViewZoomOut:								"Kicsinyítés";
+MenuCaptionProject:									"Projekt";
+MenuCaptionProjectAdd:								"Hozzáad";
+MenuCaptionProjectAddFolder:						"Mappa hozzáad";
+MenuCaptionProjectAddWindowsForm:					"Windows Form hozzáad";
+MenuCaptionProjectAddWindowsMDIForm:				"Windows MDI form hozzáad";
+MenuCaptionProjectAddWindowsUserControl:			"Windows vezérlő hozzáad";
+MenuCaptionProjectAddWindowsPropertyPage:			"Windows tulajdonság oldal hozzáad";
+MenuCaptionProjectAddWindowsReport:					"Windows jelentés hozzáad";
+MenuCaptionProjectAddCustomControlsForm:			"Testreszabott vezérlők form hozzáad";
+MenuCaptionProjectAddModuleTWIN:					"Modul hozzáad (.TWIN támogatja az Unicode-ot)";
+MenuCaptionProjectAddClassTWIN:						"Osztály hozzáad (.TWIN támogatja az Unicode-ot)";
+MenuCaptionProjectAddModuleBAS:						"Modul hozzáad (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Osztály hozzáad (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Egyéb fájl hozzáad";
+MenuCaptionProjectAddImportFile:					"Fájl(ok) importálás";
+MenuCaptionProjectAddResourceVisualStyles:			"Erőforrás hozzáad: Visual Styles Manifeszt";
+MenuCaptionProjectAddResourceStringTable:			"Erőforrás hozzáad: String tábla";
+MenuCaptionProjectReferences:						"Referenciák";
+MenuCaptionProjectSettings:							"Projekt beállítások";
+MenuCaptionProjectOpenProjectFolder:				"Projekt mappa megnyit";
+MenuCaptionProjectOpenBuildOutputFolder:			"Fordítási kimenet mappa megnyit";
+MenuCaptionFormat:									"Formáz";
+MenuCaptionFormatAlign:								"Igazít";
+MenuCaptionFormatAlignLeft:							"Balra";
+MenuCaptionFormatAlignCenterHorz:					"Középre (Vízszintes)";
+MenuCaptionFormatAlignRight:						"Jobbra";
+MenuCaptionFormatAlignTop:							"Felül";
+MenuCaptionFormatAlignCenterVert:					"Középre (Függőleges)";
+MenuCaptionFormatAlignBottom:						"Alul";
+MenuCaptionFormatAlignToGrid:						"Rácshoz igazít";
+MenuCaptionFormatMakeSameSize:						"Ugyanakkora méretre állít";
+MenuCaptionFormatMakeSameSizeWidest:				"Szélesség (Legszélesebb)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Szélesség (Legszűkebb)";
+MenuCaptionFormatMakeSameSizeTallest:				"Magasság (Legmagasabb)";
+MenuCaptionFormatMakeSameSizeShortest:				"Magasság (Legalacsonyabb)";
+MenuCaptionFormatHorizontalSpacing:					"Vízszintes távolság";
+MenuCaptionFormatVerticalSpacing:					"Függőleges távolság";
+MenuCaptionFormatCenterInContainerHorz:				"Középre tárolóban (Vízszintes)";
+MenuCaptionFormatCenterInContainerVert:				"Középre tárolóban (Függőleges)";
+MenuCaptionFormatBringToFront:						"Előrehoz";
+MenuCaptionFormatSendToBack:						"Hátraküld";
+MenuCaptionFormatLockControls:						"Vezérlők zárolás";
+MenuCaptionDebug:									"Hibakeresés";
+MenuCaptionDebugStepInto:							"Belelép";
+MenuCaptionDebugStepOver:							"Lépés tovább";
+MenuCaptionDebugAddWatch:							"Figyelő hozzáad";
+MenuCaptionDebugClearWatches:						"Figyelők törlés";
+MenuCaptionDebugToggleBreakpoint:					"Szünetpont kapcsolás";
+MenuCaptionDebugClearAllBreakpoints:				"Minden szünetpont törlés";
+MenuCaptionDebugSetNextStatement:					"Következő utasítás beállítás (Ugrás sorra)";
+MenuCaptionRun:										"Futtat";
+MenuCaptionRunStart:								"Indít";
+MenuCaptionRunBreak:								"Leállít";
+MenuCaptionRunEnd:									"Vége";
+MenuCaptionTools:									"Eszközök";
+MenuCaptionToolsIDEOptions:							"IDE beállítások";
+MenuCaptionAddins:									"Add-Ins";
+MenuCaptionWindow:									"Ablak";
+MenuCaptionWindowPanelLayouts:						"Panel elrendezés";
+MenuCaptionWindowPanelLayoutsDefault:				"Alapértelmezett beépített elrendezés";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Teljes képernyős szerkesztő elrendezés";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Egyéni elrendezés (nem mentett)";
+MenuCaptionWindowPanelLayoutsCustom:				"Egyéni";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Jelen panel elrendezés mentés másként";
+MenuCaptionWindowPanelLayoutsManage:				"Panel elrendezések kezelés";
+MenuCaptionWindowPanelFeatures:						"Panel funkciók";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Dokkolt panelek átméretezés engedélyezés";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Dokkolt panelek áthelyezés engedélyezés";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Dokkolt panelek szétválasztás engedélyezés";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Lebegő panelek átméretezés engedélyezés";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Lebegő panelek áthelyezés engedélyezés";
+MenuCaptionWindowKeyboardShortcuts:					"Billentyűparancsok";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Alapértelmezett beépített billentyűparancsok";
+MenuCaptionWindowKeyboardShortcutsManage:			"Billentyűparancsok kezelése";
+MenuCaptionWindowTheme:								"Téma";
+MenuCaptionWindowLanguage:							"Nyelv";
+MenuCaptionHelp:									"Segítség";
+MenuCaptionHelpAbout:								"TwinBASIC-röl";
+MenuCaptionHelpLicence:								"Licenc megállapodás";
+MenuCaptionHelpDiscord:								"Segítség és támogatás (Discord szerver)";
+MenuCaptionHelpGitHub:								"Segítség és támogatás (GitHub tároló)";
+MenuCaptionHelpTwitter:								"Twitter (Hírek)";
+MenuCaptionHelpPurchaseLicence:						"Licenc vásárlás";
+MenuCaptionHelpEnterLicence:						"Licenckulcs megadás";
+MenuCaptionHelpKofi:								"Támogass minket egy kávéval! (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Fordító TRACE mód";
+
+GeneralEnabled:										"Engedélyezve";
+GeneralDisabled:										"Letiltva";
+GeneralIncrease:										"Növelés";
+GeneralDecrease:										"Csökkentés";
+GeneralRemove:											"Eltávolít";
+GeneralMakeEqual:										"Egyenlővé tesz";
+
+PaneTitleCodeEditor:									"SZERKESZTŐ";
+PaneTitleProjectExplorer:								"PROJEKT BÖNGÉSZŐ";
+PaneTitleOpenEditors:									"NYITOTT SZERKESZTŐK";
+PaneTitleHistory:										"TÖRTÉNET";
+PaneTitleOutline:										"VÁZLAT";
+PaneTitleCallStack:										"HÍVÁSI VEREM";
+PaneTitleVariables:										"VÁLTOZÓK";
+PaneTitleWatches:										"FIGYELŐK";
+PaneTitleDebugConsole:									"HIBAKERESŐ KONZOL";
+PaneTitleDiagnostics:									"DIAGNOSZTIKA";
+PaneTitlePackagePublishing:								"CSOMAG KÉSZÍT";
+PaneTitleToolbar:										"ESZKÖZTÁR";
+PaneTitleToolbox:										"TOOLBOX";
+PaneTitleProperties:									"TULAJDONSÁGOK";
+PaneTitleWebPage:										"WEBOLDAL";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:										"FORDÍTÓ";
+GeneralMainThread:										"FŐ SZÁL";
+GeneralStatusIdle:										"TÁRSASÁGI";
+GeneralStatusExecuting:									"VÉGREHAJT";
+GeneralStatusBreakpoint:								"TÖRÉSPONT";
+GeneralStatusOperational:								"ÜZEMKÉPES";
+GeneralStatusLimited:									"KORLÁTOZOTT";
+GeneralStatusUnavailable:								"NEM ELÉRHETŐ";
+GeneralStatusNotReady:									"NINCS KÉSZ";
+ToolbarPreviewButtonCaption:							"ELŐNÉZET";
+MenuCaptionEditPasteSameNameControlArray: 				"Beillesztés (ugyanaz a név, vezérlő tömb)";
+MenuCaptionEditDuplicateNewName:						"Másolat (új név)";
+MenuCaptionEditDuplicateSameNameControlArray:			"Másolat (ugyanaz a név, vezérlő tömb)";
+MenuCaptionEditAlignToGrid:								"Igazít rácshoz";
+MenuCaptionEditLockAllControls:							"Minden vezérlő zárolás";
+MenuCaptionEditUnlockAllControls:						"Minden vezérlő feloldás";
+MenuCaptionEditUnlockControls:							"Vezérlők feloldás";
+
+ProjectFolderImportedTypeLibrariesCaption:				"Importált típus könyvtárak";
+ProjectFolderMiscellaneousCaption:						"Vegyes";
+ProjectFolderPackagesCaption:							"Csomagok";
+ProjectFolderReferencesCaption:							"Referenciák";
+ProjectFolderResourcesCaption:							"Erőforrások";
+ProjectFolderSourcesCaption:								"Források";
+
+PropertySheetGroupHeaderCaptionDesign:					"TERVEZÉS";
+PropertySheetGroupHeaderCaptionAppearance:				"MEGJELENÉS";
+PropertySheetGroupHeaderCaptionDrawing:					"RAJZOLÁS";
+PropertySheetGroupHeaderCaptionBehaviour:				"VISZONYLAT";
+PropertySheetGroupHeaderCaptionMouse:					"EGÉR";
+PropertySheetGroupHeaderCaptionWindow:					"ABLAK";
+PropertySheetGroupHeaderCaptionHelp:						"SEGÍTSÉG";
+PropertySheetGroupHeaderCaptionKeyboard:					"BILLENTYŰZET";
+PropertySheetGroupHeaderCaptionScale:					"SKÁLA";
+PropertySheetGroupHeaderCaptionLayout:					"ELRENDEZÉS";
+PropertySheetGroupHeaderCaptionGeneral:					"ÁLTALÁNOS";
+PropertySheetGroupHeaderCaptionDDE:						"DDE";
+PropertySheetGroupHeaderCaptionBindings:					"KÖTÉSEK";
+PropertySheetGroupHeaderCaptionData:						"ADAT";
+
+ObjectDesignerAddMenuCaption:							"menü";
+PropertySheetPropertiesTabCaption:						"TULAJDONSÁGOK";
+PropertySheetEventsTabCaption:							"ESEMÉNYEK";
+ObjectDesignerMenuCaptionViewCode:						"Kód megtekint";
+LiveResourcesInUseCaption:								"használatban";
+LiveResourcesUIObjectsCaption:							"UI objektumok";
+LiveResourcesGDIObjectsCaption:							"GDI objektumok";
+
+/* added 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SHIFT";
+MenuShortcutKeyARROWLEFT:							"BAL NYÍL";
+MenuShortcutKeyARROWUP:								"FEL NYÍL";
+MenuShortcutKeyARROWRIGHT:							"JOBB NYÍL";
+MenuShortcutKeyARROWDOWN:							"LE NYÍL";
+MenuShortcutKeyENTER:								"ENTER";
+MenuShortcutKeyBACKSPACE:							"BACKSPACE";
+MenuShortcutKeySPACE:								"SZÓKÖZ";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"MEGSZAKÍTÁS";
+MenuShortcutKeyESCAPE:								"ESC";
+MenuShortcutKeyHOME:								"HOME";
+MenuShortcutKeyEND:									"END";
+MenuShortcutKeyPAGEUP:								"PAGEUP";
+MenuShortcutKeyPAGEDOWN:							"PAGEDOWN";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"TÖRLÉS";
+
+DialogLoadingPleaseWait:							"Betöltés folyamatban, kérem várjon";
+DialogNewProjectTitle:								"Új / Megnyitás projekt";
+DialogNewProjectCaptionNewTab:						"Új";
+DialogNewProjectCaptionSamplesTab:					"Példák";
+DialogNewProjectCaptionRecentTab:					"Legutóbbiak";
+DialogNewProjectCaptionBrowseButton:				"Böngészés";
+DialogNewProjectCaptionOpenButton:					"Megnyitás";
+DialogCaptionCancelButton:							"Mégse";
+DialogCaptionCloseButton:							"Bezárás";
+DialogCaptionContinueButton:						"Tovább";
+DialogCaptionContinueAnywayButton:					"Tovább mégis";
+DialogCaptionSaveButton:							"Mentés";
+DialogCaptionSaveChangesButton:						"Változások mentése";
+DialogCaptionAddNewButton:							"Új hozzáadása";
+DialogCaptionTryAgainButton:						"Próbálja újra";
+DialogCaptionDeleteButton:							"Törlés";
+DialogCaptionDeleteBothButton:						"Mindkettő törlése";
+DialogCaptionOKButton:								"OK";
+DialogCaptionRemoveItButton:						"Eltávolítás";
+DialogCaptionKeepItButton:							"Megtartás";
+DialogCaptionDiscardChangesButton:					"Változások elvetése";
+DialogProgressTitle:								"Kérem várjon";
+DialogProjectSettingsTitle:							"Projektbeállítások";
+DialogSaveChangesCaptionMain:						"Szeretné menteni a(z) {%1} fájlban végzett módosításokat?";
+DialogSaveChangesCaptionSubText:					"A módosítások elvesznek, ha nem menti őket.";
+DialogEditMultiLineValueTitle:						"Érték szerkesztése (többsoros)";
+DialogFindInProjectTitle:							"Keresés a projektben";
+DialogFindInProjectCaptionMain:						"Adja meg a keresett szöveget (egyszerű karakterlánc-alapú keresés)";
+DialogFindInProjectCaptionInsidePackages:			"Keresés a hivatkozott csomagokban is";
+DialogFindInProjectCaptionMatchCase:				"Kis- és nagybetűk megkülönböztetése";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Csak teljes szóra illeszkedjen";
+DialogFindInProjectCaptionSearchButton:				"Keresés a projektben";
+DialogBuildSaveCaptionMain:							"A projekt mentése szükséges. Szeretné most menteni?";
+DialogFileAlreadyExists:							"A fájl már létezik:"
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Cserélje le";
+DialogPackageNeededAddButton:						"{%1} csomag hozzáadása";
+DialogPackageNeededCaptionMain:						"Szükséges csomag: {%1}"
+														""
+														"A folytatáshoz előbb adja hozzá a(z) {%1} csomagot a projekthez."
+														"A `{%1} csomag hozzáadása` gombra kattintva az összeállító újraindul,"
+														"és készen áll új űrlapok hozzáadására a projekthez.";
+DialogFileRenameFailed:								"Az átnevezés / áthelyezés sikertelen. Kérem zárja be az alábbi szerkesztőket, melyek akadályozzák a műveletet:"
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:				"FIGYELMEZTETÉS: A módosításokat még nem mentette."
+														""
+														"Biztosan mentés nélkül zárja be?";
+DialogBuildUnregisterFailedCaptionMain:				"Az összeállítás sikertelen: a korábbi DLL nem törölhető. Folytatja mégis?";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Törlés és folytatás";
+DialogGeneralYouWillNotBeAbleToUndo:				"Ezt a műveletet nem lehet visszavonni.";
+DialogDeleteConfirmationMultiCaptionMain:			"Biztosan törli az alábbi fájlokat?"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Biztosan törli a kijelölt elemeket?";
+DialogDeleteConfirmationSingleaptionMain:			"Biztosan törli ezt: '{%1}'?";
+DialogSafeModeCaption:								"A Biztonságos mód lehetővé teszi, hogy hozzáférjen a projekt fájlrendszeréhez"
+														"az összeállító szolgáltatások elindítása nélkül."
+														""
+														"Használja ezt a módot kódja átvizsgálására / javítására / helyreállítására mentés és"
+														"normál módú újraindítás előtt.";
+DialogHKLMWarning:									"FIGYELEM: Ez a projekt a HKEY_LOCAL_MACHINE rendszerleírókulcsba regisztrál,"
+														"ami rendszergazdai jogosultságot igényel."
+														""
+														"Jelenleg a twinBASIC IDE nem rendszergazdai módban fut, így"
+														"a DLL regisztrációja hibát fog eredményezni az összeállítás során."
+														""
+														"A sikeres összeállításhoz kérem indítsa újra a twinBASIC IDE-t"
+														"az 'Futtatás rendszergazdaként' opcióval.";
+DialogFailedSaveProject:							"A projekt mentése nem sikerült. Ellenőrizze a fájl elérési útját, és módosítsa, ha szükséges.";
+DialogFailedOpenProject:							"A projekt betöltése nem sikerült (hibakód: {%1})"
+														"{%2}"
+														""
+														"Eltávolítja a legutóbbi projektek listájáról?";
+DialogEnterLicenceTitle:							"Licenckulcs megadása";
+DialogEnterLicenceCaptionMain:						"Tipp: másolja be a kulcsot a visszaigazoló e-mailből. Ha hibás kulcsot ad meg,"
+														"a KÖZÖSSÉGI licenc kerül alkalmazásra.";
+DialogEnterLicenceCaptionPurchaseButton:			"Licenc vásárlása";
+DialogNewProjectOptionsTitle:						"Új projekt beállításai";
+DialogPublisherLoginSignupTitle:					"Kiadó bejelentkezés / regisztráció";
+DialogSaveFailedCaptionMain:						"A módosításokat nem sikerült menteni. Elveti őket?";
+DialogSaveChangesToProjectCaptionMain:				"A projekt módosult. Szeretné most menteni?";
+
+/* Added 02-Feb-2024 */
+MenuCaptionProjectAddResourceMessageTable:			"Erőforrás hozzáadása: MESSAGETABLE";
+
+/* Added 01-May-2025 */
+PaneTitleFindReplace:						"KERESÉS / CSERE"

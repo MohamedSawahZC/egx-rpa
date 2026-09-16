@@ -1,0 +1,196 @@
+<html>
+<head>
+	<base href="/{PASSKEY}/">
+	<link rel="stylesheet" href="codemirror5.min.css">
+	<script src="codemirror5.min.js"></script>
+	<script src="codemirror5_searchcursor.min.js"></script>
+	<script type="text/javascript" src="chart.js" charset="UTF-8"></script>
+
+	<script src="jquery.min.js" charset="UTF-8"></script>
+	<script src="spectrum.min.js" charset="UTF-8"></script>
+	<script src="grapick.min.js" charset="UTF-8"></script>
+	<script src="markdownit.min.js" charset="UTF-8"></script>
+
+	<script src="monaco-editor-0.35.1-pre-min/vs/loader.js" charset="UTF-8"></script>
+	<script src="main.js" charset="UTF-8"></script>
+	<script src="main2.js" charset="UTF-8"></script>
+	<script src="build.js" charset="UTF-8"></script>
+	
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="formDesigner.css">
+	<link rel="stylesheet" href="configEditor.css">
+	<link rel="stylesheet" href="spectrum.min.css">
+	<link rel="stylesheet" href="grapick.min.css">
+	<link rel="stylesheet" href="codicon.css">
+	<link id="cssTheme" rel="stylesheet" href="">
+</head>
+<body spellcheck="false">
+	<canvas id="theCanvas" style="display: none; position: absolute; z-index: 10000000;"></canvas>
+	<img id="theImage1" style="position: absolute; z-index: 10000000; top: 50px; border: 0"></img>
+	<div class='' id='bodyInner'>
+		<div id="appOverlay"></div>
+		<div id="bannerBackdrop"></div>
+		<div id="contextMenu"></div>
+		<div id="contextMenuSUB"></div>
+		<div id="hoverTooltip"></div>
+		<div id="root" class="invisible">
+			<div id="rootMenuTitleFull"></div>
+			<div id="rootMenu1">
+				<div id="rootMenu1Inner">
+					<div class="menuItem" id="rootMenuFile">File</div>
+					<div class="menuItem" id="rootMenuEdit">Edit</div>
+					<div class="menuItem" id="rootMenuView">View</div>
+					<div class="menuItem" id="rootMenuProject">Project</div>
+					<div class="menuItem" id="rootMenuFormat">Format</div>
+					<div class="menuItem" id="rootMenuDebug">Debug</div>
+					<div class="menuItem" id="rootMenuRun">Run</div>
+					<div class="menuItem" id="rootMenuTools">Tools</div>
+					<div class="menuItem" id="rootMenuAddins">Add-Ins</div>
+					<div class="menuItem" id="rootMenuWindows">Window</div>
+					<div class="menuItem" id="rootMenuHelp">Help</div>
+					<div class="" id="rootMenuTextOuter"><div class="" id="rootMenuText"></div></div>
+					<div class="menuItem hide" id="rootMenuDevTools">DEVTOOLS</div>
+					<div class="menuItem" id="rootMenuAdmin" title="The IDE is running in elevated mode"></div>	
+				</div>
+				<div class="menuItem" id="rootMenuMinimize" title="Minimize Window"></div>
+				<div class="menuItem" id="rootMenuMaximize" title="Maximize/Restore Window"></div>
+				<div class="menuItem codicon codicon-close" id="rootMenuClose" title="Close twinBASIC"></div>
+			</div>
+			<div id="rootMenu3">
+			</div>
+			<div id="rootTop">
+			</div>
+
+			<div id="rootMenu2">
+				<div class="icon iconType1 firstIcon" id="saveIcon" title="Save All Changes"></div>
+				<div class="icon iconType1" id="searchIcon" title="Find In Project..."></div>
+				<div class="icon iconType8" id="designSwitchIcon" title="Switch Between Form And Code"></div>
+
+				<div class="toolbarSplitter"></div>
+
+				<div class="icon iconType1 iconTypeUndoRedo" id="undoIcon" title="Undo"></div>
+				<div class="icon iconType1 iconTypeUndoRedo" id="redoIcon" title="Redo"></div>
+				
+				<div class="toolbarSplitter"></div>
+				
+				<div class="icon playIconBlue" id="playIcon" title="Start / Continue"></div>
+				<div class="icon iconType7" id="pauseIcon" title="Break Into Code"></div>
+				<div class="icon stopIconRed" id="stopIcon" title="Stop"></div>
+				<div class="icon iconType2" id="debugStepOverIcon" title="Step Over"></div>
+				<div class="icon iconType2" id="debugStepIntoIcon" title="Step Into"></div>
+				<div class="icon iconType2" id="debugStepOutIcon" title="Step Out"></div>
+				<!-- <div class="icon iconType2" id="runOrPreviewIcon" title="Run the code at the cursor position / Preview the form"></div>-->
+
+				<div class="toolbarSplitter"></div>
+				
+				<select id="buildConfigSelector" title="Choose a build configuration"></select>
+				<div class="icon iconType1" id="restartIcon" title="Restart the compiler"></div>
+				<div class="icon iconType3" id="trashIcon" title="Clean (deregister &amp; delete build)"></div>
+				<div class="icon iconType1" id="buildIcon" title="Build"></div>
+
+				<div class="toolbarSplitter"></div>
+				
+				<div class="icon iconType1" id="commentIcon" title="Comment Selection"></div>
+				<div class="icon iconType1" id="uncommentIcon" title="Uncomment Selection"></div>
+				<div class="icon iconType1" id="indentIcon" title="Indent Block"></div>
+				<div class="icon iconType1" id="unindentIcon" title="Outdent Block"></div>
+
+				<div class="toolbarSplitter"></div>
+
+				<div class='icon iconType4 menuBarAlignLeft iconBigger' id='menuBarAlignLeft' title='Align controls to the LEFT'></div>
+				<div class='icon iconType4 menuBarAlignTop iconBigger' id='menuBarAlignTop' title='Align controls to the TOP'></div>
+				<div class='icon iconType4 menuBarAlignRight iconBigger' id='menuBarAlignRight' title='Align controls to the RIGHT'></div>
+				<div class='icon iconType4 menuBarAlignBottom iconBigger' id='menuBarAlignBottom' title='Align controls to the BOTTOM'></div>
+
+				<div class="toolbarSplitter"></div>
+
+				<div class='icon iconType4 menuBarSizeWidest iconBigger' id='menuBarSizeWidest' title='Resize controls to the WIDEST'></div>
+				<div class='icon iconType4 menuBarSizeTallest iconBigger' id='menuBarSizeTallest' title='Resize controls to the TALLEST'></div>
+				<div class='icon iconType4 menuBarSizeNarrowest iconBigger' id='menuBarSizeNarrowest' title='Resize controls to the NARROWEST'></div>
+				<div class='icon iconType4 menuBarSizeShortest iconBigger' id='menuBarSizeShortest' title='Resize controls to the SHORTEST'></div>
+
+				<div class="toolbarSplitter"></div>
+
+				<div class='icon iconType5 menuBarItemActive menuBarToggleOn menuBarGrid iconBigger' id='menuBarGrid' title='Toggle the grid indicators ON/OFF'></div>
+
+				<div class="toolbarSplitter"></div>
+
+				<div class='icon iconType6 menuBarBringToFront' id='menuBarBringToFront' title='Bring the selected control to the FRONT of the z-order'></div>
+				<div class='icon iconType6 menuBarSendToBack' id='menuBarSendToBack' title='Send the selected control to the BACK of the z-order'></div>
+
+				<div class="toolbarSplitter"></div>
+				<select id='zoomSelect' title='Form designer zoom ratio'><option value="0.25">25%</option><option value="0.5">50%</option><option value="0.75">75%</option><option value="1" selected>100%</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="1.75">175%</option><option value="2">200%</option><option value="2.25">225%</option><option value="2.5">250%</option><option value="2.75">275%</option><option value="3">300%</option><option value="3.25">325%</option><option value="3.5">350%</option><option value="3.75">375%</option><option value="4">400%</option></select>
+
+				<div class='icon iconType1 menuBarItemActive menuBarPreview' id='menuBarPreview' title='Launch the form in isolation to test its functionality'><div class='previewButtonArrow codicon codicon-arrow-right'></div> <span id='toolbarPreviewBtn'>PREVIEW</span></div>
+				<div class="toolbarSplitter"></div>
+				<div class='icon iconType4 menuBarColorMode codicon codicon-color-mode' id='menuBarColorMode' title='Change IDE Theme'></div>
+			</div>
+
+			<div class='menuBarGridOptions' id='menuBarGridOptions'>
+				<div class='menuBarGridOptionsInner'>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Show Grid</div><div class='menuBarGridValue'><input class='optionGridShow' type='checkbox'/></div></div>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Align Controls To Grid</div><div class='menuBarGridValue'><input class='optionGridSnap' type='checkbox'/></div></div>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Show Outlines</div><div class='menuBarGridValue'><input class='optionShowOutlines' type='checkbox'/></div></div>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Multi-coloured Grabbers</div><div class='menuBarGridValue'><input class='optionMultiColoredGrabbers' type='checkbox'/></div></div>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Grid Width</div><div class='menuBarGridValue'><input class='optionGridWidth' type='number' size="3" min="1"/></div></div>
+					<div class='menuBarGridOptionRow'><div class='menuBarGridOption'>Grid Height</div><div class='menuBarGridValue'><input class='optionGridHeight' type='number' size="3" min="1"/></div></div>
+				</div>
+			</div>
+
+			<div id="codePanel">
+				<div id="rootMenu1fullScreen">
+					<div id="rootMenu1FullScreenToggle" title="Exit Full Screen">FULL SCREEN</div>
+					<div class="menuItem" id="rootMenuMinimize2" title="Minimize Window"></div>
+					<div class="menuItem" id="rootMenuMaximize2" title="Maximize/Restore Window"></div>
+					<div class="menuItem" id="rootMenuClose2" title="Close twinBASIC"></div>
+				</div>
+				<div id="iconToolbar">
+					<div id="iconToolbarInner">
+					</div>
+				</div>
+				<div id="codePanelTabsContainer">
+					<div id="codePanelTabs">
+					</div>
+					<div id="codePanelTabLeft" class="codicon codicon-chevron-left" title="Scroll left"></div>
+					<div id="codePanelTabRight" class="codicon codicon-chevron-right" title="Scroll right"></div>
+					<div id="codePanelTabDropDown" class="codicon codicon-triangle-down" title="Tabs List"></div>
+				</div>
+				<div id="codePanelMain">
+				</div>
+			</div>
+			<div id="rootBottom">
+				
+			</div>
+			
+			<div class="msgBox">
+				<div id="msgBoxInner1">
+					<div id="msgBoxInner2">
+						<div id="msgBoxInner3">
+							<div class="msgBoxElement"><div class='msgBoxIcon infoIcon'></div><div class="msgBoxText" id="msgBox3text"></div><div class='msgBoxCloseIcon codicon codicon-close' id='closeMsgBox3'></div><div id="msgBox3Extra"><div id="msgBox3Copy">Copy to clipboard</div></div></div>
+						</div>
+						<div class="msgBoxElement"><div class='msgBoxIcon infoIcon'></div><div class="msgBoxText" id="msgBox2text"></div><div class='msgBoxCloseIcon codicon codicon-close' id='closeMsgBox2'></div><div id="msgBox2Extra"><div id="msgBox2Copy">Copy to clipboard</div></div></div>
+					</div>
+					<div class="msgBoxElement"><div class='msgBoxIcon infoIcon'></div><div class="msgBoxText" id="msgBox1text"></div><div class='msgBoxCloseIcon codicon codicon-close' id='closeMsgBox1'></div><div id="msgBox1Extra"><div id="msgBox1Copy">Copy to clipboard</div></div></div>
+				</div>
+			</div>
+
+			<div id="rootStatusBar">
+				<div id="compilerStatusOuter"><div id="compilerStatusInner"><div class="statusIcon codicon codicon-warning"></div><div id="compilerStatus">tB Services: UNAVAILABLE</div></div></div>
+				<div id="compilerLicenceOuter"><div id="compilerLicenceInner"><div class="statusIcon codicon codicon-warning"></div><div id="compilerLicence">tB Licence: NOT READY</div></div></div>
+				<div id="findUsOnline">
+					<div id="kofiIcon" title="Support us: buy us a coffee!"></div>
+					<div id="discordIcon" title="twinBASIC Discord Server (for chat, help & support)"></div>
+					<div id="twitterIcon" title="twinBASIC Twitter Feed"></div>
+					<div id="githubIcon" title="twinBASIC GitHub Repository (for help & support)"></div>	
+				</div>
+				<div id="runningProcessesContainer"></div>
+				<div class="statusMenuMiddleSpace"></div>
+				<div class="statusMenuItem" id="statusHoveringCommand"></div>
+				<div class="statusMenuItem hide" id="statusMemUsage" title="Live Memory & Resources Usage (Debugger)"><div id='memUsage'>?</div>MB <span id='ResourcesInUse'>in use</span>&nbsp;&nbsp;|&nbsp;&nbsp;<div id='userObjects'>?</div>&nbsp;<span id='ResourcesUIObjects'>ui objects</span>&nbsp;&nbsp;|&nbsp;&nbsp;<div id='gdiObjects'>?</div>&nbsp;<span id='ResourcesGDIObjects'>gdi objects</span></div>
+				<div class="statusMenuItem hide" id="statusLineCol" title="Line / Column position">Ln&nbsp;<div id='lineNum'>0</div>, Col&nbsp;<div id='columnNum'>0</div></div>
+				<div class="statusMenuPadding"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

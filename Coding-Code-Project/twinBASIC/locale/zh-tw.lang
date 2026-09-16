@@ -1,0 +1,306 @@
+
+/* Translation by woeoio2, last updated 16th-Jan-2025 */
+
+FriendlyName:										"Chinese Traditional (中文 [繁体])";
+
+MenuCaptionFile:									"檔案";
+MenuCaptionFileNewProject:							"新建專案";
+MenuCaptionFileOpenProject:							"開啟專案";
+MenuCaptionFileOpenRecent:							"開啟最近";
+MenuCaptionFileCloseProject:						"關閉專案";
+MenuCaptionFileSaveProject:							"儲存專案";
+MenuCaptionFileSaveProjectAs:						"另存專案為";
+MenuCaptionFileExportProject:						"匯出專案";
+MenuCaptionFileSaveCurrentDocument:					"儲存目前文件";
+MenuCaptionFileBuild:								"建置";
+MenuCaptionFileClean:								"清理";
+MenuCaptionFileExit:								"結束";
+MenuCaptionEdit:									"編輯";
+MenuCaptionEditUndo:								"復原";
+MenuCaptionEditRedo:								"重做";
+MenuCaptionEditCut:									"剪下";
+MenuCaptionEditCopy:								"複製";
+MenuCaptionEditPaste:								"貼上";
+MenuCaptionEditPasteAsComment:						"貼上為註解";
+MenuCaptionEditDelete:								"刪除";
+MenuCaptionEditSelectAll:							"全選";
+MenuCaptionEditFind:								"尋找";
+MenuCaptionEditReplace:								"取代";
+MenuCaptionEditFindInProject:						"在專案中尋找";
+MenuCaptionEditIndent:								"縮排";
+MenuCaptionEditOutdent:								"減少縮排";
+MenuCaptionView:									"檢視";
+MenuCaptionViewCodeEditor:							"程式碼編輯器";
+MenuCaptionViewObjectDesigner:						"物件設計師";
+MenuCaptionViewDefinition:							"定義";
+MenuCaptionViewLastPosition:						"上次位置";
+MenuCaptionViewObjectBrowser:						"物件瀏覽器";
+MenuCaptionViewIncreaseFontSize:					"增大字體大小";
+MenuCaptionViewDecreaseFontSize:					"減小字體大小";
+MenuCaptionViewZoomIn:								"放大";
+MenuCaptionViewZoomOut:								"縮小";
+MenuCaptionProject:									"專案";
+MenuCaptionProjectAdd:								"新增";
+MenuCaptionProjectAddFolder:						"新增資料夾";
+MenuCaptionProjectAddWindowsForm:					"新增 Windows 表單";
+MenuCaptionProjectAddWindowsMDIForm:				"新增 Windows MDI 表單";
+MenuCaptionProjectAddWindowsUserControl:			"新增 Windows 使用者控制項";
+MenuCaptionProjectAddWindowsPropertyPage:			"新增 Windows 屬性頁";
+MenuCaptionProjectAddWindowsReport:					"新增 Windows 報表";
+MenuCaptionProjectAddCustomControlsForm:			"新增自訂控制項表單";
+MenuCaptionProjectAddModuleTWIN:					"新增模組（.TWIN 支援 Unicode）";
+MenuCaptionProjectAddClassTWIN:						"新增類別（.TWIN 支援 Unicode）";
+MenuCaptionProjectAddModuleBAS:						"新增模組（.BAS）";
+MenuCaptionProjectAddClassCLS:						"新增類別（.CLS）";
+MenuCaptionProjectAddOtherFile:						"新增其他檔案";
+MenuCaptionProjectAddImportFile:					"匯入檔案";
+MenuCaptionProjectAddResourceVisualStyles:			"新增資源：視覺樣式清單";
+MenuCaptionProjectAddResourceStringTable:			"新增資源：字串表";
+MenuCaptionProjectReferences:						"參考";
+MenuCaptionProjectSettings:							"專案設定";
+MenuCaptionProjectOpenProjectFolder:				"開啟專案資料夾";
+MenuCaptionProjectOpenBuildOutputFolder:			"開啟建置輸出資料夾";
+MenuCaptionFormat:									"格式";
+MenuCaptionFormatAlign:								"對齊";
+MenuCaptionFormatAlignLeft:							"左對齊";
+MenuCaptionFormatAlignCenterHorz:					"水平置中";
+MenuCaptionFormatAlignRight:						"右對齊";
+MenuCaptionFormatAlignTop:							"頂部對齊";
+MenuCaptionFormatAlignCenterVert:					"垂直置中";
+MenuCaptionFormatAlignBottom:						"底部對齊";
+MenuCaptionFormatAlignToGrid:						"對齊到網格";
+MenuCaptionFormatMakeSameSize:						"統一大小";
+MenuCaptionFormatMakeSameSizeWidest:				"寬度（最寬）";
+MenuCaptionFormatMakeSameSizeNarrowest:				"寬度（最窄）";
+MenuCaptionFormatMakeSameSizeTallest:				"高度（最高）";
+MenuCaptionFormatMakeSameSizeShortest:				"高度（最矮）";
+MenuCaptionFormatHorizontalSpacing:					"水平間距";
+MenuCaptionFormatVerticalSpacing:					"垂直間距";
+MenuCaptionFormatCenterInContainerHorz:				"在容器中水平置中";
+MenuCaptionFormatCenterInContainerVert:				"在容器中垂直置中";
+MenuCaptionFormatBringToFront:						"置於頂層";
+MenuCaptionFormatSendToBack:						"置於底层";
+MenuCaptionFormatLockControls:						"鎖定控制項";
+MenuCaptionDebug:									"偵錯";
+MenuCaptionDebugStepInto:							"進入";
+MenuCaptionDebugStepOver:							"跨過";
+MenuCaptionDebugAddWatch:							"新增監視";
+MenuCaptionDebugClearWatches:						"清除監視";
+MenuCaptionDebugToggleBreakpoint:					"切換斷點";
+MenuCaptionDebugClearAllBreakpoints:				"清除所有斷點";
+MenuCaptionDebugSetNextStatement:					"設定下一個陳述（跳至行）";
+MenuCaptionRun:										"執行";
+MenuCaptionRunStart:								"開始";
+MenuCaptionRunBreak:								"中斷";
+MenuCaptionRunEnd:									"結束";
+MenuCaptionTools:									"工具";
+MenuCaptionToolsIDEOptions:							"IDE 選項";
+MenuCaptionAddins:									"外掛";
+MenuCaptionWindow:									"視窗";
+MenuCaptionWindowPanelLayouts:						"面板布局";
+MenuCaptionWindowPanelLayoutsDefault:				"預設內建布局";
+MenuCaptionWindowPanelLayoutsFullScreen:			"全螢幕編輯器布局";
+MenuCaptionWindowPanelLayoutsUnsaved:				"自訂布局（未儲存）";
+MenuCaptionWindowPanelLayoutsCustom:				"自訂";
+MenuCaptionWindowPanelLayoutsSaveAs:				"將目前面板布局另存為";
+MenuCaptionWindowPanelLayoutsManage:				"管理面板布局";
+MenuCaptionWindowPanelFeatures:						"面板功能";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"允許調整停靠面板大小";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"允許重新排列停靠面板";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"允許拆出停靠面板";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"允許調整浮動面板大小";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"允許移動浮動面板";
+MenuCaptionWindowKeyboardShortcuts:					"鍵盤快捷鍵";
+MenuCaptionWindowKeyboardShortcutsDefault:			"預設內建鍵盤快捷鍵";
+MenuCaptionWindowKeyboardShortcutsManage:			"管理鍵盤快捷鍵";
+MenuCaptionWindowTheme:								"主題";
+MenuCaptionWindowLanguage:							"語言";
+MenuCaptionHelp:									"說明";
+MenuCaptionHelpAbout:								"關於 twinBASIC";
+MenuCaptionHelpLicence:								"授權協議";
+MenuCaptionHelpDiscord:								"說明與支援（Discord 伺服器）";
+MenuCaptionHelpGitHub:								"說明與支援（GitHub 倉庫）";
+MenuCaptionHelpTwitter:								"Twitter（新聞推送）";
+MenuCaptionHelpPurchaseLicence:						"購買授權";
+MenuCaptionHelpEnterLicence:						"輸入授權密鑰";
+MenuCaptionHelpKofi:								"請我們喝杯咖啡！（Ko-Fi）";
+MenuCaptionHelpTraceMode:							"編譯器服務 TRACE 模式";
+GeneralEnabled:										"啟用";
+GeneralDisabled:									"停用";
+GeneralIncrease:									"增加";
+GeneralDecrease:									"減少";
+GeneralRemove:										"移除";
+GeneralMakeEqual:									"使相等";
+PaneTitleCodeEditor:								"編輯器";
+PaneTitleProjectExplorer:							"專案資源管理器";
+PaneTitleOpenEditors:								"開啟的編輯器";
+PaneTitleHistory:									"歷史記錄";
+PaneTitleOutline:									"大綱";
+PaneTitleCallStack:									"呼叫堆疊";
+PaneTitleVariables:									"變數";
+PaneTitleWatches:									"監視";
+PaneTitleDebugConsole:								"偵錯控制台";
+PaneTitleDiagnostics:								"診斷";
+PaneTitlePackagePublishing:							"套件發布";
+PaneTitleToolbar:									"工具列";
+PaneTitleToolbox:									"工具箱";
+PaneTitleProperties:								"屬性";
+PaneTitleWebPage:									"網頁";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:									"編譯器";
+GeneralMainThread:									"主執行緒";
+GeneralStatusIdle:									"閒置";
+GeneralStatusExecuting:								"執行中";
+GeneralStatusBreakpoint:							"斷點";
+GeneralStatusOperational:							"運作中";
+GeneralStatusLimited:								"有限制";
+GeneralStatusUnavailable:							"不可用";
+GeneralStatusNotReady:								"未準備好";
+ToolbarPreviewButtonCaption:						"預覽";
+MenuCaptionEditPasteSameNameControlArray: 			"貼上（同名，控件陣列）";
+MenuCaptionEditDuplicateNewName:					"複製（新名稱）";
+MenuCaptionEditDuplicateSameNameControlArray:		"複製（同名，控件陣列）";
+MenuCaptionEditAlignToGrid:							"對齊到網格";
+MenuCaptionEditLockAllControls:						"鎖定所有控件";
+MenuCaptionEditUnlockAllControls:					"解鎖所有控件";
+MenuCaptionEditUnlockControls:						"解鎖控件";
+
+ProjectFolderImportedTypeLibrariesCaption:			"已導入類型庫";
+ProjectFolderMiscellaneousCaption:					"其他";
+ProjectFolderPackagesCaption:						"包";
+ProjectFolderReferencesCaption:						"引用";
+ProjectFolderResourcesCaption:						"資源";
+ProjectFolderSourcesCaption:						"來源";
+
+PropertySheetGroupHeaderCaptionDesign:				"設計";
+PropertySheetGroupHeaderCaptionAppearance:			"外觀";
+PropertySheetGroupHeaderCaptionDrawing:				"繪圖";
+PropertySheetGroupHeaderCaptionBehaviour:			"行為";
+PropertySheetGroupHeaderCaptionMouse:				"滑鼠";
+PropertySheetGroupHeaderCaptionWindow:				"視窗";
+PropertySheetGroupHeaderCaptionHelp:				"幫助";
+PropertySheetGroupHeaderCaptionKeyboard:			"鍵盤";
+PropertySheetGroupHeaderCaptionScale:				"縮放";
+PropertySheetGroupHeaderCaptionLayout:				"布局";
+PropertySheetGroupHeaderCaptionGeneral:				"一般";
+PropertySheetGroupHeaderCaptionDDE:					"DDE";
+PropertySheetGroupHeaderCaptionBindings:			"綁定";
+PropertySheetGroupHeaderCaptionData:				"數據";
+
+ObjectDesignerAddMenuCaption:						"選單";
+PropertySheetPropertiesTabCaption:					"屬性";
+PropertySheetEventsTabCaption:						"事件";
+ObjectDesignerMenuCaptionViewCode:					"查看代碼";
+LiveResourcesInUseCaption:							"正在使用";
+LiveResourcesUIObjectsCaption:						"使用者介面物件";
+LiveResourcesGDIObjectsCaption:						"GDI 物件";
+
+/* added 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SHIFT";
+MenuShortcutKeyARROWLEFT:							"左箭頭";
+MenuShortcutKeyARROWUP:								"上箭頭";
+MenuShortcutKeyARROWRIGHT:							"右箭頭";
+MenuShortcutKeyARROWDOWN:							"下箭頭";
+MenuShortcutKeyENTER:								"Enter";
+MenuShortcutKeyBACKSPACE:							"Backspace";
+MenuShortcutKeySPACE:								"空格";
+MenuShortcutKeyTAB:									"Tab";
+MenuShortcutKeyCANCEL:								"取消";
+MenuShortcutKeyESCAPE:								"Esc";
+MenuShortcutKeyHOME:								"Home";
+MenuShortcutKeyEND:									"End";
+MenuShortcutKeyPAGEUP:								"Page Up";
+MenuShortcutKeyPAGEDOWN:							"Page Down";
+MenuShortcutKeyINSERT:								"Insert";
+MenuShortcutKeyDELETE:								"Delete";
+
+DialogLoadingPleaseWait:							"正在加載，請稍候";
+DialogNewProjectTitle:								"新建 / 打開項目";
+DialogNewProjectCaptionNewTab:						"新建";
+DialogNewProjectCaptionSamplesTab:					"範例";
+DialogNewProjectCaptionRecentTab:					"最近";
+DialogNewProjectCaptionBrowseButton:				"瀏覽";
+DialogNewProjectCaptionOpenButton:					"打開";
+DialogCaptionCancelButton:							"取消";
+DialogCaptionCloseButton:							"關閉";
+DialogCaptionContinueButton:						"繼續";
+DialogCaptionContinueAnywayButton:					"繼續（無論如何）";
+DialogCaptionSaveButton:							"保存";
+DialogCaptionSaveChangesButton:						"保存更改";
+DialogCaptionAddNewButton:							"新增";
+DialogCaptionTryAgainButton:						"重試";
+DialogCaptionDeleteButton:							"刪除";
+DialogCaptionDeleteBothButton:						"刪除兩個";
+DialogCaptionOKButton:								"確定";
+DialogCaptionRemoveItButton:						"移除";
+DialogCaptionKeepItButton:							"保留";
+DialogCaptionDiscardChangesButton:					"放棄更改";
+DialogProgressTitle:								"請稍候";
+DialogProjectSettingsTitle:							"項目設置";
+DialogSaveChangesCaptionMain:						"您是否要保存對 {%1} 的更改？";
+DialogSaveChangesCaptionSubText:					"如果不保存，您的更改將丟失。";	
+DialogEditMultiLineValueTitle:						"編輯值（多行）";
+DialogFindInProjectTitle:							"在項目中查找";
+DialogFindInProjectCaptionMain:						"輸入搜索字串（僅支持簡單的文本搜索）";
+DialogFindInProjectCaptionInsidePackages:			"在引用的包中搜索";
+DialogFindInProjectCaptionMatchCase:				"區分大小寫";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"僅匹配整個單詞";
+DialogFindInProjectCaptionSearchButton:				"在項目中搜索";
+DialogBuildSaveCaptionMain:							"您必須先保存項目。現在保存嗎？";
+DialogFileAlreadyExists:							"文件已存在："
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"替換它";
+DialogPackageNeededAddButton:						"添加 {%1} 包";
+DialogPackageNeededCaptionMain:						"需要包：{%1}"
+														""
+														"您必須先在该项目中添加对 {%1} 包的引用。"
+														"点击 `添加 {%1} 包` 后，编译器将重新启动，"
+														"您可以开始向该项目添加窗体。";
+DialogFileRenameFailed:								"重命名/移動失敗。請關閉以下正在阻止操作的編輯器："
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:				"警告：您已進行了更改但尚未保存。"
+														""
+														"不保存直接關閉？";
+DialogBuildUnregisterFailedCaptionMain:				"構建失敗：無法注銷之前的 DLL。是否繼續？";
+DialogBuildUnregisterFailedCaptionContinueButton:	"刪除並繼續";
+DialogGeneralYouWillNotBeAbleToUndo:				"您將無法撤銷此操作。";
+DialogDeleteConfirmationMultiCaptionMain:			"您確定要刪除以下文件嗎？"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"您確定要刪除所選項目嗎？";
+DialogDeleteConfirmationSingleaptionMain:			"您確定要刪除 '{%1}' 嗎？";
+DialogSafeModeCaption:								"安全模式旨在為您提供訪問項目文件系統的機會，"
+														"而無需啟動所有相關的編譯器服務。"
+														""
+														"使用此模式來調查/修復/恢復代碼，然後保存"
+														"並以正常模式重新啟動。";
+DialogHKLMWarning:									"警告：此項目注冊到 HKEY_LOCAL_MACHINE 注冊表項，"
+														"這需要管理員權限。"
+														""
+														"twinBASIC IDE 當前未以管理員身份運行，因此"
+														"在構建過程中 DLL 注冊將失敗。"
+														""
+														"為了成功構建，請使用 Windows 的 `以管理員身份運行` 選項重新啟動 twinBASIC IDE。";
+DialogFailedSaveProject:							"保存項目失敗。請檢查項目文件路徑並根據需要進行調整。";
+DialogFailedOpenProject:							"加載項目失敗（錯誤代碼 {%1})"
+														"{%2}"
+														""
+														"您是否要將其從最近打開的項目列表中移除？";
+DialogEnterLicenceTitle:							"輸入許可證密鑰";
+DialogEnterLicenceCaptionMain:						"提示：從確認郵件中複製並粘貼密鑰。如果您輸入了"
+														"無效的密鑰，將應用 COMMUNITY 許可證。";
+DialogEnterLicenceCaptionPurchaseButton:			"購買許可證";
+DialogNewProjectOptionsTitle:						"新建項目選項";
+DialogPublisherLoginSignupTitle:					"發行者登錄 / 註冊";
+DialogSaveFailedCaptionMain:						"無法保存更改。放棄它們？";
+DialogSaveChangesToProjectCaptionMain:				"您對该项目進行了更改。現在保存嗎？";
+
+/* Added 02-Feb-2024 */
+MenuCaptionProjectAddResourceMessageTable:			"添加資源：消息表";

@@ -1,0 +1,310 @@
+
+/* Translation by DTZ, last updated 19th-Jun-2025 */
+
+FriendlyName:										"Swedish (Svenska)";
+
+MenuCaptionFile:									"Fil";
+MenuCaptionFileNewProject:							"Nytt projekt";
+MenuCaptionFileOpenProject:							"Öppna projekt";
+MenuCaptionFileOpenRecent:							"Öppna senaste";
+MenuCaptionFileCloseProject:							"Stäng projekt";
+MenuCaptionFileSaveProject:							"Spara projekt";
+MenuCaptionFileSaveProjectAs:							"Spara projekt som";
+MenuCaptionFileExportProject:							"Exportera projekt";
+MenuCaptionFileSaveCurrentDocument:					"Spara nuvarande dokument";
+MenuCaptionFileBuild:								"Bygg";
+MenuCaptionFileClean:								"Rensa";
+MenuCaptionFileExit:								"Avsluta";
+MenuCaptionEdit:									"Redigera";
+MenuCaptionEditUndo:								"Ångra";
+MenuCaptionEditRedo:								"Gör om";
+MenuCaptionEditCut:									"Klipp ut";
+MenuCaptionEditCopy:								"Kopiera";
+MenuCaptionEditPaste:								"Klistra in";
+MenuCaptionEditPasteAsComment:						"Klistra in som kommentar";
+MenuCaptionEditDelete:								"Ta bort";
+MenuCaptionEditSelectAll:							"Välj alla";
+MenuCaptionEditFind:								"Sök";
+MenuCaptionEditReplace:								"Byt ut";
+MenuCaptionEditFindInProject:						"Sök i projekt";
+MenuCaptionEditIndent:								"Indrag";
+MenuCaptionEditOutdent:								"Utdrag";
+MenuCaptionView:									"Visa";
+MenuCaptionViewCodeEditor:							"Kodeditor";
+MenuCaptionViewObjectDesigner:						"Objektdesigner";
+MenuCaptionViewDefinition:							"Definition";
+MenuCaptionViewLastPosition:						"Sista position";
+MenuCaptionViewObjectBrowser:						"Objektbrowser";
+MenuCaptionViewIncreaseFontSize:					"Öka teckenstorlek";
+MenuCaptionViewDecreaseFontSize:					"Minska teckenstorlek";
+MenuCaptionViewZoomIn:								"Zooma in";
+MenuCaptionViewZoomOut:								"Zooma ut";
+MenuCaptionProject:									"Projekt";
+MenuCaptionProjectAdd:								"Lägg till";
+MenuCaptionProjectAddFolder:						"Lägg till mapp";
+MenuCaptionProjectAddWindowsForm:					"Lägg till Windows-formulär";
+MenuCaptionProjectAddWindowsMDIForm:				"Lägg till Windows MDI-formulär";
+MenuCaptionProjectAddWindowsUserControl:			"Lägg till Windows-användarkontroll";
+MenuCaptionProjectAddWindowsPropertyPage:			"Lägg till Windows-egenskapssida";
+MenuCaptionProjectAddWindowsReport:					"Lägg till Windows-rapport";
+MenuCaptionProjectAddCustomControlsForm:			"Lägg till anpassat kontrollformulär";
+MenuCaptionProjectAddModuleTWIN:					"Lägg till modul (.TWIN stöder Unicode)";
+MenuCaptionProjectAddClassTWIN:						"Lägg till klass (.TWIN stöder Unicode)";
+MenuCaptionProjectAddModuleBAS:						"Lägg till modul (.BAS)";
+MenuCaptionProjectAddClassCLS:						"Lägg till klass (.CLS)";
+MenuCaptionProjectAddOtherFile:						"Lägg till annan fil";
+MenuCaptionProjectAddImportFile:					"Importera fil(er)";
+MenuCaptionProjectAddResourceVisualStyles:			"Lägg till resurs: Visual Styles Manifest";
+MenuCaptionProjectAddResourceStringTable:			"Lägg till resurs: Strängtabell";
+MenuCaptionProjectReferences:						"Referenser";
+MenuCaptionProjectSettings:							"Projektinställningar";
+MenuCaptionProjectOpenProjectFolder:				"Öppna projektmapp";
+MenuCaptionProjectOpenBuildOutputFolder:			"Öppna byggutdata-mapp";
+MenuCaptionFormat:									"Formatera";
+MenuCaptionFormatAlign:								"Justera";
+MenuCaptionFormatAlignLeft:							"Vänsterjustera";
+MenuCaptionFormatAlignCenterHorz:					"Centrera (Horisontellt)";
+MenuCaptionFormatAlignRight:						"Högerjustera";
+MenuCaptionFormatAlignTop:							"Justera högst upp";
+MenuCaptionFormatAlignCenterVert:					"Centrera (Vertikalt)";
+MenuCaptionFormatAlignBottom:						"Justera längst ner";
+MenuCaptionFormatAlignToGrid:						"Justera till grid";
+MenuCaptionFormatMakeSameSize:						"Gör samma storlek";
+MenuCaptionFormatMakeSameSizeWidest:				"Bredd (Bredaste)";
+MenuCaptionFormatMakeSameSizeNarrowest:				"Bredd (Smalaste)";
+MenuCaptionFormatMakeSameSizeTallest:				"Höjd (Högsta)";
+MenuCaptionFormatMakeSameSizeShortest:				"Höjd (Kortaste)";
+MenuCaptionFormatHorizontalSpacing:					"Horisontellt avstånd";
+MenuCaptionFormatVerticalSpacing:					"Vertikalt avstånd";
+MenuCaptionFormatCenterInContainerHorz:				"Centrera i behållare (Horisontellt)";
+MenuCaptionFormatCenterInContainerVert:				"Centrera i behållare (Vertikalt)";
+MenuCaptionFormatBringToFront:						"Flytta till framsidan";
+MenuCaptionFormatSendToBack:						"Skicka till baksidan";
+MenuCaptionFormatLockControls:						"Lås kontroller";
+MenuCaptionDebug:									"Felsökning";
+MenuCaptionDebugStepInto:							"Stega in";
+MenuCaptionDebugStepOver:							"Stega över";
+MenuCaptionDebugAddWatch:							"Lägg till Watch";
+MenuCaptionDebugClearWatches:						"Töm Watches";
+MenuCaptionDebugToggleBreakpoint:					"Byt brytpunkt";
+MenuCaptionDebugClearAllBreakpoints:				"Töm alla brytpunkter";
+MenuCaptionDebugSetNextStatement:					"Sätt nästa uttalande (Hoppa till rad)";
+MenuCaptionRun:										"Kör";
+MenuCaptionRunStart:								"Starta";
+MenuCaptionRunBreak:								"Bryt";
+MenuCaptionRunEnd:									"Sluta";
+MenuCaptionTools:									"Verktyg";
+MenuCaptionToolsIDEOptions:							"IDE-inställningar";
+MenuCaptionAddins:									"Tillägg";
+MenuCaptionWindow:									"Fönster";
+MenuCaptionWindowPanelLayouts:						"Panellayouts";
+MenuCaptionWindowPanelLayoutsDefault:				"Standardlayout";
+MenuCaptionWindowPanelLayoutsFullScreen:			"Fullskärms editorlayout";
+MenuCaptionWindowPanelLayoutsUnsaved:				"Anpassad layout (osparad)";
+MenuCaptionWindowPanelLayoutsCustom:				"Anpassad";
+MenuCaptionWindowPanelLayoutsSaveAs:				"Spara nuvarande panel-layout som";
+MenuCaptionWindowPanelLayoutsManage:				"Hanterar panel-layouts";
+MenuCaptionWindowPanelFeatures:						"Panelfunktioner";
+MenuCaptionWindowPanelFeaturesAllowResizeDocked:	"Tillåt ändring av dockade panelers storlek";
+MenuCaptionWindowPanelFeaturesAllowMoveDocked:		"Tillåt omflyttning av dockade paneler";
+MenuCaptionWindowPanelFeaturesAllowTearOutDocked:	"Tillåt att separera dockade paneler";
+MenuCaptionWindowPanelFeaturesAllowResizeFloating:	"Tillåt ändring av flytande panelers storlek";
+MenuCaptionWindowPanelFeaturesAllowMoveFloating:	"Tillåt att flytta flytande paneler";
+MenuCaptionWindowKeyboardShortcuts:					"Tangentbordsgenvägar";
+MenuCaptionWindowKeyboardShortcutsDefault:			"Standard tangentbordsgenvägar";
+MenuCaptionWindowKeyboardShortcutsManage:			"Hanterar tangentbordsgenvägar";
+MenuCaptionWindowTheme:								"Teman";
+MenuCaptionWindowLanguage:							"Språk";
+MenuCaptionHelp:									"Hjälp";
+MenuCaptionHelpAbout:								"Om twinBASIC";
+MenuCaptionHelpLicence:								"Licensavtal";
+MenuCaptionHelpDiscord:								"Hjälp & Support (Discord Server)";
+MenuCaptionHelpGitHub:								"Hjälp & Support (GitHub repository)";
+MenuCaptionHelpTwitter:								"Twitter (Nyhetsflöde)";
+MenuCaptionHelpPurchaseLicence:						"Köp licens";
+MenuCaptionHelpEnterLicence:						"Ange licensnyckel";
+MenuCaptionHelpKofi:								"Stöd oss med en kopp kaffe! (Ko-Fi)";
+MenuCaptionHelpTraceMode:							"Kompatilator TRACE-läge";
+
+GeneralEnabled:										"Aktiverad";
+GeneralDisabled:									"Deaktiverad";
+GeneralIncrease:									"Öka";
+GeneralDecrease:									"Minska";
+GeneralRemove:										"Ta bort";
+GeneralMakeEqual:									"Gör lika";
+
+PaneTitleCodeEditor:								"REDIGERARE";
+PaneTitleProjectExplorer:							"PROJEKUTFORSKARE";
+PaneTitleOpenEditors:								"ÖPPNA REDIGERARE";
+PaneTitleHistory:									"HISTORIA";
+PaneTitleOutline:									"ÖVERSIKT";
+PaneTitleCallStack:									"ANROPSTACK";
+PaneTitleVariables:									"VARIABLER";
+PaneTitleWatches:									"VAKTER";
+PaneTitleDebugConsole:								"DEBUGKONSOL";
+PaneTitleDiagnostics:								"DIAGNOSTIK";
+PaneTitlePackagePublishing:							"PAKET PUBLICERING";
+PaneTitleToolbar:									"VERKTYGSPANEL";
+PaneTitleToolbox:									"VERKTYGSLÅDA";
+PaneTitleProperties:								"EGENSKAPER";
+PaneTitleWebPage:									"WEBBSIDA";
+
+/* added 17-Jan-2025 */
+
+GeneralCompiler:									"KOMPILATOR";
+GeneralMainThread:									"HUVUDTRÅD";
+GeneralStatusIdle:									"VILANDE";
+GeneralStatusExecuting:								"KÖR";
+GeneralStatusBreakpoint:							"PAUS";
+GeneralStatusOperational:							"OPERATIONELL";
+GeneralStatusLimited:								"BEGRÄNSAD";
+GeneralStatusUnavailable:							"OTILLGÄNGLIG";
+GeneralStatusNotReady:								"INTE REDO";
+ToolbarPreviewButtonCaption:						"FÖRHANDSVISA";
+MenuCaptionEditPasteSameNameControlArray: 			"Klistra in (samma namn, kontrollarray)";
+MenuCaptionEditDuplicateNewName:					"Duplicera (nytt namn)";
+MenuCaptionEditDuplicateSameNameControlArray:		"Duplicera (samma namn, kontrollarray)";
+MenuCaptionEditAlignToGrid:							"Justera till nät";
+MenuCaptionEditLockAllControls:						"Lås alla kontroller";
+MenuCaptionEditUnlockAllControls:					"Lås upp alla kontroller";
+MenuCaptionEditUnlockControls:						"Lås upp kontroller";
+
+ProjectFolderImportedTypeLibrariesCaption:			"Importerade typbibliotek";
+ProjectFolderMiscellaneousCaption:					"Övrigt";
+ProjectFolderPackagesCaption:						"Paketer";
+ProjectFolderReferencesCaption:						"Referenser";
+ProjectFolderResourcesCaption:						"Resurser";
+ProjectFolderSourcesCaption:						"Källor";
+
+PropertySheetGroupHeaderCaptionDesign:				"DESIGN";
+PropertySheetGroupHeaderCaptionAppearance:			"UTSEENDE";
+PropertySheetGroupHeaderCaptionDrawing:				"RITNING";
+PropertySheetGroupHeaderCaptionBehaviour:			"BETEENDE";
+PropertySheetGroupHeaderCaptionMouse:				"PEKARE";
+PropertySheetGroupHeaderCaptionWindow:				"FÖNSTER";
+PropertySheetGroupHeaderCaptionHelp:				"HJÄLP";
+PropertySheetGroupHeaderCaptionKeyboard:			"TANGENTBORD";
+PropertySheetGroupHeaderCaptionScale:				"SKALA";
+PropertySheetGroupHeaderCaptionLayout:				"LAYOUT";
+PropertySheetGroupHeaderCaptionGeneral:				"ALLMÄNT";
+PropertySheetGroupHeaderCaptionDDE:					"DDE";
+PropertySheetGroupHeaderCaptionBindings:			"BINDNINGAR";
+PropertySheetGroupHeaderCaptionData:				"DATAR";
+
+ObjectDesignerAddMenuCaption:						"meny";
+PropertySheetPropertiesTabCaption:					"EGENSKAPER";
+PropertySheetEventsTabCaption:						"HÄNDELSER";
+ObjectDesignerMenuCaptionViewCode:					"Visa kod";
+LiveResourcesInUseCaption:							"i användning";
+LiveResourcesUIObjectsCaption:						"UI-objekt";
+LiveResourcesGDIObjectsCaption:						"GDI-objekt";
+
+/* added 20-Jan-2025 */
+
+MenuShortcutKeyCONTROL:								"CTRL";
+MenuShortcutKeyALT:									"ALT";
+MenuShortcutKeySHIFT:								"SKIFT";
+MenuShortcutKeyARROWLEFT:							"VÄNSTERPIL";
+MenuShortcutKeyARROWUP:								"UPPÅTPIL";
+MenuShortcutKeyARROWRIGHT:							"HÖGERPIL";
+MenuShortcutKeyARROWDOWN:							"NEDÅTPIL";
+MenuShortcutKeyENTER:								"ENTER";
+MenuShortcutKeyBACKSPACE:							"BACKSTEG";
+MenuShortcutKeySPACE:								"BLANKSTEG";
+MenuShortcutKeyTAB:									"TAB";
+MenuShortcutKeyCANCEL:								"AVBRYT";
+MenuShortcutKeyESCAPE:								"ESC";
+MenuShortcutKeyHOME:								"HOME";
+MenuShortcutKeyEND:									"END";
+MenuShortcutKeyPAGEUP:								"PAGEUP";
+MenuShortcutKeyPAGEDOWN:							"PAGEDOWN";
+MenuShortcutKeyINSERT:								"INSERT";
+MenuShortcutKeyDELETE:								"RADERA";
+
+DialogLoadingPleaseWait:							"Laddar, vänligen vänta";
+DialogNewProjectTitle:								"Nytt / Öppna projekt";
+DialogNewProjectCaptionNewTab:						"Nytt";
+DialogNewProjectCaptionSamplesTab:					"Exempel";
+DialogNewProjectCaptionRecentTab:					"Senaste";
+DialogNewProjectCaptionBrowseButton:				"Bläddra";
+DialogNewProjectCaptionOpenButton:					"Öppna";
+DialogCaptionCancelButton:							"Avbryt";
+DialogCaptionCloseButton:							"Stäng";
+DialogCaptionContinueButton:						"Fortsätt";
+DialogCaptionContinueAnywayButton:					"Fortsätt ändå";
+DialogCaptionSaveButton:							"Spara";
+DialogCaptionSaveChangesButton:						"Spara ändringar";
+DialogCaptionAddNewButton:							"Lägg till ny";
+DialogCaptionTryAgainButton:						"Försök igen";
+DialogCaptionDeleteButton:							"Radera";
+DialogCaptionDeleteBothButton:						"Radera båda";
+DialogCaptionOKButton:								"OK";
+DialogCaptionRemoveItButton:						"Ta bort";
+DialogCaptionKeepItButton:							"Behåll";
+DialogCaptionDiscardChangesButton:					"Förkasta ändringar";
+DialogProgressTitle:								"Vänligen vänta";
+DialogProjectSettingsTitle:							"Projektinställningar";
+DialogSaveChangesCaptionMain:						"Vill du spara ändringar i filen {%1}?";
+DialogSaveChangesCaptionSubText:					"Om du inte sparar kommer ändringarna att gå förlorade.";
+DialogEditMultiLineValueTitle:						"Redigera värde (flera rader)";
+DialogFindInProjectTitle:							"Sök i projektet";
+DialogFindInProjectCaptionMain:						"Ange text att söka efter (enkel textsträng)";
+DialogFindInProjectCaptionInsidePackages:			"Inkludera paket";
+DialogFindInProjectCaptionMatchCase:				"Matcha gemener/VERSALER";
+DialogFindInProjectCaptionMatchWholeWordOnly:		"Endast hela ord";
+DialogFindInProjectCaptionSearchButton:				"Sök i projektet";
+DialogBuildSaveCaptionMain:							"Projektet måste sparas. Vill du spara nu?";
+DialogFileAlreadyExists:							"Filen finns redan:"
+														""
+														"{%1}";
+DialogFileAlreadyExistsReplaceItButton:				"Ersätt";
+DialogPackageNeededAddButton:						"Lägg till paketet {%1}";
+DialogPackageNeededCaptionMain:						"Paket krävs: {%1}"
+														""
+														"För att fortsätta måste du först lägga till paketet {%1} till projektet."
+														"Genom att klicka på 'Lägg till paketet {%1}' startas kompilatorn om,"
+														"och du kan sedan lägga till nya formulär i projektet.";
+DialogFileRenameFailed:								"Det gick inte att byta namn eller flytta. Stäng följande redigerare:"
+														""
+														"{%1}";
+DialogProjectSettingsUnsavedChanges:				"VARNING: Ändringar har inte sparats."
+														""
+														"Stäng utan att spara?";
+DialogBuildUnregisterFailedCaptionMain:				"Kompileringen misslyckades: kunde inte avregistrera tidigare DLL. Fortsätt ändå?";
+DialogBuildUnregisterFailedCaptionContinueButton:	"Avregistrera och fortsätt";
+DialogGeneralYouWillNotBeAbleToUndo:				"Denna åtgärd kan inte ångras.";
+DialogDeleteConfirmationMultiCaptionMain:			"Är du säker på att du vill radera följande filer?"
+														"{%1}"
+														"{%2}";
+DialogDeleteConfirmationSelectedCaptionMain:		"Är du säker på att du vill radera de markerade objekten?";
+DialogDeleteConfirmationSingleaptionMain:			"Vill du verkligen radera '{%1}'?";
+DialogSafeModeCaption:								"Säkert läge gör att du kan komma åt projektets filsystem utan att starta kompilatorn."
+														""
+														"Använd detta läge för att inspektera / fixa / återställa koden innan du sparar"
+														"och startar om i normalt läge.";
+DialogHKLMWarning:									"VARNING: Detta projekt registreras under HKEY_LOCAL_MACHINE,"
+														"vilket kräver administratörsrättigheter."
+														""
+														"twinBASIC IDE körs för närvarande inte som administratör,"
+														"så DLL-registreringen kommer att misslyckas vid kompilering."
+														""
+														"För att kompilera korrekt, starta twinBASIC IDE som administratör.";
+DialogFailedSaveProject:							"Det gick inte att spara projektet. Kontrollera sökvägen och ändra den vid behov.";
+DialogFailedOpenProject:							"Kunde inte ladda projektet (felkod: {%1})"
+														"{%2}"
+														""
+														"Vill du ta bort det från listan över senaste projekt?";
+DialogEnterLicenceTitle:							"Ange licensnyckel";
+DialogEnterLicenceCaptionMain:						"Tips: kopiera nyckeln från bekräftelsemejlet. Om en ogiltig nyckel anges"
+														"kommer COMMUNITY-licensen att användas.";
+DialogEnterLicenceCaptionPurchaseButton:			"Köp licens";
+DialogNewProjectOptionsTitle:						"Inställningar för nytt projekt";
+DialogPublisherLoginSignupTitle:					"Förläggarinloggning / registrering";
+DialogSaveFailedCaptionMain:						"Det gick inte att spara ändringarna. Vill du förkasta dem?";
+DialogSaveChangesToProjectCaptionMain:				"Projektet har ändrats. Vill du spara nu?";
+
+/* Added 02-Feb-2024 */
+MenuCaptionProjectAddResourceMessageTable:			"Lägg till resurs: MESSAGETABLE";
+
+/* Added 01-May-2025 */
+PaneTitleFindReplace:						"SÖK / ERSÄTT"
