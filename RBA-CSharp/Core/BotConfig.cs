@@ -69,6 +69,11 @@ namespace RbaCore
         public int DailyExportHour = 5;
         public int DailyExportMinute = 0;
         public bool DailyExportPm = true;
+        // Fill pace (ms). Defaults match ActionPace so existing installs stay unchanged.
+        public int FillStepMs = 700;
+        public int FillSettleMs = 550;
+        public int BetweenClientsMs = 1100;
+        public int AfterSaveMs = 1300;
     }
 
     public class BotConfig
@@ -137,6 +142,7 @@ namespace RbaCore
             {
                 cfg.ExportFolder = @"C:\ClientsFilesExcel";
             }
+            ActionPace.Apply(cfg.Settings);
             return cfg;
         }
 
@@ -163,9 +169,14 @@ namespace RbaCore
             sb.AppendLine("    \"dailyExportEnabled\":  " + (Settings.DailyExportEnabled ? "true" : "false") + ",");
             sb.AppendLine("    \"dailyExportHour\":  " + Settings.DailyExportHour + ",");
             sb.AppendLine("    \"dailyExportMinute\":  " + Settings.DailyExportMinute + ",");
-            sb.AppendLine("    \"dailyExportPm\":  " + (Settings.DailyExportPm ? "true" : "false"));
+            sb.AppendLine("    \"dailyExportPm\":  " + (Settings.DailyExportPm ? "true" : "false") + ",");
+            sb.AppendLine("    \"fillStepMs\":  " + Settings.FillStepMs + ",");
+            sb.AppendLine("    \"fillSettleMs\":  " + Settings.FillSettleMs + ",");
+            sb.AppendLine("    \"betweenClientsMs\":  " + Settings.BetweenClientsMs + ",");
+            sb.AppendLine("    \"afterSaveMs\":  " + Settings.AfterSaveMs);
             sb.AppendLine("}");
             SettingsVault.WriteUtf8Locked(Path.Combine(ConfigDir, "settings.json"), sb.ToString());
+            ActionPace.Apply(Settings);
         }
 
         public void SaveBotConfig()
@@ -404,6 +415,11 @@ namespace RbaCore
             s.DailyExportPm = ExtractBool(json, "dailyExportPm", s.DailyExportPm);
             if (s.DailyExportHour < 1 || s.DailyExportHour > 12) { s.DailyExportHour = 5; }
             if (s.DailyExportMinute < 0 || s.DailyExportMinute > 59) { s.DailyExportMinute = 0; }
+            s.FillStepMs = ExtractInt(json, "fillStepMs", s.FillStepMs);
+            s.FillSettleMs = ExtractInt(json, "fillSettleMs", s.FillSettleMs);
+            s.BetweenClientsMs = ExtractInt(json, "betweenClientsMs", s.BetweenClientsMs);
+            s.AfterSaveMs = ExtractInt(json, "afterSaveMs", s.AfterSaveMs);
+            ActionPace.Normalize(s);
         }
 
         private static string ExtractString(string json, string key, string def)

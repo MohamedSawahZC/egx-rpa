@@ -455,7 +455,11 @@ namespace RbaCore
             sb.AppendLine("    \"dailyExportEnabled\": " + (st.DailyExportEnabled ? "true" : "false") + ",");
             sb.AppendLine("    \"dailyExportHour\": " + st.DailyExportHour + ",");
             sb.AppendLine("    \"dailyExportMinute\": " + st.DailyExportMinute + ",");
-            sb.AppendLine("    \"dailyExportPm\": " + (st.DailyExportPm ? "true" : "false"));
+            sb.AppendLine("    \"dailyExportPm\": " + (st.DailyExportPm ? "true" : "false") + ",");
+            sb.AppendLine("    \"fillStepMs\": " + st.FillStepMs + ",");
+            sb.AppendLine("    \"fillSettleMs\": " + st.FillSettleMs + ",");
+            sb.AppendLine("    \"betweenClientsMs\": " + st.BetweenClientsMs + ",");
+            sb.AppendLine("    \"afterSaveMs\": " + st.AfterSaveMs);
             sb.AppendLine("  },");
 
             sb.AppendLine("  \"confirmedAgainst\": {");
@@ -556,6 +560,11 @@ namespace RbaCore
             if (d.ContainsKey("dailyExportHour")) { s.DailyExportHour = ToInt(d["dailyExportHour"], s.DailyExportHour); }
             if (d.ContainsKey("dailyExportMinute")) { s.DailyExportMinute = ToInt(d["dailyExportMinute"], s.DailyExportMinute); }
             if (d.ContainsKey("dailyExportPm")) { s.DailyExportPm = ToBool(d["dailyExportPm"]); }
+            if (d.ContainsKey("fillStepMs")) { s.FillStepMs = ToInt(d["fillStepMs"], s.FillStepMs); }
+            if (d.ContainsKey("fillSettleMs")) { s.FillSettleMs = ToInt(d["fillSettleMs"], s.FillSettleMs); }
+            if (d.ContainsKey("betweenClientsMs")) { s.BetweenClientsMs = ToInt(d["betweenClientsMs"], s.BetweenClientsMs); }
+            if (d.ContainsKey("afterSaveMs")) { s.AfterSaveMs = ToInt(d["afterSaveMs"], s.AfterSaveMs); }
+            ActionPace.Normalize(s);
             return s;
         }
 

@@ -27,6 +27,8 @@ namespace RbaCore
         public bool LeaveScreensOpen;
         // Always click the MDI menu (parent then leaf) — do not reuse a leftover form.
         public bool ForceMenuOpen;
+        // F2/F9 once per newly saved client on the confirm (ترحيل) screen.
+        public int ConfirmRepeatCount = 1;
     }
 
     public class CodingPostSaveResult
@@ -254,7 +256,9 @@ namespace RbaCore
             }
             RememberScreen(cfg, confirm, true, false, log);
 
-            if (!RunConfirmKeys(confirm, selectors, settle, log))
+            int times = opt.ConfirmRepeatCount < 1 ? 1 : opt.ConfirmRepeatCount;
+            log("post-save: ترحيل F2/F9 × " + times + " (عدد العملاء الجدد المحفوظين)", "INFO");
+            if (!RunConfirmKeys(confirm, selectors, settle, log, times))
             {
                 if (!opt.LeaveScreensOpen)
                 {
@@ -265,7 +269,7 @@ namespace RbaCore
             }
 
             result.ConfirmDone = true;
-            log("post-save: confirm F2/F9 done", "OK");
+            log("post-save: confirm F2/F9 done × " + times, "OK");
             if (opt.LeaveScreensOpen)
             {
                 log("post-save: left confirm screen open for inspection", "INFO");
@@ -466,30 +470,25 @@ namespace RbaCore
             sheets.Add(full);
         }
 
-        private static bool RunConfirmKeys(
-            IntPtr screen, List<FieldSelector> selectors, int settleMs, Action<string, string> log)
+        private static bool ClickConfirmTable(
+            IntPtr screen, List<FieldSelector> selectors, Action<string, string> log)
         {
             FieldMap map = FieldDiscovery.GetFieldMap(screen, false);
             IntPtr grid = ResolveOne(map, selectors, ConfirmGridKey, log);
             if (grid == IntPtr.Zero) { grid = AutoFindGrid(map); }
-            bool tableClicked = false;
             if (grid != IntPtr.Zero)
             {
                 try
                 {
                     Win32Driver.SetForeground(screen);
                     Thread.Sleep(80);
-                    // Prefer centre of grid body (same rule as سحب: one table click).
                     if (FlexGridSurface.IsFlexClass(Win32Driver.GetClassName(grid)))
                     {
-                        tableClicked = FlexGridSurface.ClickTableOnce(grid, log);
+                        if (FlexGridSurface.ClickTableOnce(grid, log)) { return true; }
                     }
-                    if (!tableClicked)
-                    {
-                        Win32Driver.ClickPhysical(grid, 200);
-                        tableClicked = true;
-                        log("post-save: confirm grid clicked " + Describe(grid), "INFO");
-                    }
+                    Win32Driver.ClickPhysical(grid, 200);
+                    log("post-save: confirm grid clicked " + Describe(grid), "INFO");
+                    return true;
                 }
                 catch (Exception ex)
                 {
@@ -497,37 +496,47 @@ namespace RbaCore
                     return false;
                 }
             }
-            else if (ClickMappedPosition(screen, selectors, ConfirmGridKey, log))
+            if (ClickMappedPosition(screen, selectors, ConfirmGridKey, log))
             {
-                tableClicked = true;
                 log("post-save: confirm grid clicked via mapped position", "INFO");
+                return true;
             }
+            return false;
+        }
 
-            if (!tableClicked)
-            {
-                log("post-save: ZERO-TOLERANCE — جدول التأكيد غير موجود؛ لن يُرسل F2/F9", "ERROR");
-                return false;
-            }
-
+        private static bool RunConfirmKeys(
+            IntPtr screen, List<FieldSelector> selectors, int settleMs, Action<string, string> log, int times)
+        {
+            if (times < 1) { times = 1; }
             try
             {
-                Thread.Sleep(settleMs);
-                Win32Driver.SendShortcut(screen, "{F2}", 400);
-                log("post-save: F2 sent", "OK");
-                Thread.Sleep(200);
-                Win32Driver.SendShortcut(screen, "{F9}", 600);
-                log("post-save: F9 sent", "OK");
-                Thread.Sleep(settleMs);
-                int pid = Win32Driver.GetProcessId(screen);
-                ConfirmDialogResult pop = ConfirmDialog.ConfirmAll(pid, screen, 12000, 6, log);
-                if (pop.Handled > 0)
+                for (int n = 1; n <= times; n++)
                 {
-                    log("post-save: confirm popup «" + pop.LastTitle + "» → «" +
-                        pop.LastButton + "» (" + pop.Handled + ")", "OK");
-                }
-                else
-                {
-                    log("post-save: no confirm popup after F9 (watched 12s)", "WARN");
+                    if (!ClickConfirmTable(screen, selectors, log))
+                    {
+                        log("post-save: ZERO-TOLERANCE — جدول التأكيد غير موجود؛ لن يُرسل F2/F9", "ERROR");
+                        return false;
+                    }
+
+                    Thread.Sleep(settleMs);
+                    Win32Driver.SendShortcut(screen, "{F2}", 400);
+                    log("post-save: F2 sent (" + n + "/" + times + ")", "OK");
+                    Thread.Sleep(200);
+                    Win32Driver.SendShortcut(screen, "{F9}", 600);
+                    log("post-save: F9 sent (" + n + "/" + times + ")", "OK");
+                    Thread.Sleep(settleMs);
+                    int pid = Win32Driver.GetProcessId(screen);
+                    ConfirmDialogResult pop = ConfirmDialog.ConfirmAll(pid, screen, 12000, 6, log);
+                    if (pop.Handled > 0)
+                    {
+                        log("post-save: confirm popup «" + pop.LastTitle + "» → «" +
+                            pop.LastButton + "» (" + pop.Handled + ") [" + n + "/" + times + "]", "OK");
+                    }
+                    else
+                    {
+                        log("post-save: no confirm popup after F9 (watched 12s) [" + n + "/" + times + "]", "WARN");
+                    }
+                    if (n < times) { Thread.Sleep(Math.Max(400, settleMs)); }
                 }
                 return true;
             }

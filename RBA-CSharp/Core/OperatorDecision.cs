@@ -17,14 +17,51 @@ namespace RbaCore
         public const string SuspendedEn = "SUSPENDED";
         public const string RejectedEn = "REJECTED";
 
-        public const string RejectUpdateData = "تحديث بيانات";
-        public const string RejectFamilyCard = "مكود ببطاقه عائليه";
+        public const string RejectOthersAr = "أسباب أخرى";
 
         public static readonly string[] RejectReasons = new string[]
         {
-            RejectUpdateData,
-            RejectFamilyCard
+            "صورة بطاقة أوضح مطلوبة",
+            "كود مشابه/مكرر",
+            "مستند ناقص مطلوب",
+            "نفس الكود باسم مختلف",
+            "مطلوب بطاقة الأب",
+            "مطلوب بيان/إقرار بالكود",
+            "الاسم الخامس ناقص",
+            "بطاقة منتهية",
+            "كود أوفلاين",
+            "موقوف",
+            RejectOthersAr
         };
+
+        public static bool IsOthersReject(string reason)
+        {
+            string s = (reason ?? "").Trim();
+            return string.Equals(s, RejectOthersAr, StringComparison.OrdinalIgnoreCase) ||
+                   s.StartsWith(RejectOthersAr, StringComparison.OrdinalIgnoreCase);
+        }
+
+        public static string FormatRejectReason(string selected, string otherText)
+        {
+            string pick = (selected ?? "").Trim();
+            if (!IsOthersReject(pick)) { return pick; }
+            string extra = (otherText ?? "").Trim();
+            if (extra.Length == 0) { return ""; }
+            if (extra.StartsWith(RejectOthersAr, StringComparison.OrdinalIgnoreCase)) { return extra; }
+            return RejectOthersAr + ": " + extra;
+        }
+
+        public static string OthersRejectDetail(string reason)
+        {
+            string s = (reason ?? "").Trim();
+            string prefix = RejectOthersAr + ":";
+            if (s.StartsWith(prefix, StringComparison.OrdinalIgnoreCase))
+            {
+                return s.Substring(prefix.Length).Trim();
+            }
+            if (string.Equals(s, RejectOthersAr, StringComparison.OrdinalIgnoreCase)) { return ""; }
+            return s;
+        }
 
         public static bool IsDecision(string status)
         {

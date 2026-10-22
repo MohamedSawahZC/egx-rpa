@@ -43,6 +43,10 @@ namespace RbaUi
         private NumericUpDown _numExportMinute;
         private ComboBox _cmbExportAmPm;
         private CheckBox _chkDetailedLog;
+        private NumericUpDown _numFillStep;
+        private NumericUpDown _numFillSettle;
+        private NumericUpDown _numBetweenClients;
+        private NumericUpDown _numAfterSave;
         private Label _lblLogPath;
         private Label _lblSftpProbe;
         private volatile bool _stop;
@@ -406,6 +410,22 @@ namespace RbaUi
             canvas.Controls.Add(_cmbExportAmPm);
             y += 36;
 
+            Label paceTitle = new Label();
+            paceTitle.Text = "سرعة التعبئة (مللي ثانية) — الافتراضي الحالي آمن لـ Coding";
+            paceTitle.Font = new Font("Segoe UI Semibold", 10f);
+            paceTitle.ForeColor = UiTheme.Ink;
+            paceTitle.AutoSize = false;
+            paceTitle.SetBounds(left, y, contentW, 22);
+            canvas.Controls.Add(paceTitle);
+            y += 26;
+
+            _numFillStep = AddPaceNumber(canvas, "بين كل حقل", ActionPace.DefaultOperatorStepMs, left, y);
+            _numFillSettle = AddPaceNumber(canvas, "استقرار الحركة", ActionPace.DefaultOperatorSettleMs, left + 220, y);
+            _numBetweenClients = AddPaceNumber(canvas, "بين العملاء", ActionPace.DefaultBetweenClientsMs, left + 440, y);
+            y += 34;
+            _numAfterSave = AddPaceNumber(canvas, "بعد الحفظ", ActionPace.DefaultAfterSaveMs, left, y);
+            y += 40;
+
             _chkDetailedLog = new CheckBox();
             _chkDetailedLog.Text = "تسجيل تفصيلي لكل إجراء (للتشخيص)";
             _chkDetailedLog.AutoSize = false;
@@ -551,6 +571,31 @@ namespace RbaUi
             return t;
         }
 
+        private NumericUpDown AddPaceNumber(Control parent, string label, int defaultMs, int x, int y)
+        {
+            Label l = new Label();
+            l.Text = label;
+            l.AutoSize = false;
+            l.TextAlign = ContentAlignment.MiddleLeft;
+            l.SetBounds(x, y, 110, 26);
+            NumericUpDown n = new NumericUpDown();
+            n.Minimum = 50;
+            n.Maximum = 8000;
+            n.Increment = 50;
+            n.Value = defaultMs;
+            n.SetBounds(x + 112, y, 70, 26);
+            parent.Controls.Add(l);
+            parent.Controls.Add(n);
+            return n;
+        }
+
+        private static void SetPaceBox(NumericUpDown box, int value, int fallback)
+        {
+            if (box == null) { return; }
+            int v = value < 50 || value > 8000 ? fallback : value;
+            box.Value = Math.Min(box.Maximum, Math.Max(box.Minimum, v));
+        }
+
         private void ApplySftpSourceUi()
         {
             bool remote = _chkSftpOffline == null || !_chkSftpOffline.Checked;
@@ -651,6 +696,10 @@ namespace RbaUi
                 _numExportMinute.Value = (m < 0 || m > 59) ? 0 : m;
             }
             if (_cmbExportAmPm != null) { _cmbExportAmPm.SelectedIndex = _cfg.Settings.DailyExportPm ? 1 : 0; }
+            SetPaceBox(_numFillStep, _cfg.Settings.FillStepMs, ActionPace.DefaultOperatorStepMs);
+            SetPaceBox(_numFillSettle, _cfg.Settings.FillSettleMs, ActionPace.DefaultOperatorSettleMs);
+            SetPaceBox(_numBetweenClients, _cfg.Settings.BetweenClientsMs, ActionPace.DefaultBetweenClientsMs);
+            SetPaceBox(_numAfterSave, _cfg.Settings.AfterSaveMs, ActionPace.DefaultAfterSaveMs);
             if (_chkDetailedLog != null) { _chkDetailedLog.Checked = _cfg.Settings.DetailedActionLog; }
             if (_lblLogPath != null) { _lblLogPath.Text = "مجلد السجلات: " + (_cfg.LogsDir ?? ""); }
             ActionLog.Configure(_cfg.LogsDir, _cfg.Settings.DetailedActionLog);
@@ -745,6 +794,11 @@ namespace RbaUi
             if (_cmbExportAmPm != null) { _cfg.Settings.DailyExportPm = _cmbExportAmPm.SelectedIndex == 1; }
             _cfg.Settings.PostSaveConfirmExport = false;
             _cfg.Settings.ExportDateRangeYearToDate = false;
+            if (_numFillStep != null) { _cfg.Settings.FillStepMs = (int)_numFillStep.Value; }
+            if (_numFillSettle != null) { _cfg.Settings.FillSettleMs = (int)_numFillSettle.Value; }
+            if (_numBetweenClients != null) { _cfg.Settings.BetweenClientsMs = (int)_numBetweenClients.Value; }
+            if (_numAfterSave != null) { _cfg.Settings.AfterSaveMs = (int)_numAfterSave.Value; }
+            ActionPace.Normalize(_cfg.Settings);
             if (_chkDetailedLog != null) { _cfg.Settings.DetailedActionLog = _chkDetailedLog.Checked; }
             _cfg.SaveBotConfig();
             _cfg.SaveSettings();

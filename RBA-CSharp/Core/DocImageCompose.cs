@@ -177,7 +177,7 @@ namespace RbaCore
             return b;
         }
 
-        // ID photo only — stamp/signatures stay in color on the white canvas.
+        // Photo, stamp, and both signatures share the same grayscale conversion.
         private static Bitmap ToBlackAndWhite(Bitmap src)
         {
             Bitmap dest = new Bitmap(src.Width, src.Height, PixelFormat.Format24bppRgb);
@@ -223,11 +223,13 @@ namespace RbaCore
             try
             {
                 using (Image img = LoadUnlocked(path))
+                using (Bitmap color = img as Bitmap ?? new Bitmap(img))
+                using (Bitmap bw = ToBlackAndWhite(color))
                 {
                     int w = OverlayWidth(path, height);
                     if (x < 0) { x = 0; }
                     if (y < 0) { y = 0; }
-                    g.DrawImage(img, x, y, w, height);
+                    g.DrawImage(bw, x, y, w, height);
                 }
             }
             catch { }

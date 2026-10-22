@@ -26,6 +26,8 @@ namespace RbaUi
         private Label _lblStatus;
         private TextBox _txtCode12;
         private ComboBox _cmbReject;
+        private TextBox _txtRejectOther;
+        private Label _lblRejectOther;
         private bool _finished;
 
         public int ClassifiedCount { get; private set; }
@@ -46,7 +48,7 @@ namespace RbaUi
             StartPosition = FormStartPosition.CenterParent;
             MinimizeBox = false;
             MaximizeBox = false;
-            ClientSize = new Size(680, 560);
+            ClientSize = new Size(680, 610);
             UiTheme.ApplyForm(this);
 
             _lblProgress = MakeLabel(16, 12, 648, 24, "Segoe UI Semibold", 11f);
@@ -73,7 +75,7 @@ namespace RbaUi
             Controls.Add(_txtCode12);
 
             Label rejectHint = MakeLabel(16, 270, 648, 20, "Tahoma", 9f);
-            rejectHint.Text = "سبب الرفض — مطلوب عند اختيار «رفض»";
+            rejectHint.Text = "سبب الرفض — مطلوب عند اختيار «رفض» (أسباب أخرى = اكتب السبب)";
 
             _cmbReject = new ComboBox();
             _cmbReject.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -89,24 +91,36 @@ namespace RbaUi
             {
                 _cmbReject.Items.Add(OperatorDecision.RejectReasons[i]);
             }
+            _cmbReject.SelectedIndexChanged += delegate { ApplyRejectOtherUi(); };
             Controls.Add(_cmbReject);
 
-            Button btnNew = BigButton("جديد", 16, 344, Color.FromArgb(30, 120, 80));
+            _lblRejectOther = MakeLabel(16, 328, 648, 18, "Tahoma", 9f);
+            _lblRejectOther.Text = "اكتب سبب الرفض (مطلوب عند «أسباب أخرى»)";
+            _lblRejectOther.ForeColor = UiTheme.InkMuted;
+
+            _txtRejectOther = new TextBox();
+            _txtRejectOther.SetBounds(16, 348, 648, 28);
+            _txtRejectOther.Font = new Font("Tahoma", 10.5f);
+            _txtRejectOther.MaxLength = 240;
+            Controls.Add(_txtRejectOther);
+            ApplyRejectOtherUi();
+
+            Button btnNew = BigButton("جديد", 16, 392, Color.FromArgb(30, 120, 80));
             btnNew.Click += delegate { Decide(OperatorDecision.NewAr, OperatorDecision.NewEn, false, false); };
 
-            Button btnPull = BigButton("سحب", 226, 344, Color.FromArgb(30, 90, 160));
+            Button btnPull = BigButton("سحب", 226, 392, Color.FromArgb(30, 90, 160));
             btnPull.Click += delegate { Decide(OperatorDecision.PullAr, OperatorDecision.PullEn, true, false); };
 
-            Button btnReject = BigButton("رفض", 436, 344, Color.FromArgb(150, 40, 50));
+            Button btnReject = BigButton("رفض", 436, 392, Color.FromArgb(150, 40, 50));
             btnReject.Click += delegate { Decide(OperatorDecision.RejectedAr, OperatorDecision.RejectedEn, false, true); };
 
             Button btnSkip = UiTheme.MakeButton("تخطي الحالي", false);
-            btnSkip.SetBounds(16, 508, 150, 34);
+            btnSkip.SetBounds(16, 558, 150, 34);
             btnSkip.Click += delegate { Advance(); };
             Controls.Add(btnSkip);
 
             Button btnDone = UiTheme.MakeButton("إنهاء التصنيف", true);
-            btnDone.SetBounds(430, 508, 174, 34);
+            btnDone.SetBounds(430, 558, 174, 34);
             btnDone.Click += delegate
             {
                 int left = CountPending();
@@ -163,24 +177,57 @@ namespace RbaUi
         private string SelectedRejectReason()
         {
             if (_cmbReject == null || _cmbReject.SelectedItem == null) { return ""; }
-            return _cmbReject.SelectedItem.ToString().Trim();
+            string pick = _cmbReject.SelectedItem.ToString().Trim();
+            string other = _txtRejectOther != null ? _txtRejectOther.Text : "";
+            return OperatorDecision.FormatRejectReason(pick, other);
+        }
+
+        private void ApplyRejectOtherUi()
+        {
+            bool others = _cmbReject != null &&
+                          OperatorDecision.IsOthersReject(
+                              _cmbReject.SelectedItem != null ? _cmbReject.SelectedItem.ToString() : "");
+            if (_txtRejectOther != null)
+            {
+                _txtRejectOther.Enabled = others;
+                _txtRejectOther.BackColor = others ? Color.White : Color.FromArgb(240, 240, 240);
+                if (!others) { _txtRejectOther.Text = ""; }
+            }
+            if (_lblRejectOther != null)
+            {
+                _lblRejectOther.Enabled = others;
+            }
         }
 
         private void SelectRejectReason(string reason)
         {
             if (_cmbReject == null) { return; }
             string want = (reason ?? "").Trim();
+            string extra = "";
             int hit = -1;
-            for (int i = 0; i < _cmbReject.Items.Count; i++)
+            if (OperatorDecision.IsOthersReject(want))
             {
-                string item = _cmbReject.Items[i] != null ? _cmbReject.Items[i].ToString() : "";
-                if (string.Equals(item, want, StringComparison.Ordinal))
+                extra = OperatorDecision.OthersRejectDetail(want);
+                for (int i = 0; i < _cmbReject.Items.Count; i++)
                 {
-                    hit = i;
-                    break;
+                    string item = _cmbReject.Items[i] != null ? _cmbReject.Items[i].ToString() : "";
+                    if (OperatorDecision.IsOthersReject(item)) { hit = i; break; }
+                }
+            }
+            else if (want.Length > 0)
+            {
+                for (int i = 0; i < _cmbReject.Items.Count; i++)
+                {
+                    string item = _cmbReject.Items[i] != null ? _cmbReject.Items[i].ToString() : "";
+                    if (string.Equals(item, want, StringComparison.Ordinal)) { hit = i; break; }
                 }
             }
             _cmbReject.SelectedIndex = hit >= 0 ? hit : -1;
+            ApplyRejectOtherUi();
+            if (_txtRejectOther != null && OperatorDecision.IsOthersReject(want))
+            {
+                _txtRejectOther.Text = extra;
+            }
         }
 
         private Button CopyButton(string text, int x, int y)
@@ -327,9 +374,14 @@ namespace RbaUi
                 if (reject.Length == 0)
                 {
                     MessageBox.Show(this,
-                        "اختَر سبب الرفض من القائمة ثم اضغط رفض.",
+                        "اختَر سبب الرفض. إذا اخترت «أسباب أخرى» فاكتب السبب في الخانة ثم اضغط رفض.",
                         "رفض", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (_cmbReject != null) { _cmbReject.Focus(); }
+                    if (_cmbReject != null && OperatorDecision.IsOthersReject(
+                        _cmbReject.SelectedItem != null ? _cmbReject.SelectedItem.ToString() : ""))
+                    {
+                        if (_txtRejectOther != null) { _txtRejectOther.Focus(); }
+                    }
+                    else if (_cmbReject != null) { _cmbReject.Focus(); }
                     return;
                 }
                 SetRow(row, "سبب الرفض", reject);

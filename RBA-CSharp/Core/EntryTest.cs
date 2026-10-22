@@ -775,7 +775,7 @@ namespace RbaCore
             {
                 log("STOP — skipped confirm/ترحيل after cancel", "WARN");
             }
-            else if (opt.OperatorManualFlow && opt.DoSave && processedNewCount > 0)
+            else if (opt.OperatorManualFlow && opt.DoSave && newSavedCount > 0)
             {
                 string postWhy;
                 if (!CodingHealth.EnsureAlive(ref app, cfg, log, out postWhy, true))
@@ -786,8 +786,8 @@ namespace RbaCore
                 }
                 else
                 {
-                    log("operator flow: after all clients — close overlays then " +
-                        "نظام تكويد العملاء → تأكيد بيانات العملاء قبل إرسالها للتكويد", "INFO");
+                    log("operator flow: after all clients — ترحيل F2/F9 × " + newSavedCount +
+                        " ثم نظام تكويد العملاء → تأكيد بيانات العملاء قبل إرسالها للتكويد", "INFO");
                     CloseFinishedBotWindows(app, entry, cfg, selectors, log, true);
                     entry = IntPtr.Zero;
                     entryDirty = false;
@@ -802,6 +802,7 @@ namespace RbaCore
                     postOpt.DoWriteBack = cfg.Settings != null && cfg.Settings.DoWriteBack;
                     postOpt.SettleMs = opt.SettleMs > 0 ? opt.SettleMs : ActionPace.OperatorSettleMs;
                     postOpt.ForceMenuOpen = true;
+                    postOpt.ConfirmRepeatCount = newSavedCount;
                     postOpt.Log = log;
                     try
                     {
@@ -822,9 +823,9 @@ namespace RbaCore
                     }
                 }
             }
-            else if (opt.OperatorManualFlow && opt.DoSave && processedNewCount == 0)
+            else if (opt.OperatorManualFlow && opt.DoSave && newSavedCount == 0)
             {
-                log("confirm screen skipped — no «جديد» clients in this run", "INFO");
+                log("confirm screen skipped — no newly saved «جديد» clients in this run", "INFO");
             }
             else if (opt.DoSave)
             {
