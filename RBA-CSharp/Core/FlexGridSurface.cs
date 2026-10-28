@@ -193,10 +193,18 @@ namespace RbaCore
             IntPtr flex, IntPtr screen, string searchTerm, Action<string, string> log,
             out string nin, out string code12, out string rowNid, out string[] ninCandidates)
         {
+            return TryReadCodes(flex, screen, searchTerm, log, out nin, out code12, out rowNid, out ninCandidates, true);
+        }
+
+        public static bool TryReadCodes(
+            IntPtr flex, IntPtr screen, string searchTerm, Action<string, string> log,
+            out string nin, out string code12, out string rowNid, out string[] ninCandidates,
+            bool clickRow)
+        {
             nin = "";
             code12 = "";
             ninCandidates = new string[0];
-            string clip = DigitOcr.Harvest(flex, screen, log);
+            string clip = DigitOcr.Harvest(flex, screen, log, clickRow);
             rowNid = FirstNationalId(clip);
 
             // Only codes that several OCR passes agree on may reach the search box.

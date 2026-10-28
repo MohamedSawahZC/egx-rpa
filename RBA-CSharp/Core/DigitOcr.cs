@@ -24,6 +24,12 @@ namespace RbaCore
 
         public static string Harvest(IntPtr flex, IntPtr screen, Action<string, string> log)
         {
+            return Harvest(flex, screen, log, true);
+        }
+
+        // clickRow=false when the caller already clicked the Setup point (سحب column).
+        public static string Harvest(IntPtr flex, IntPtr screen, Action<string, string> log, bool clickRow)
+        {
             try
             {
                 IntPtr top = screen != IntPtr.Zero ? screen : flex;
@@ -32,7 +38,24 @@ namespace RbaCore
             catch { }
 
             // Selection paint often appears only after the data row is clicked.
-            FlexGridSurface.ClickFirstDataRow(flex, screen, log);
+            // Never use the table-centre formula on «سحب الأكواد» — Setup point is required.
+            if (clickRow)
+            {
+                string title = "";
+                try { title = Win32Driver.GetWindowTitle(screen != IntPtr.Zero ? screen : flex) ?? ""; }
+                catch { title = ""; }
+                if (ArabicText.Contains(title, "سحب"))
+                {
+                    if (log != null)
+                    {
+                        log("ocr: skip formula row-click on «سحب الأكواد» — use Setup point", "INFO");
+                    }
+                }
+                else
+                {
+                    FlexGridSurface.ClickFirstDataRow(flex, screen, log);
+                }
+            }
 
             StringBuilder all = new StringBuilder();
             Bitmap fromScreen = CaptureUntilHighlight(flex, screen, log);

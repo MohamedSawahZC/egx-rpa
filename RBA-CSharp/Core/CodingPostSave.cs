@@ -536,6 +536,16 @@ namespace RbaCore
                     {
                         log("post-save: no confirm popup after F9 (watched 12s) [" + n + "/" + times + "]", "WARN");
                     }
+                    if (pop.SaidServerError)
+                    {
+                        log("post-save: Coding runtime error after F2/F9 — stopping ترحيل", "ERROR");
+                        return false;
+                    }
+                    if (!Win32Interop.IsWindow(screen))
+                    {
+                        log("post-save: confirm window closed after F2/F9 — stopping", "ERROR");
+                        return false;
+                    }
                     if (n < times) { Thread.Sleep(Math.Max(400, settleMs)); }
                 }
                 return true;

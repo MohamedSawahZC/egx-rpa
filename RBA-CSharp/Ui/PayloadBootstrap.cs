@@ -14,7 +14,7 @@ namespace RbaUi
     {
         public const string ResourceName = "RpaUi.EmbeddedPayload";
         public const string ProductFolder = "RPA-V1";
-        public const string PayloadVersion = "82";
+        public const string PayloadVersion = "84";
 
         // Prefer LocalAppData so the deliverable stays one EXE on Desktop / USB.
         public static string GetWorkspaceRoot()

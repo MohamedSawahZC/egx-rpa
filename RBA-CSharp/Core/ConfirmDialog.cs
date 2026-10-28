@@ -101,7 +101,11 @@ namespace RbaCore
                 "عفوا حدث خطأ", "عفواً حدث خطأ", "خطأ خارجى", "خطأ خارجي",
                 "إعادة المحاولة", "حدث خطأ ما"
             };
-            return ArabicText.ContainsAny(text, phrases);
+            if (ArabicText.ContainsAny(text, phrases)) { return true; }
+            string blob = text.ToLowerInvariant();
+            return blob.IndexOf("type mismatch", StringComparison.Ordinal) >= 0 ||
+                   blob.IndexOf("run-time error", StringComparison.Ordinal) >= 0 ||
+                   blob.IndexOf("error '13'", StringComparison.Ordinal) >= 0;
         }
 
         // Static/label text shown inside a prompt, joined into one line.

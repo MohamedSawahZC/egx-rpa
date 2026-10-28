@@ -62,6 +62,7 @@ namespace RbaCore
         public const uint WM_SETTEXT       = 0x000C;
         public const uint WM_GETTEXT       = 0x000D;
         public const uint WM_GETTEXTLENGTH = 0x000E;
+        public const uint EM_GETREADONLY   = 0x00CF;
 
         // Synthesised mouse messages, used only by the MouseEmulation click path.
         public const uint WM_LBUTTONDOWN = 0x0201;

@@ -340,6 +340,25 @@ namespace RbaCore
 
             log("vb6-browser: navigate tip=«" + OpenTip(c.Dir, folder) + "» want=«" + folder + "»", "INFO");
 
+            // Picker often stays inside the previous client's NID folder. Type-ahead of
+            // a sibling NID never finds it there — climb to docs first.
+            string startTip = OpenTip(c.Dir, folder);
+            string startLeaf = LeafName(startTip);
+            if (LooksLikeNationalId(startLeaf) && nid.Length > 0 &&
+                !string.Equals(startLeaf, nid, StringComparison.OrdinalIgnoreCase))
+            {
+                log("vb6-browser: inside sibling «" + startLeaf + "» — climb to parent then open «" +
+                    nid + "»", "INFO");
+                if (ClimbOneLevel(c, log))
+                {
+                    WaitListRefresh(c);
+                    if (OpenChildByName(c, nid, log, true) && ReadyToPick(c, folder, fileName))
+                    {
+                        return;
+                    }
+                }
+            }
+
             // NID in the strip + empty file square = sitting on the PARENT. Force enter.
             if (nid.Length > 0 && DirListContainsLeaf(c.Dir, nid) && FindItem(c.Files, fileName) < 0)
             {

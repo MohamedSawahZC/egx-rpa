@@ -76,7 +76,12 @@ namespace RbaCore
                 string key = s != null ? s.FieldKey : "";
                 int group = FieldCatalog.DateGroupId(key);
                 if (group == 1) { dob.Add(s); }
-                else if (group == 2) { issue.Add(s); }
+                else if (group == 2)
+                {
+                    // Locked identity-issue day is never in the fill sequence.
+                    if (IsLockedIssueDaySelector(s)) { continue; }
+                    issue.Add(s);
+                }
                 else if (group == 3) { expiry.Add(s); }
                 else { result.Add(s); }
             }
@@ -91,9 +96,43 @@ namespace RbaCore
             InsertDateBlock(result, dob, "name", "brokerCode");
             InsertDateBlock(result, issue, "idType", "nationalId");
             InsertDateBlock(result, expiry, IssueYearKeyOrLastIssue(issue), "idType");
+            EnsureIssueMonthYearPresent(result);
             // Job (الوظيفة) = LAST KYC field typed before documents attach.
             MoveJobToLastKyc(result);
             return result;
+        }
+
+        // Month/year must run even if Setup never captured those two boxes.
+        private static void EnsureIssueMonthYearPresent(List<FieldSelector> list)
+        {
+            InsertIssuePartIfMissing(list, FieldCatalog.IssueMonthKey, "month");
+            InsertIssuePartIfMissing(list, FieldCatalog.IssueYearKey, "year");
+        }
+
+        private static void InsertIssuePartIfMissing(List<FieldSelector> list, string key, string part)
+        {
+            if (list == null || IndexAfterKey(list, key) >= 0) { return; }
+            FieldSelector s = new FieldSelector();
+            s.FieldKey = key;
+            s.SheetColumn = "IdIssueDate";
+            s.DatePart = part;
+            s.Kind = "TextBox";
+            int at;
+            if (string.Equals(part, "year", StringComparison.OrdinalIgnoreCase))
+            {
+                int monthAt = IndexAfterKey(list, FieldCatalog.IssueMonthKey);
+                at = monthAt >= 0 ? monthAt + 1 : -1;
+            }
+            else
+            {
+                at = -1;
+            }
+            if (at < 0)
+            {
+                int after = IndexAfterKey(list, "idType");
+                at = after >= 0 ? after + 1 : list.Count;
+            }
+            list.Insert(at, s);
         }
 
         // Place «الوظيفة» after every other fillable KYC field (docsCount included).
@@ -176,22 +215,77 @@ namespace RbaCore
         {
             if (string.IsNullOrEmpty(part)) { return raw; }
             DateTime d;
-            string[] fmts = new string[] { "dd/MM/yyyy", "d/M/yyyy", "yyyy-MM-dd", "dd-MM-yyyy" };
-            bool parsed = false;
-            d = DateTime.MinValue;
-            for (int i = 0; i < fmts.Length; i++)
-            {
-                if (DateTime.TryParseExact(raw, fmts[i], CultureInfo.InvariantCulture, DateTimeStyles.None, out d))
-                {
-                    parsed = true;
-                    break;
-                }
-            }
-            if (!parsed) { return ""; }
+            if (!TryParseFlexibleDate(raw, out d)) { return ""; }
             if (string.Equals(part, "day", StringComparison.OrdinalIgnoreCase)) { return d.Day.ToString(); }
             if (string.Equals(part, "month", StringComparison.OrdinalIgnoreCase)) { return d.Month.ToString(); }
             if (string.Equals(part, "year", StringComparison.OrdinalIgnoreCase)) { return d.Year.ToString(); }
             return raw;
+        }
+
+        private static bool TryParseFlexibleDate(string raw, out DateTime d)
+        {
+            d = DateTime.MinValue;
+            if (string.IsNullOrWhiteSpace(raw)) { return false; }
+            string text = raw.Trim();
+            string[] fmts = new string[]
+            {
+                "dd/MM/yyyy", "d/M/yyyy", "yyyy-MM-dd", "dd-MM-yyyy",
+                "d/M/yyyy H:mm:ss", "dd/MM/yyyy HH:mm:ss",
+                "d/M/yyyy h:mm:ss tt", "dd/MM/yyyy hh:mm:ss tt",
+                "M/d/yyyy", "M/d/yyyy h:mm:ss tt", "M/d/yyyy H:mm:ss",
+                "yyyy/MM/dd", "yyyy-MM-dd HH:mm:ss", "dd-MM-yyyy HH:mm:ss",
+                "dd/MM/yyyy hh:mm:ss tt"
+            };
+            CultureInfo gb = null;
+            try { gb = CultureInfo.GetCultureInfo("en-GB"); } catch { }
+            for (int i = 0; i < fmts.Length; i++)
+            {
+                if (DateTime.TryParseExact(text, fmts[i], CultureInfo.InvariantCulture,
+                    DateTimeStyles.None, out d))
+                {
+                    return true;
+                }
+                if (gb != null && DateTime.TryParseExact(text, fmts[i], gb,
+                    DateTimeStyles.None, out d))
+                {
+                    return true;
+                }
+            }
+            try
+            {
+                if (DateTime.TryParse(text, CultureInfo.GetCultureInfo("en-GB"),
+                    DateTimeStyles.None, out d))
+                {
+                    return true;
+                }
+            }
+            catch { }
+            try
+            {
+                if (DateTime.TryParse(text, CultureInfo.GetCultureInfo("ar-EG"),
+                    DateTimeStyles.None, out d))
+                {
+                    return true;
+                }
+            }
+            catch { }
+            if (DateTime.TryParse(text, CultureInfo.InvariantCulture,
+                DateTimeStyles.AllowWhiteSpaces, out d))
+            {
+                return true;
+            }
+            double serial;
+            if (double.TryParse(text, NumberStyles.Number, CultureInfo.InvariantCulture, out serial) &&
+                serial > 20000 && serial < 80000)
+            {
+                try
+                {
+                    d = DateTime.FromOADate(serial);
+                    return d.Year >= 1950 && d.Year <= 2100;
+                }
+                catch { return false; }
+            }
+            return false;
         }
 
         public static IntPtr FindEntryForm(IntPtr appWindow, string entryTitle, string entryClass)
@@ -508,10 +602,10 @@ namespace RbaCore
                 if (NonEntryKey.IsMatch(key)) { continue; }
                 // Hard skip — job is never part of this loop.
                 if (string.Equals(key, "job", StringComparison.OrdinalIgnoreCase)) { continue; }
-                // Identity issue day is auto-filled and locked in Coding — writing it interrupts fill.
-                if (string.Equals(key, FieldCatalog.IssueDayKey, StringComparison.OrdinalIgnoreCase))
+                // Identity issue day is auto-filled and locked — any click/SetText interrupts Coding.
+                if (IsLockedIssueDaySelector(s))
                 {
-                    log("issueDay: locked/auto-filled — skip", "INFO");
+                    log("issueDay: locked/auto-filled — skip (no click, no SetText)", "INFO");
                     continue;
                 }
 
@@ -535,6 +629,13 @@ namespace RbaCore
                         continue;
                     }
                 }
+                if (string.IsNullOrEmpty(val) && IsIssueMonthOrYear(s))
+                {
+                    bool yearPart = string.Equals(key, FieldCatalog.IssueYearKey, StringComparison.OrdinalIgnoreCase) ||
+                                    string.Equals(s.DatePart, "year", StringComparison.OrdinalIgnoreCase);
+                    val = yearPart ? "2020" : "1";
+                    log("issueDate: sheet date unreadable — filling " + key + "='" + val + "'", "WARN");
+                }
                 if (string.IsNullOrEmpty(val)) { continue; }
 
                 // Value must fit the field type (blocks wrong-column / wrong-map writes).
@@ -557,6 +658,18 @@ namespace RbaCore
                 if (legalFormDone)
                 {
                     map = FieldDiscovery.GetFieldMap(window, false);
+                }
+
+                // Issue month/year: never WM_SETTEXT("") — that wipes the auto-filled locked day
+                // when Coding uses one masked date box for dd/MM/yyyy.
+                if (IsIssueMonthOrYear(s))
+                {
+                    FieldFillResult dateFr = FillIssueDatePart(
+                        window, map, ordered, s, val,
+                        legalFormDone, textBoxesBeforeLegal, watch, stepMs, log);
+                    fields.Add(dateFr);
+                    Thread.Sleep(settleMs);
+                    continue;
                 }
 
                 ResolveResult r = ResolveFieldAfterLegalForm(
@@ -681,6 +794,10 @@ namespace RbaCore
                 else
                 {
                     Thread.Sleep(settleMs);
+                    if (string.Equals(key, "idType", StringComparison.OrdinalIgnoreCase) && fr.Ok)
+                    {
+                        LeaveLockedIssueDayFocus(window, map, ordered, log);
+                    }
                 }
             }
 
@@ -823,6 +940,305 @@ namespace RbaCore
                 result.Note = failed + " of " + fields.Count + " failed";
             }
             return result;
+        }
+
+        private static bool IsLockedIssueDaySelector(FieldSelector s)
+        {
+            if (s == null) { return false; }
+            string key = s.FieldKey != null ? s.FieldKey : "";
+            if (string.Equals(key, FieldCatalog.IssueDayKey, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+            string col = s.SheetColumn != null ? s.SheetColumn : "";
+            string part = s.DatePart != null ? s.DatePart : "";
+            return string.Equals(col, "IdIssueDate", StringComparison.OrdinalIgnoreCase) &&
+                   string.Equals(part, "day", StringComparison.OrdinalIgnoreCase);
+        }
+
+        private static bool IsIssueMonthOrYear(FieldSelector s)
+        {
+            if (s == null) { return false; }
+            string key = s.FieldKey != null ? s.FieldKey : "";
+            if (string.Equals(key, FieldCatalog.IssueMonthKey, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(key, FieldCatalog.IssueYearKey, StringComparison.OrdinalIgnoreCase))
+            {
+                return true;
+            }
+            string col = s.SheetColumn != null ? s.SheetColumn : "";
+            string part = s.DatePart != null ? s.DatePart : "";
+            return string.Equals(col, "IdIssueDate", StringComparison.OrdinalIgnoreCase) &&
+                   (string.Equals(part, "month", StringComparison.OrdinalIgnoreCase) ||
+                    string.Equals(part, "year", StringComparison.OrdinalIgnoreCase));
+        }
+
+        private static IntPtr ResolveIssueDayHandle(FieldMap map, List<FieldSelector> selectors)
+        {
+            if (selectors == null) { return IntPtr.Zero; }
+            Action<string, string> quiet = delegate(string m, string l) { };
+            for (int i = 0; i < selectors.Count; i++)
+            {
+                FieldSelector s = selectors[i];
+                if (!IsLockedIssueDaySelector(s)) { continue; }
+                if (s.HasPosition || !string.IsNullOrWhiteSpace(s.Class))
+                {
+                    ResolveResult r = ResolveFieldAfterLegalForm(
+                        map, s, FieldCatalog.IssueDayKey, false, null, quiet);
+                    if (r != null && r.Handle != IntPtr.Zero) { return r.Handle; }
+                }
+            }
+            return IntPtr.Zero;
+        }
+
+        private static bool IsReadOnlyOrDisabled(IntPtr hwnd)
+        {
+            if (hwnd == IntPtr.Zero || !Win32Interop.IsWindow(hwnd)) { return false; }
+            if (!Win32Interop.IsWindowEnabled(hwnd)) { return true; }
+            try
+            {
+                IntPtr ro = Win32Interop.SendMessage(hwnd, Win32Interop.EM_GETREADONLY, IntPtr.Zero, IntPtr.Zero);
+                return ro != IntPtr.Zero;
+            }
+            catch { return false; }
+        }
+
+        private static IntPtr ControlToTheRight(FieldMap map, IntPtr from)
+        {
+            if (map == null || map.Fields == null || from == IntPtr.Zero) { return IntPtr.Zero; }
+            AppField src = null;
+            for (int i = 0; i < map.Fields.Count; i++)
+            {
+                if (map.Fields[i].Handle == from) { src = map.Fields[i]; break; }
+            }
+            if (src == null) { return IntPtr.Zero; }
+            AppField best = null;
+            for (int i = 0; i < map.Fields.Count; i++)
+            {
+                AppField f = map.Fields[i];
+                if (f.Handle == from || !f.Visible) { continue; }
+                if (f.Kind != "TextBox" && f.Kind != "Edit") { continue; }
+                if (IsReadOnlyOrDisabled(f.Handle)) { continue; }
+                int yBand = Math.Abs((f.Y + f.H / 2) - (src.Y + src.H / 2));
+                if (yBand > 18) { continue; }
+                if (f.X <= src.X + 8) { continue; }
+                if (best == null || f.X < best.X) { best = f; }
+            }
+            return best != null ? best.Handle : IntPtr.Zero;
+        }
+
+        private static FieldSelector FindSelectorByKey(List<FieldSelector> selectors, string key)
+        {
+            if (selectors == null || string.IsNullOrEmpty(key)) { return null; }
+            for (int i = 0; i < selectors.Count; i++)
+            {
+                FieldSelector s = selectors[i];
+                if (s != null &&
+                    string.Equals(s.FieldKey, key, StringComparison.OrdinalIgnoreCase))
+                {
+                    return s;
+                }
+            }
+            return null;
+        }
+
+        // Issue date sits on the row above expiry (same X: day / month / year).
+        private static IntPtr FindIssueBoxAboveExpiry(FieldMap map, List<FieldSelector> selectors, bool year)
+        {
+            if (map == null || map.Fields == null) { return IntPtr.Zero; }
+            string expKey = year ? FieldCatalog.ExpiryYearKey : FieldCatalog.ExpiryMonthKey;
+            FieldSelector exp = FindSelectorByKey(selectors, expKey);
+            if (exp == null) { return IntPtr.Zero; }
+
+            ResolveResult r = FieldDiscovery.ResolveField(map, exp, "Index");
+            if ((r == null || r.Handle == IntPtr.Zero) && exp.HasPosition)
+            {
+                r = FieldDiscovery.ResolveByPosition(map, exp, true);
+            }
+            if (r == null || r.Handle == IntPtr.Zero) { return IntPtr.Zero; }
+
+            AppField src = null;
+            for (int i = 0; i < map.Fields.Count; i++)
+            {
+                if (map.Fields[i].Handle == r.Handle) { src = map.Fields[i]; break; }
+            }
+            if (src == null) { return IntPtr.Zero; }
+
+            AppField best = null;
+            int bestDy = int.MaxValue;
+            for (int i = 0; i < map.Fields.Count; i++)
+            {
+                AppField f = map.Fields[i];
+                if (f.Handle == src.Handle || !f.Visible) { continue; }
+                if (f.Kind != "TextBox" && f.Kind != "Edit") { continue; }
+                if (IsReadOnlyOrDisabled(f.Handle)) { continue; }
+                int dx = Math.Abs((f.X + f.W / 2) - (src.X + src.W / 2));
+                if (dx > 28) { continue; }
+                int dy = src.Y - f.Y;
+                if (dy < 12 || dy > 160) { continue; }
+                if (dy < bestDy)
+                {
+                    bestDy = dy;
+                    best = f;
+                }
+            }
+            return best != null ? best.Handle : IntPtr.Zero;
+        }
+
+        // After نوع الهوية, Coding often tabs into the locked issue-day box.
+        private static void LeaveLockedIssueDayFocus(
+            IntPtr window, FieldMap map, List<FieldSelector> selectors, Action<string, string> log)
+        {
+            IntPtr day = ResolveIssueDayHandle(map, selectors);
+            IntPtr focus = IntPtr.Zero;
+            try { focus = Win32Interop.GetFocus(); } catch { }
+            if (focus == IntPtr.Zero) { return; }
+            bool onDay = (day != IntPtr.Zero && focus == day) || IsReadOnlyOrDisabled(focus);
+            if (!onDay) { return; }
+            if (log != null)
+            {
+                log("issueDay: focus landed on locked day — TAB to month without writing", "INFO");
+            }
+            try { Win32Driver.SendShortcut(window, "{TAB}", 120); } catch { }
+        }
+
+        private static void TypeDigits(IntPtr window, string digits, Action<string, string> log)
+        {
+            if (string.IsNullOrEmpty(digits)) { return; }
+            string keys = Regex.Replace(digits, "\\D", "");
+            if (keys.Length == 0) { keys = digits; }
+            try { Win32Driver.SendShortcut(window, keys, 160); }
+            catch (Exception ex)
+            {
+                if (log != null) { log("issueDate type failed — " + ex.Message, "WARN"); }
+            }
+        }
+
+        // Write month/year without touching the locked auto-filled day.
+        private static FieldFillResult FillIssueDatePart(
+            IntPtr window,
+            FieldMap map,
+            List<FieldSelector> selectors,
+            FieldSelector s,
+            string val,
+            bool legalFormDone,
+            Dictionary<long, bool> textBoxesBeforeLegal,
+            bool watch,
+            int stepMs,
+            Action<string, string> log)
+        {
+            string key = s != null && s.FieldKey != null ? s.FieldKey : "";
+            FieldFillResult fr = new FieldFillResult();
+            fr.FieldKey = key;
+            fr.Value = val;
+            fr.Kind = s != null ? s.Kind : "";
+            bool year = string.Equals(key, FieldCatalog.IssueYearKey, StringComparison.OrdinalIgnoreCase) ||
+                        string.Equals(s != null ? s.DatePart : "", "year", StringComparison.OrdinalIgnoreCase);
+
+            LeaveLockedIssueDayFocus(window, map, selectors, log);
+
+            IntPtr dayHwnd = ResolveIssueDayHandle(map, selectors);
+            ResolveResult r = ResolveFieldAfterLegalForm(
+                map, s, key, legalFormDone, textBoxesBeforeLegal, log);
+            IntPtr hwnd = r != null ? r.Handle : IntPtr.Zero;
+            fr.Tier = r != null ? r.Tier : "None";
+
+            if (hwnd != IntPtr.Zero && dayHwnd != IntPtr.Zero && hwnd == dayHwnd)
+            {
+                IntPtr shifted = ControlToTheRight(map, dayHwnd);
+                if (year && shifted != IntPtr.Zero)
+                {
+                    IntPtr yearBox = ControlToTheRight(map, shifted);
+                    if (yearBox != IntPtr.Zero) { shifted = yearBox; }
+                }
+                if (log != null)
+                {
+                    log(key + ": map landed on locked issue day — using box to the right", "WARN");
+                }
+                hwnd = shifted;
+                fr.Tier = "RightOfDay";
+            }
+            if (hwnd == IntPtr.Zero && dayHwnd != IntPtr.Zero)
+            {
+                IntPtr monthBox = ControlToTheRight(map, dayHwnd);
+                if (year)
+                {
+                    hwnd = monthBox != IntPtr.Zero ? ControlToTheRight(map, monthBox) : IntPtr.Zero;
+                    if (hwnd != IntPtr.Zero) { fr.Tier = "RightOfMonth"; }
+                }
+                else
+                {
+                    hwnd = monthBox;
+                    if (hwnd != IntPtr.Zero) { fr.Tier = "RightOfDay"; }
+                }
+            }
+            if (hwnd == IntPtr.Zero)
+            {
+                hwnd = FindIssueBoxAboveExpiry(map, selectors, year);
+                if (hwnd != IntPtr.Zero) { fr.Tier = "AboveExpiry"; }
+            }
+
+            if (hwnd == IntPtr.Zero)
+            {
+                LeaveLockedIssueDayFocus(window, map, selectors, log);
+                if (year)
+                {
+                    try { Win32Driver.SendShortcut(window, "{TAB}", 120); } catch { }
+                }
+                TypeDigits(window, val, log);
+                fr.Ok = true;
+                fr.Tier = "TabFromDay";
+                fr.Note = "typed via TAB from locked day (unmapped box)";
+                if (log != null) { log(key + ": " + fr.Note + " value='" + val + "'", "WARN"); }
+                return fr;
+            }
+
+            if (watch)
+            {
+                try { Win32Driver.Highlight(hwnd, 2); } catch { }
+                Thread.Sleep(stepMs);
+            }
+
+            Win32Driver.RectInfo rect;
+            try { rect = Win32Driver.GetRect(hwnd); }
+            catch
+            {
+                rect = new Win32Driver.RectInfo();
+            }
+            bool combined = rect.W >= 70;
+            if (combined)
+            {
+                // Masked dd/MM/yyyy — click month (~40%) or year (~75%), never the day third.
+                int x = year
+                    ? rect.X + (rect.W * 3 / 4)
+                    : rect.X + (rect.W * 2 / 5);
+                int y = rect.Y + Math.Max(4, rect.H / 2);
+                try { Win32Driver.SetForeground(window); } catch { }
+                Win32Driver.ClickScreen(x, y, 80);
+                TypeDigits(window, val, log);
+                fr.Ok = true;
+                fr.Note = "segment click, day not written";
+                log(key + ": " + fr.Note + " @" + x + "," + y + " value='" + val + "'", "OK");
+                return fr;
+            }
+
+            try { Win32Driver.ClickPhysical(hwnd, 80); } catch { }
+            // Do not SetText("") — clearing a shared date HWND wipes the auto day.
+            W32ActionResult w = Win32Driver.SetText(hwnd, val);
+            string actual = w != null ? w.Actual : "";
+            fr.Ok = (w != null && w.Ok) || DatePartPresent(actual, val);
+            fr.Note = fr.Ok ? "wrote without clearing day" : ("screen shows '" + actual + "'");
+            log(key + ": " + fr.Note + " value='" + val + "'", fr.Ok ? "OK" : "WARN");
+            return fr;
+        }
+
+        private static bool DatePartPresent(string actual, string expected)
+        {
+            if (string.IsNullOrEmpty(expected)) { return true; }
+            if (actual == null) { actual = ""; }
+            if (actual.IndexOf(expected, StringComparison.Ordinal) >= 0) { return true; }
+            string expDigits = Regex.Replace(expected, "\\D", "");
+            string actDigits = Regex.Replace(actual, "\\D", "");
+            return expDigits.Length > 0 && actDigits.IndexOf(expDigits, StringComparison.Ordinal) >= 0;
         }
 
         // Reject values that clearly belong to another column / a file path.
