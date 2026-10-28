@@ -73,6 +73,8 @@ namespace RbaCore
                 r.Note = "nothing under cursor";
                 return r;
             }
+            r.ClickScreenX = screenPt.X;
+            r.ClickScreenY = screenPt.Y;
 
             IntPtr target;
             if (prefer == UiPickKind.Button)
@@ -268,7 +270,11 @@ namespace RbaCore
             s.Screen = screen != null ? screen : "";
             s.ConfirmedAt = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
             s.SourceKey = "click-map";
-            if (pick.WindowlessClick)
+            // Pull-codes grid/button must replay the exact operator click, not the HWND centre.
+            bool pullClickPoint =
+                string.Equals(fieldKey, PullCodes.GridKey, StringComparison.OrdinalIgnoreCase) ||
+                string.Equals(fieldKey, PullCodes.SearchButtonKey, StringComparison.OrdinalIgnoreCase);
+            if (pick.WindowlessClick || pullClickPoint)
             {
                 FieldDiscovery.StampClickPoint(s, pick.FormRoot, pick.ClickScreenX, pick.ClickScreenY);
             }

@@ -24,9 +24,6 @@ namespace RbaCore
         public string SheetPath;
         public string ScansRoot;
         public string ExportFolder;
-        public string StampImagePath;
-        public string SignatureImagePath;
-        public string Signature2ImagePath;
         public int? DocImageMaxWidth;
         public string SftpLocalRoot;
         public string SftpHost;
@@ -121,9 +118,6 @@ namespace RbaCore
                     r.SheetPath = ToStr(Get(paths, "sheetPath"));
                     r.ScansRoot = ToStr(Get(paths, "scansRoot"));
                     r.ExportFolder = ToStr(Get(paths, "exportFolder"));
-                    r.StampImagePath = ToStr(Get(paths, "stampImagePath"));
-                    r.SignatureImagePath = ToStr(Get(paths, "signatureImagePath"));
-                    r.Signature2ImagePath = ToStr(Get(paths, "signature2ImagePath"));
                     if (paths.ContainsKey("docImageMaxWidth") && paths["docImageMaxWidth"] != null)
                     {
                         r.DocImageMaxWidth = ToInt(paths["docImageMaxWidth"], 1100);
@@ -257,9 +251,6 @@ namespace RbaCore
             if (!string.IsNullOrEmpty(b.SheetPath)) { cfg.SheetPath = b.SheetPath; }
             if (!string.IsNullOrEmpty(b.ScansRoot)) { cfg.ScansRoot = b.ScansRoot; }
             if (!string.IsNullOrEmpty(b.ExportFolder)) { cfg.ExportFolder = b.ExportFolder; }
-            if (!string.IsNullOrEmpty(b.StampImagePath)) { cfg.StampImagePath = b.StampImagePath; }
-            if (!string.IsNullOrEmpty(b.SignatureImagePath)) { cfg.SignatureImagePath = b.SignatureImagePath; }
-            if (!string.IsNullOrEmpty(b.Signature2ImagePath)) { cfg.Signature2ImagePath = b.Signature2ImagePath; }
             if (b.DocImageMaxWidth.HasValue && b.DocImageMaxWidth.Value >= 200)
             {
                 cfg.DocImageMaxWidth = b.DocImageMaxWidth.Value;
@@ -340,9 +331,6 @@ namespace RbaCore
             sb.AppendLine("    \"sheetPath\": " + Q(cfg.SheetPath) + ",");
             sb.AppendLine("    \"scansRoot\": " + Q(cfg.ScansRoot) + ",");
             sb.AppendLine("    \"exportFolder\": " + Q(cfg.ExportFolder) + ",");
-            sb.AppendLine("    \"stampImagePath\": " + Q(cfg.StampImagePath) + ",");
-            sb.AppendLine("    \"signatureImagePath\": " + Q(cfg.SignatureImagePath) + ",");
-            sb.AppendLine("    \"signature2ImagePath\": " + Q(cfg.Signature2ImagePath) + ",");
             sb.AppendLine("    \"docImageMaxWidth\": " + cfg.DocImageMaxWidth + ",");
             sb.AppendLine("    \"sftpLocalRoot\": " + Q(cfg.SftpLocalRoot) + ",");
             sb.AppendLine("    \"sftpHost\": " + Q(cfg.SftpHost) + ",");

@@ -508,6 +508,12 @@ namespace RbaCore
                 if (NonEntryKey.IsMatch(key)) { continue; }
                 // Hard skip — job is never part of this loop.
                 if (string.Equals(key, "job", StringComparison.OrdinalIgnoreCase)) { continue; }
+                // Identity issue day is auto-filled and locked in Coding — writing it interrupts fill.
+                if (string.Equals(key, FieldCatalog.IssueDayKey, StringComparison.OrdinalIgnoreCase))
+                {
+                    log("issueDay: locked/auto-filled — skip", "INFO");
+                    continue;
+                }
 
                 // Refresh pre-legal snapshot immediately before writing الشكل القانوني.
                 if (string.Equals(key, "legalForm", StringComparison.OrdinalIgnoreCase))

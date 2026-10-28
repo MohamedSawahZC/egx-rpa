@@ -31,9 +31,6 @@ namespace RbaUi
         private CheckBox _chkSftpOffline;
         private TextBox _txtSheet;
         private TextBox _txtScans;
-        private TextBox _txtStamp;
-        private TextBox _txtSign1;
-        private TextBox _txtSign2;
         private NumericUpDown _numDocWidth;
         private TextBox _txtExport;
         private TextBox _txtApp;
@@ -346,9 +343,6 @@ namespace RbaUi
 
             _txtSheet = AddSettingsPath(canvas, "ملف العمل", ref y, true, left, labelW, fieldX, browseW, contentW, rowH);
             _txtScans = AddSettingsPath(canvas, "مجلد المستندات", ref y, false, left, labelW, fieldX, browseW, contentW, rowH);
-            _txtStamp = AddSettingsPath(canvas, "صورة الختم", ref y, true, left, labelW, fieldX, browseW, contentW, rowH, true);
-            _txtSign1 = AddSettingsPath(canvas, "التوقيع الأول", ref y, true, left, labelW, fieldX, browseW, contentW, rowH, true);
-            _txtSign2 = AddSettingsPath(canvas, "التوقيع الثاني", ref y, true, left, labelW, fieldX, browseW, contentW, rowH, true);
             Label lblW = new Label();
             lblW.Text = "عرض الصورة بعد السحب";
             lblW.AutoSize = false;
@@ -524,13 +518,6 @@ namespace RbaUi
             Control parent, string label, ref int y, bool file,
             int left, int labelW, int fieldX, int browseW, int contentW, int rowH)
         {
-            return AddSettingsPath(parent, label, ref y, file, left, labelW, fieldX, browseW, contentW, rowH, false);
-        }
-
-        private TextBox AddSettingsPath(
-            Control parent, string label, ref int y, bool file,
-            int left, int labelW, int fieldX, int browseW, int contentW, int rowH, bool imageFile)
-        {
             Label l = new Label();
             l.Text = label;
             l.AutoSize = false;
@@ -547,15 +534,12 @@ namespace RbaUi
             b.SetBounds(browseX, y, browseW, 26);
             TextBox box = t;
             bool isFile = file;
-            bool isImage = imageFile;
             b.Click += delegate
             {
                 if (isFile)
                 {
                     OpenFileDialog d = new OpenFileDialog();
-                    d.Filter = isImage
-                        ? "Images|*.png;*.jpg;*.jpeg;*.bmp|All|*.*"
-                        : "All|*.*|Sheets|*.csv;*.xlsx|Exe|*.exe";
+                    d.Filter = "All|*.*|Sheets|*.csv;*.xlsx|Exe|*.exe";
                     if (d.ShowDialog(this) == DialogResult.OK) { box.Text = d.FileName; }
                 }
                 else
@@ -673,9 +657,6 @@ namespace RbaUi
             ApplySftpSourceUi();
             _txtSheet.Text = _cfg.SheetPath;
             _txtScans.Text = _cfg.ScansRoot;
-            if (_txtStamp != null) { _txtStamp.Text = _cfg.StampImagePath ?? ""; }
-            if (_txtSign1 != null) { _txtSign1.Text = _cfg.SignatureImagePath ?? ""; }
-            if (_txtSign2 != null) { _txtSign2.Text = _cfg.Signature2ImagePath ?? ""; }
             if (_numDocWidth != null)
             {
                 int w = _cfg.DocImageMaxWidth >= 400 ? _cfg.DocImageMaxWidth : 1100;
@@ -778,9 +759,6 @@ namespace RbaUi
             if (_txtSftpInbox != null) { _cfg.SftpRemoteInbox = _txtSftpInbox.Text.Trim(); }
             _cfg.SheetPath = _txtSheet.Text.Trim();
             _cfg.ScansRoot = _txtScans.Text.Trim();
-            if (_txtStamp != null) { _cfg.StampImagePath = _txtStamp.Text.Trim(); }
-            if (_txtSign1 != null) { _cfg.SignatureImagePath = _txtSign1.Text.Trim(); }
-            if (_txtSign2 != null) { _cfg.Signature2ImagePath = _txtSign2.Text.Trim(); }
             if (_numDocWidth != null) { _cfg.DocImageMaxWidth = (int)_numDocWidth.Value; }
             _cfg.ExportFolder = _txtExport.Text.Trim();
             _cfg.App.ExePath = _txtApp.Text.Trim();

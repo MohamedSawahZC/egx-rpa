@@ -2,8 +2,8 @@
 //  PullCodes.cs - existing client: «سحب الأكواد» instead of add-customer.
 //
 //  Same parent menu as إدخال بيانات العملاء (typically «التكويد»), then leaf
-//  «سحب الأكواد». Type CODE12, click زر البحث, click table once, then F2/F9.
-//  Fixed path — no «سحب» cell click, no ENTER fallback.
+//  «سحب الأكواد». Type CODE12, click زر البحث, click the mapped grid point
+//  (عمود سحب), then F2/F9. Falls back to the سحب cell — never the table centre.
 // =============================================================================
 using System;
 using System.Collections.Generic;
@@ -384,16 +384,23 @@ namespace RbaCore
 
             IntPtr button = ResolveMapped(map, selectors, SearchButtonKey, log);
             if (button == IntPtr.Zero) { button = FlexGridSurface.AutoSearchButton(map); }
-            if (button == IntPtr.Zero)
-            {
-                result.Note = "ZERO-TOLERANCE: زر البحث غير موجود في سحب الأكواد — لن يُرسل F2/F9";
-                log("pull-codes: " + result.Note, "ERROR");
-                return result;
-            }
             try
             {
-                Win32Driver.ClickPhysical(button, 220);
-                log("pull-codes: search button clicked", "OK");
+                if (button != IntPtr.Zero)
+                {
+                    Win32Driver.ClickPhysical(button, 220);
+                    log("pull-codes: search button clicked", "OK");
+                }
+                else if (TryClickSavedPosition(screen, selectors, SearchButtonKey, log))
+                {
+                    log("pull-codes: search button via saved position", "OK");
+                }
+                else
+                {
+                    result.Note = "ZERO-TOLERANCE: زر البحث غير موجود في سحب الأكواد — لن يُرسل F2/F9";
+                    log("pull-codes: " + result.Note, "ERROR");
+                    return result;
+                }
             }
             catch (Exception ex)
             {
@@ -434,7 +441,7 @@ namespace RbaCore
             {
                 Win32Driver.SetForeground(screen);
                 Thread.Sleep(80);
-                if (!FlexGridSurface.ClickTableOnce(flex, log))
+                if (!ClickPullGrid(screen, flex, selectors, log))
                 {
                     result.Note = "ZERO-TOLERANCE: فشل ضغط الجدول قبل F2/F9";
                     log("pull-codes: " + result.Note, "ERROR");
@@ -905,7 +912,7 @@ namespace RbaCore
             {
                 Win32Driver.SetForeground(screen);
                 Thread.Sleep(80);
-                if (!FlexGridSurface.ClickTableOnce(flex, log))
+                if (!ClickPullGrid(screen, flex, selectors, log))
                 {
                     result.Note = "ZERO-TOLERANCE: فشل ضغط الجدول قبل F2/F9";
                     log("pull-codes: " + result.Note, "ERROR");
@@ -1084,6 +1091,81 @@ namespace RbaCore
                 if (area > bestArea) { bestArea = area; best = f.Handle; }
             }
             return best;
+        }
+
+        // Replay the operator click from Setup. Old full-grid stamps are shrunk so the
+        // hit stays on عمود سحب instead of the table centre.
+        private static bool ClickPullGrid(
+            IntPtr screen, IntPtr flex, List<FieldSelector> selectors, Action<string, string> log)
+        {
+            if (TryClickSavedPosition(screen, selectors, GridKey, log))
+            {
+                return true;
+            }
+            return FlexGridSurface.ClickSahbCell(flex, log);
+        }
+
+        private static bool TryClickSavedPosition(
+            IntPtr screen, List<FieldSelector> selectors, string fieldKey, Action<string, string> log)
+        {
+            if (selectors == null || screen == IntPtr.Zero) { return false; }
+            for (int i = 0; i < selectors.Count; i++)
+            {
+                FieldSelector s = selectors[i];
+                if (s == null || !string.Equals(s.FieldKey, fieldKey, StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+                int xRel, yRel;
+                if (!int.TryParse(s.PosX, out xRel) || !int.TryParse(s.PosY, out yRel))
+                {
+                    continue;
+                }
+                int w = 16;
+                int h = 16;
+                int parsedW, parsedH;
+                if (int.TryParse(s.PosW, out parsedW) && parsedW > 0) { w = parsedW; }
+                if (int.TryParse(s.PosH, out parsedH) && parsedH > 0) { h = parsedH; }
+                if (w > 160) { w = 24; }
+                if (h > 60) { h = 24; }
+                int hitX = xRel + w / 2;
+                int hitY = yRel + h / 2;
+                if (hitX < 36 && hitY < 36)
+                {
+                    if (log != null)
+                    {
+                        log("pull-codes: ignoring title-bar map for «" + fieldKey +
+                            "» at rel " + hitX + "," + hitY, "WARN");
+                    }
+                    continue;
+                }
+                if (hitY < 28)
+                {
+                    if (log != null)
+                    {
+                        log("pull-codes: ignoring chrome map for «" + fieldKey + "»", "WARN");
+                    }
+                    continue;
+                }
+                try
+                {
+                    Win32Driver.RectInfo form = Win32Driver.GetRect(screen);
+                    int x = form.X + hitX;
+                    int y = form.Y + hitY;
+                    try { Win32Driver.SetForeground(screen); } catch { }
+                    Win32Driver.ClickScreen(x, y, 220);
+                    if (log != null)
+                    {
+                        log("pull-codes: clicked saved pos " + x + "," + y + " for «" + fieldKey + "»", "OK");
+                    }
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    if (log != null) { log("pull-codes: saved click failed — " + ex.Message, "WARN"); }
+                }
+            }
+            return false;
         }
 
         private static IntPtr ResolveMapped(

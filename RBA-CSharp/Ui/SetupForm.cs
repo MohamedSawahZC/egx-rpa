@@ -36,9 +36,6 @@ namespace RbaUi
         private Label _lblSftpProbe;
         private TextBox _txtSheet;
         private TextBox _txtScans;
-        private TextBox _txtStamp;
-        private TextBox _txtSign1;
-        private TextBox _txtSign2;
         private TextBox _txtExport;
         private TextBox _txtExe;
         private TextBox _txtTitle;
@@ -201,9 +198,6 @@ namespace RbaUi
 
             _txtSheet = AddPathRow(head, "ملف العمل (من المصدر)", cfg.SheetPath, ref y, true);
             _txtScans = AddPathRow(head, "مجلد المستندات (من المصدر)", cfg.ScansRoot, ref y, false);
-            _txtStamp = AddPathRow(head, "صورة الختم", cfg.StampImagePath, ref y, true, true);
-            _txtSign1 = AddPathRow(head, "التوقيع الأول", cfg.SignatureImagePath, ref y, true, true);
-            _txtSign2 = AddPathRow(head, "التوقيع الثاني", cfg.Signature2ImagePath, ref y, true, true);
             _txtExport = AddPathRow(head, "مجلد التصدير", cfg.ExportFolder, ref y, false);
             _txtExe = AddPathRow(head, "برنامج التكويد", cfg.App.ExePath, ref y, true);
 
@@ -1413,7 +1407,7 @@ namespace RbaUi
                     hit.Control = flex;
                     hit.Class = Win32Driver.GetClassName(flex);
                     hit.ControlKind = "Grid";
-                    hit.WindowlessClick = false;
+                    // Keep the operator click point — replay uses it, not the grid centre.
                     Log("التقاط الجدول ← MSHFlexGrid بدلاً من الإطار");
                 }
             }
@@ -1986,23 +1980,15 @@ namespace RbaUi
 
         private TextBox AddPathRow(Control parent, string label, string value, ref int y, bool file)
         {
-            return AddPathRow(parent, label, value, ref y, file, false);
-        }
-
-        private TextBox AddPathRow(Control parent, string label, string value, ref int y, bool file, bool imageFile)
-        {
             TextBox box = MakeInput(value, true);
             Button browse = UiTheme.MakeButton("…", false);
             bool isFile = file;
-            bool isImage = imageFile;
             browse.Click += delegate
             {
                 if (isFile)
                 {
                     OpenFileDialog d = new OpenFileDialog();
-                    d.Filter = isImage
-                        ? "Images|*.png;*.jpg;*.jpeg;*.bmp|All|*.*"
-                        : "Sheets|*.csv;*.xlsx|All|*.*";
+                    d.Filter = "Sheets|*.csv;*.xlsx|All|*.*";
                     if (d.ShowDialog(this) == DialogResult.OK) { box.Text = d.FileName; }
                 }
                 else
@@ -2198,9 +2184,6 @@ namespace RbaUi
             ApplySftpSourceUi();
             _txtSheet.Text = _cfg.SheetPath ?? "";
             _txtScans.Text = _cfg.ScansRoot ?? "";
-            if (_txtStamp != null) { _txtStamp.Text = _cfg.StampImagePath ?? ""; }
-            if (_txtSign1 != null) { _txtSign1.Text = _cfg.SignatureImagePath ?? ""; }
-            if (_txtSign2 != null) { _txtSign2.Text = _cfg.Signature2ImagePath ?? ""; }
             _txtExport.Text = _cfg.ExportFolder ?? "";
             _txtExe.Text = _cfg.App.ExePath ?? "";
             _txtTitle.Text = _cfg.App.WindowTitlePattern ?? "";
@@ -2698,9 +2681,6 @@ namespace RbaUi
             if (_txtSftpInbox != null) { _cfg.SftpRemoteInbox = _txtSftpInbox.Text.Trim(); }
             _cfg.SheetPath = _txtSheet.Text.Trim();
             _cfg.ScansRoot = _txtScans.Text.Trim();
-            if (_txtStamp != null) { _cfg.StampImagePath = _txtStamp.Text.Trim(); }
-            if (_txtSign1 != null) { _cfg.SignatureImagePath = _txtSign1.Text.Trim(); }
-            if (_txtSign2 != null) { _cfg.Signature2ImagePath = _txtSign2.Text.Trim(); }
             _cfg.ExportFolder = _txtExport.Text.Trim();
             _cfg.App.ExePath = _txtExe.Text.Trim();
             _cfg.App.WindowTitlePattern = _txtTitle.Text.Trim();

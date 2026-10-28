@@ -47,7 +47,7 @@ namespace RbaCore
         }
 
         // «سحب الأكواد» grid: col0 سحب | col1 اسم+جنسية | col2 كود موحد 12 | col3 شكل قانوني/فرعي.
-        // Legacy: click the سحب cell. Prefer ClickTableOnce for operator flow (search → table → F2/F9).
+        // سحب الأكواد uses ClickSahbCell (or a saved click point). ClickTableOnce stays for post-save confirm.
         public static bool ClickSahbCell(IntPtr flex, Action<string, string> log)
         {
             if (flex == IntPtr.Zero || !Win32Interop.IsWindow(flex)) { return false; }

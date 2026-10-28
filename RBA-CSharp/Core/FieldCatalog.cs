@@ -69,9 +69,9 @@ namespace RbaCore
             new FieldCatalogItem("nationalId", "الرقم القومي", "NationalId", "", "انقر خانة الرقم القومي", UiPickKind.Control),
             new FieldCatalogItem("idType", "كود نوع الهوية (مثل 7)", "IdTypeCode", "",
                 "انقر خانة كود نوع الهوية — وليس القائمة المنسدلة", UiPickKind.Control),
-            // Fake/test ID dates — Day → Month → Year (same as DOB).
-            new FieldCatalogItem(IssueDayKey, "يوم إصدار الهوية (١/٣)", "IdIssueDate", "day",
-                "تاريخ الإصدار: انقر خانة اليوم أولاً", UiPickKind.Control),
+            // Issue date: day is locked/auto-filled in Coding — month then year are written.
+            new FieldCatalogItem(IssueDayKey, "يوم إصدار الهوية (تلقائي — لا يُملأ)", "IdIssueDate", "day",
+                "تاريخ الإصدار: اليوم يُملأ تلقائياً ومقفول — التقاط اختياري (Esc)", UiPickKind.Control),
             new FieldCatalogItem(IssueMonthKey, "شهر إصدار الهوية (٢/٣)", "IdIssueDate", "month",
                 "تاريخ الإصدار: انقر خانة الشهر ثانياً", UiPickKind.Control),
             new FieldCatalogItem(IssueYearKey, "سنة إصدار الهوية (٣/٣)", "IdIssueDate", "year",

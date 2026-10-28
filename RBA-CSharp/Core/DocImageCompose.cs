@@ -1,5 +1,5 @@
 // =============================================================================
-//  DocImageCompose.cs - after SFTP pull: PNG→JPG, resize, white canvas + overlays.
+//  DocImageCompose.cs - after SFTP pull: PNG→JPG, resize, white canvas.
 // =============================================================================
 using System;
 using System.Collections.Generic;
@@ -34,7 +34,7 @@ namespace RbaCore
                 if (n > 0) { ok += n; }
                 else { fail++; }
             }
-            log("docs compose jpg+overlays foldersOk=" + ok + " emptyOrFail=" + fail +
+            log("docs compose jpg foldersOk=" + ok + " emptyOrFail=" + fail +
                 " dest=" + docsRoot, ok > 0 ? "OK" : "INFO");
         }
 
@@ -45,7 +45,6 @@ namespace RbaCore
             int done = 0;
             for (int i = 0; i < files.Count; i++)
             {
-                if (IsOverlaySource(files[i], cfg)) { continue; }
                 try
                 {
                     if (ComposeOne(files[i], cfg)) { done++; }
@@ -81,24 +80,6 @@ namespace RbaCore
             return list;
         }
 
-        private static bool IsOverlaySource(string path, BotConfig cfg)
-        {
-            if (cfg == null || string.IsNullOrEmpty(path)) { return false; }
-            return SameFile(path, cfg.StampImagePath) ||
-                   SameFile(path, cfg.SignatureImagePath) ||
-                   SameFile(path, cfg.Signature2ImagePath);
-        }
-
-        private static bool SameFile(string a, string b)
-        {
-            if (string.IsNullOrWhiteSpace(a) || string.IsNullOrWhiteSpace(b)) { return false; }
-            try
-            {
-                return string.Equals(Path.GetFullPath(a), Path.GetFullPath(b), StringComparison.OrdinalIgnoreCase);
-            }
-            catch { return false; }
-        }
-
         private static bool ComposeOne(string path, BotConfig cfg)
         {
             int maxW = cfg != null && cfg.DocImageMaxWidth > 200 ? cfg.DocImageMaxWidth : DefaultMaxWidth;
@@ -110,9 +91,9 @@ namespace RbaCore
             using (Bitmap sized = FitWidth(raw, maxW))
             using (Bitmap photo = ToBlackAndWhite(sized))
             {
-                int marginX = Math.Max(48, photo.Width / 10);
-                int marginTop = Math.Max(56, photo.Height / 12);
-                int marginBot = Math.Max(88, photo.Height / 8);
+                int marginX = Math.Max(32, photo.Width / 14);
+                int marginTop = Math.Max(32, photo.Height / 16);
+                int marginBot = Math.Max(32, photo.Height / 16);
                 int canvasW = photo.Width + (marginX * 2);
                 int canvasH = photo.Height + marginTop + marginBot;
 
@@ -126,16 +107,6 @@ namespace RbaCore
                         g.SmoothingMode = SmoothingMode.HighQuality;
                         g.PixelOffsetMode = PixelOffsetMode.HighQuality;
                         g.DrawImage(photo, marginX, marginTop, photo.Width, photo.Height);
-
-                        int overlayH = Math.Max(42, Math.Min(110, canvasH / 9));
-                        DrawOverlay(g, cfg != null ? cfg.StampImagePath : "",
-                            canvasW - marginX - OverlayWidth(cfg != null ? cfg.StampImagePath : "", overlayH),
-                            12, overlayH);
-                        DrawOverlay(g, cfg != null ? cfg.SignatureImagePath : "",
-                            marginX, canvasH - overlayH - 12, overlayH);
-                        DrawOverlay(g, cfg != null ? cfg.Signature2ImagePath : "",
-                            canvasW - marginX - OverlayWidth(cfg != null ? cfg.Signature2ImagePath : "", overlayH),
-                            canvasH - overlayH - 12, overlayH);
                     }
                     SaveJpegUnderLimit(canvas, dest);
                 }
@@ -177,7 +148,7 @@ namespace RbaCore
             return b;
         }
 
-        // Photo, stamp, and both signatures share the same grayscale conversion.
+        // Identity photo is converted to grayscale before the white canvas.
         private static Bitmap ToBlackAndWhite(Bitmap src)
         {
             Bitmap dest = new Bitmap(src.Width, src.Height, PixelFormat.Format24bppRgb);
@@ -198,41 +169,6 @@ namespace RbaCore
                     0, 0, src.Width, src.Height, GraphicsUnit.Pixel, attr);
             }
             return dest;
-        }
-
-        private static int OverlayWidth(string path, int height)
-        {
-            if (string.IsNullOrWhiteSpace(path) || !File.Exists(path) || height <= 0) { return height; }
-            try
-            {
-                using (Image img = LoadUnlocked(path))
-                {
-                    if (img.Height <= 0) { return height; }
-                    return Math.Max(24, (int)Math.Round(img.Width * (height / (double)img.Height)));
-                }
-            }
-            catch { return height; }
-        }
-
-        private static void DrawOverlay(Graphics g, string path, int x, int y, int height)
-        {
-            if (g == null || string.IsNullOrWhiteSpace(path) || !File.Exists(path) || height <= 0)
-            {
-                return;
-            }
-            try
-            {
-                using (Image img = LoadUnlocked(path))
-                using (Bitmap color = img as Bitmap ?? new Bitmap(img))
-                using (Bitmap bw = ToBlackAndWhite(color))
-                {
-                    int w = OverlayWidth(path, height);
-                    if (x < 0) { x = 0; }
-                    if (y < 0) { y = 0; }
-                    g.DrawImage(bw, x, y, w, height);
-                }
-            }
-            catch { }
         }
 
         private static void SaveJpegUnderLimit(Bitmap canvas, string dest)

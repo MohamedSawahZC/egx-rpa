@@ -85,10 +85,6 @@ namespace RbaCore
         public string SheetPath = "";
         public string ScansRoot = "";
         public string ExportFolder = "";
-        // Overlays stamped onto each pulled KYC image (white canvas + JPG).
-        public string StampImagePath = "";
-        public string SignatureImagePath = "";
-        public string Signature2ImagePath = "";
         public int DocImageMaxWidth = 1100;
         // Local SFTP lab root (inbox\kyc_export.csv + inbox\docs\{NID}\).
         public string SftpLocalRoot = @"C:\RPA-SFTP";
@@ -189,9 +185,6 @@ namespace RbaCore
             sb.AppendLine("  \"sheetPath\": " + Q(SheetPath) + ",");
             sb.AppendLine("  \"scansRoot\": " + Q(ScansRoot) + ",");
             sb.AppendLine("  \"exportFolder\": " + Q(ExportFolder) + ",");
-            sb.AppendLine("  \"stampImagePath\": " + Q(StampImagePath) + ",");
-            sb.AppendLine("  \"signatureImagePath\": " + Q(SignatureImagePath) + ",");
-            sb.AppendLine("  \"signature2ImagePath\": " + Q(Signature2ImagePath) + ",");
             sb.AppendLine("  \"docImageMaxWidth\": " + DocImageMaxWidth + ",");
             sb.AppendLine("  \"sftpLocalRoot\": " + Q(SftpLocalRoot) + ",");
             sb.AppendLine("  \"sftpHost\": " + Q(SftpHost) + ",");
@@ -298,9 +291,6 @@ namespace RbaCore
             cfg.SheetPath = ExtractString(json, "sheetPath", cfg.SheetPath);
             cfg.ScansRoot = ExtractString(json, "scansRoot", cfg.ScansRoot);
             cfg.ExportFolder = ExtractString(json, "exportFolder", cfg.ExportFolder);
-            cfg.StampImagePath = ExtractString(json, "stampImagePath", cfg.StampImagePath);
-            cfg.SignatureImagePath = ExtractString(json, "signatureImagePath", cfg.SignatureImagePath);
-            cfg.Signature2ImagePath = ExtractString(json, "signature2ImagePath", cfg.Signature2ImagePath);
             int imgW = ExtractInt(json, "docImageMaxWidth", cfg.DocImageMaxWidth);
             if (imgW >= 200 && imgW <= 4000) { cfg.DocImageMaxWidth = imgW; }
             cfg.SftpLocalRoot = ExtractString(json, "sftpLocalRoot", cfg.SftpLocalRoot);
