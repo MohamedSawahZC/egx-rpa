@@ -324,16 +324,16 @@ namespace RbaCore
             }
             else
             {
-                log("pull-codes: searching سحب with code «" + code + "» (NID gate " +
-                    expectedNationalId + ")", "INFO");
+                log("pull-codes: searching سحب with code «" + code + "» then click → F2/F9", "INFO");
             }
 
             BotAppConfig app = cfg != null && cfg.App != null ? cfg.App : new BotAppConfig();
             string[] path = MenuPath(app);
             log("pull-codes: menu «" + path[0] + "» → «" + path[1] + "»", "INFO");
 
-            // Modal «الإستعلام» sits on بيانات العملاء and hides the MDI menu bar.
+            // Modal «الإستعلام» / «بيانات العملاء» hide the MDI menu and block سحب الأكواد.
             CloseOpenInquiry(appWindow, app, selectors, log);
+            CloseOpenEntryForm(appWindow, app, log);
             try
             {
                 Win32Driver.SetForeground(appWindow);
@@ -428,15 +428,7 @@ namespace RbaCore
                 return result;
             }
 
-            // Gate: refuse F2/F9 unless the result row is the expected client.
-            string identityWhy;
-            if (!PullRowMatchesExpected(flex, screen, expectedNationalId, code, selectors, log, out identityWhy))
-            {
-                result.Note = "رفض السحب — " + identityWhy;
-                log("pull-codes: " + result.Note, "ERROR");
-                return result;
-            }
-
+            // Operator flow: type code → search → click table → F2 → F9. No OCR.
             try
             {
                 Win32Driver.SetForeground(screen);
@@ -482,118 +474,6 @@ namespace RbaCore
             result.Note = "سحب: بحث → جدول → F2/F9 for CODE12 " + code;
             log("pull-codes: " + result.Note, "OK");
             return result;
-        }
-
-        // Before F2/F9: سحب grid paints CODE12 / الكود الموحد, not the 14-digit NID.
-        // Click the Setup point first, then OCR. Accept matching NID or matching search code.
-        private static bool PullRowMatchesExpected(
-            IntPtr flex,
-            IntPtr screen,
-            string expectedNationalId,
-            string searchCode,
-            List<FieldSelector> selectors,
-            Action<string, string> log,
-            out string why)
-        {
-            why = "";
-            string want = expectedNationalId != null ? expectedNationalId.Trim() : "";
-            if (want.Length != 14 || !OcrConsensus.LooksLikeEgyptianNid(want))
-            {
-                why = "ZERO-TOLERANCE: لا سحب بدون رقم قومي متوقع صالح من الشيت";
-                return false;
-            }
-            if (flex == IntPtr.Zero || !Win32Interop.IsWindow(flex))
-            {
-                why = "ZERO-TOLERANCE: شبكة سحب فارغة — لن يتم التأكيد";
-                return false;
-            }
-
-            if (!ClickPullGrid(screen, flex, selectors, log))
-            {
-                why = "ZERO-TOLERANCE: فشل نقر صف السحب عند نقطة الإعداد";
-                return false;
-            }
-            Thread.Sleep(220);
-
-            string search = FlexGridSurface.AsOperatorPullCode(searchCode);
-            string clip = DigitOcr.Harvest(flex, screen, log, false);
-            string rowNid = FlexGridSurface.FirstNationalId(clip);
-            OcrReading vote = OcrConsensus.Vote(clip, search);
-            string nin = vote != null ? vote.Nin : "";
-            string c12 = vote != null ? vote.Code12 : "";
-            if (log != null)
-            {
-                log("flexgrid: OCR vote " + (vote != null ? vote.Describe() : "(none)") +
-                    (rowNid.Length > 0 ? " NID=" + rowNid : ""), "INFO");
-            }
-
-            if (OcrConsensus.LooksLikeEgyptianNid(rowNid) &&
-                !string.Equals(rowNid, want, StringComparison.Ordinal))
-            {
-                why = "ZERO-TOLERANCE: صف السحب NID " + rowNid + " ≠ الشيت " + want;
-                return false;
-            }
-            if (OcrConsensus.LooksLikeEgyptianNid(rowNid) &&
-                string.Equals(rowNid, want, StringComparison.Ordinal))
-            {
-                if (log != null)
-                {
-                    log("pull-codes: identity OK — row NID matches sheet " + want, "OK");
-                }
-                return true;
-            }
-
-            if (search.Length >= 6 &&
-                (CodesMatchSearch(nin, search) ||
-                 CodesMatchSearch(c12, search) ||
-                 HarvestTokenMatches(clip, search)))
-            {
-                if (log != null)
-                {
-                    log("pull-codes: identity OK — row code matches search «" + search + "»", "OK");
-                }
-                return true;
-            }
-
-            why = "ZERO-TOLERANCE: تعذر تأكيد صف السحب (لا NID مطابق ولا كود مطابق لـ «" +
-                search + "») — رفض";
-            return false;
-        }
-
-        private static bool CodesMatchSearch(string got, string search)
-        {
-            string a = FlexGridSurface.AsUnifiedCode(got);
-            if (a.Length == 0) { a = FlexGridSurface.AsOperatorPullCode(got); }
-            string b = FlexGridSurface.AsOperatorPullCode(search);
-            if (a.Length < 6 || b.Length < 6) { return false; }
-            if (string.Equals(a, b, StringComparison.Ordinal)) { return true; }
-            string na = OcrConsensus.NormalizeUnified(a);
-            string nb = OcrConsensus.NormalizeUnified(b);
-            return na.Length >= 6 && string.Equals(na, nb, StringComparison.Ordinal);
-        }
-
-        private static bool HarvestTokenMatches(string clip, string search)
-        {
-            string want = OcrConsensus.NormalizeUnified(FlexGridSurface.AsOperatorPullCode(search));
-            if (want.Length < 6 || string.IsNullOrEmpty(clip)) { return false; }
-            string[] parts = clip.Split(new char[] { '\t', '\r', '\n', ' ' },
-                StringSplitOptions.RemoveEmptyEntries);
-            for (int i = 0; i < parts.Length; i++)
-            {
-                string token = OcrConsensus.NormalizeUnified(
-                    FlexGridSurface.AsOperatorPullCode(parts[i]));
-                if (token.Length >= 6 && string.Equals(token, want, StringComparison.Ordinal))
-                {
-                    return true;
-                }
-                string digits = FlexGridSurface.AsOperatorPullCode(parts[i]);
-                if (digits.Length >= want.Length &&
-                    digits.IndexOf(want, StringComparison.Ordinal) >= 0)
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private static bool PullBlockedByCoding(ConfirmDialogResult cd, Action<string, string> log)
@@ -884,6 +764,22 @@ namespace RbaCore
             catch { }
         }
 
+        private static void CloseOpenEntryForm(
+            IntPtr appWindow, BotAppConfig app, Action<string, string> log)
+        {
+            try
+            {
+                string title = app != null && !string.IsNullOrWhiteSpace(app.EntryWindowTitle)
+                    ? app.EntryWindowTitle.Trim() : "بيانات العملاء";
+                IntPtr entry = ClientEntry.FindEntryForm(appWindow, title, null);
+                if (entry == IntPtr.Zero || !Win32Interop.IsWindow(entry)) { return; }
+                log("pull-codes: closing stacked «" + Win32Driver.GetWindowTitle(entry) +
+                    "» before menu", "INFO");
+                ClientLookup.CloseWindow(entry, "بيانات العملاء", log);
+            }
+            catch { }
+        }
+
         private static IntPtr FindSahbWindow(
             IntPtr appWindow, IntPtr inquiry, BotConfig cfg, List<FieldSelector> selectors)
         {
@@ -970,15 +866,7 @@ namespace RbaCore
                 return result;
             }
 
-            // ZERO-TOLERANCE: never F2/F9 until the سحب row matches the sheet client.
-            string identityWhy;
-            if (!PullRowMatchesExpected(flex, screen, expectedNationalId, searchCode, selectors, log, out identityWhy))
-            {
-                result.Note = "ZERO-TOLERANCE: رفض F2/F9 — " + identityWhy;
-                log("pull-codes: " + result.Note, "ERROR");
-                return result;
-            }
-
+            // Operator flow: click table → F2 → F9. No OCR.
             try
             {
                 Win32Driver.SetForeground(screen);
@@ -1020,13 +908,13 @@ namespace RbaCore
                 return result;
             }
             result.Ok = true;
-            result.Note = "سحب: جدول → F2/F9 (identity verified)";
+            result.Note = "سحب: جدول → F2/F9";
             log("pull-codes: " + result.Note, "OK");
             return result;
         }
 
-        // Answer pull prompts only when identity was already verified. «موقوف» = fail.
-        // Unknown prompts get No / are left — never blind Yes outside the pull confirm.
+        // Confirm the pull ask, then accept the result box (NIN / Code 12).
+        // «موقوف» = fail. Unknown prompts get No — never blind Yes.
         private static ConfirmDialogResult ConfirmPullSafely(
             int processId, IntPtr owner, Action<string, string> log)
         {
@@ -1063,9 +951,14 @@ namespace RbaCore
                     Thread.Sleep(250);
                     continue;
                 }
-                if (isPullAsk)
+                bool isPullResult = ArabicText.ContainsAny(msg, new string[]
+                    {
+                        "NIN Code", "Code 12", "كود 12", "الكود الموحد", "تم سحب", "تم السحب"
+                    }) ||
+                    (msg.IndexOf("NIN", StringComparison.OrdinalIgnoreCase) >= 0 &&
+                     msg.IndexOf("Code", StringComparison.OrdinalIgnoreCase) >= 0);
+                if (isPullAsk || isPullResult)
                 {
-                    // Identity was verified before F2/F9 — confirm the known-good row only.
                     ConfirmDialog.ClickAffirmative(dialog, out clicked);
                     all.LastButton = clicked;
                     handled++;
