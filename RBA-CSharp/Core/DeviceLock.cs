@@ -10,10 +10,10 @@ namespace RbaCore
 {
     public static class DeviceLock
     {
-        // Azimut build: operator PC only (developer Wi-Fi/Ethernet MACs removed).
+        // Azimut build: bind to Azimut_C1 / TRDR8001COD1 only.
         private static readonly string[] AllowedMacs = new string[]
         {
-            "D0460CA0DC00" // trdr1095cod1
+            "FC4CEA27F54E" // Azimut_C1 Ethernet (Realtek) FC-4C-EA-27-F5-4E
         };
 
         public static bool IsThisMachineAllowed()
