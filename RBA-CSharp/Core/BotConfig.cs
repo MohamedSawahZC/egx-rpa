@@ -88,15 +88,16 @@ namespace RbaCore
         public int DocImageMaxWidth = 1100;
         // Local SFTP lab root (inbox\kyc_export.csv + inbox\docs\{NID}\).
         public string SftpLocalRoot = @"C:\RPA-SFTP";
-        // Production SFTP defaults (override in UI / bot-config when needed).
-        public const string DefaultSftpHost = "10.10.95.250";
-        public const string DefaultSftpUser = "RPA";
-        public const string DefaultSftpPassword = "P@$$WORD";
+        // Azimut production SFTP defaults (override in UI / bot-config when needed).
+        public const string DefaultSftpHost = "10.8.1.250";
+        public const int DefaultSftpPort = 2022;
+        public const string DefaultSftpUser = "sftpegx";
+        public const string DefaultSftpPassword = "Egypt@2022";
         public string SftpHost = DefaultSftpHost;
-        public int SftpPort = 22;
+        public int SftpPort = DefaultSftpPort;
         public string SftpUser = DefaultSftpUser;
-        // Optional password for protected OpenSSH/sftp hosts (stored in bot-config).
-        public string SftpPassword = "";
+        // Password for protected OpenSSH/sftp hosts (stored in bot-config).
+        public string SftpPassword = DefaultSftpPassword;
         public string SftpRemoteInbox = "kyc-imports";
         // When true, never call remote SFTP — use SftpLocalRoot\inbox (or last SftpCache).
         public bool SftpOfflineMode = false;
@@ -308,9 +309,10 @@ namespace RbaCore
             if (sftpPort > 0) { cfg.SftpPort = sftpPort; }
             if (string.IsNullOrWhiteSpace(cfg.SftpHost)) { cfg.SftpHost = DefaultSftpHost; }
             if (string.IsNullOrWhiteSpace(cfg.SftpUser)) { cfg.SftpUser = DefaultSftpUser; }
+            if (cfg.SftpPort <= 0) { cfg.SftpPort = DefaultSftpPort; }
             if (IsPlaceholderSftpPassword(cfg.SftpPassword))
             {
-                cfg.SftpPassword = "";
+                cfg.SftpPassword = DefaultSftpPassword;
             }
             cfg.App.ExePath = ExtractString(json, "exePath", cfg.App.ExePath);
             cfg.App.Arguments = ExtractString(json, "arguments", cfg.App.Arguments);
@@ -423,9 +425,10 @@ namespace RbaCore
         {
             if (string.IsNullOrWhiteSpace(password)) { return true; }
             string t = password.Trim();
-            return string.Equals(t, DefaultSftpPassword, StringComparison.Ordinal) ||
-                   string.Equals(t, "P@$$WORD", StringComparison.Ordinal) ||
-                   string.Equals(t, "password", StringComparison.OrdinalIgnoreCase);
+            // Real defaults (e.g. Egypt@2022) are valid — only reject known placeholders.
+            return string.Equals(t, "P@$$WORD", StringComparison.Ordinal) ||
+                   string.Equals(t, "password", StringComparison.OrdinalIgnoreCase) ||
+                   string.Equals(t, "changeme", StringComparison.OrdinalIgnoreCase);
         }
 
         private static string ExtractRaw(string json, string key)

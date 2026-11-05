@@ -16,7 +16,7 @@ namespace RbaCore
         // Same admin pair as SettingsLock — used to seal EXE + encrypt live config.
         public static string DefaultPassphrase()
         {
-            return "wilzyadmin\nwilzy@1234";
+            return "azimut\nazimut";
         }
 
         public static string ReadUtf8Auto(string path)

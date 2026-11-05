@@ -147,7 +147,7 @@ namespace RbaUi
             _numSftpPort = new NumericUpDown();
             _numSftpPort.Minimum = 1;
             _numSftpPort.Maximum = 65535;
-            _numSftpPort.Value = cfg.SftpPort > 0 ? cfg.SftpPort : 22;
+            _numSftpPort.Value = cfg.SftpPort > 0 ? cfg.SftpPort : BotConfig.DefaultSftpPort;
             AddLtrRow(sftpInner, "Port", _numSftpPort, null, ref sy, sftpLabelW, 90);
 
             _txtSftpUser = MakeInput(string.IsNullOrEmpty(cfg.SftpUser) ? BotConfig.DefaultSftpUser : cfg.SftpUser, true);
@@ -2168,7 +2168,7 @@ namespace RbaUi
             }
             if (_numSftpPort != null)
             {
-                int p = _cfg.SftpPort > 0 ? _cfg.SftpPort : 22;
+                int p = _cfg.SftpPort > 0 ? _cfg.SftpPort : BotConfig.DefaultSftpPort;
                 _numSftpPort.Value = Math.Min(_numSftpPort.Maximum, Math.Max(_numSftpPort.Minimum, p));
             }
             if (_txtSftpUser != null)

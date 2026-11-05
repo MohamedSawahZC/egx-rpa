@@ -10,8 +10,8 @@ namespace RbaUi
 {
     public static class SettingsLock
     {
-        private const string AdminUser = "wilzyadmin";
-        private const string AdminSecret = "wilzy@1234";
+        private const string AdminUser = "azimut";
+        private const string AdminSecret = "azimut";
 
         private static bool _unlocked;
 

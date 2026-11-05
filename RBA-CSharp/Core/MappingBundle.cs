@@ -126,7 +126,7 @@ namespace RbaCore
                     r.SftpHost = ToStr(Get(paths, "sftpHost"));
                     if (paths.ContainsKey("sftpPort") && paths["sftpPort"] != null)
                     {
-                        r.SftpPort = ToInt(paths["sftpPort"], 22);
+                        r.SftpPort = ToInt(paths["sftpPort"], BotConfig.DefaultSftpPort);
                     }
                     r.SftpUser = ToStr(Get(paths, "sftpUser"));
                     r.SftpPassword = ToStr(Get(paths, "sftpPassword"));

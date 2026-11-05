@@ -280,7 +280,7 @@ namespace RbaCore
             result.FileCount = listed;
             result.Ok = true;
             result.Note = "connected " + (cfg.SftpUser ?? "") + "@" + cfg.SftpHost +
-                          ":" + (cfg.SftpPort > 0 ? cfg.SftpPort : 22) +
+                          ":" + (cfg.SftpPort > 0 ? cfg.SftpPort : BotConfig.DefaultSftpPort) +
                           " — listed " + listed + " lines";
             log("SFTP connection OK — " + result.Note, "OK");
             return result;
@@ -664,7 +664,7 @@ namespace RbaCore
             string remoteInbox = ResolveRemoteInbox(cfg);
             string batch = Path.Combine(Path.GetTempPath(), "rpa-sftp-ls-" + Guid.NewGuid().ToString("N") + ".bat");
             string host = cfg.SftpHost.Trim();
-            int port = cfg.SftpPort > 0 ? cfg.SftpPort : 22;
+            int port = cfg.SftpPort > 0 ? cfg.SftpPort : BotConfig.DefaultSftpPort;
             string user = string.IsNullOrWhiteSpace(cfg.SftpUser)
                 ? Environment.UserName
                 : cfg.SftpUser.Trim();
@@ -729,7 +729,7 @@ namespace RbaCore
             string remoteInbox = ResolveRemoteInbox(cfg);
             string batch = Path.Combine(Path.GetTempPath(), "rpa-sftp-" + Guid.NewGuid().ToString("N") + ".bat");
             string host = cfg.SftpHost.Trim();
-            int port = cfg.SftpPort > 0 ? cfg.SftpPort : 22;
+            int port = cfg.SftpPort > 0 ? cfg.SftpPort : BotConfig.DefaultSftpPort;
             string user = string.IsNullOrWhiteSpace(cfg.SftpUser)
                 ? Environment.UserName
                 : cfg.SftpUser.Trim();
@@ -1236,7 +1236,7 @@ namespace RbaCore
             string remoteInbox = ResolveRemoteInbox(cfg);
             string batch = Path.Combine(Path.GetTempPath(), "rpa-sftp-up-" + Guid.NewGuid().ToString("N") + ".bat");
             string host = cfg.SftpHost.Trim();
-            int port = cfg.SftpPort > 0 ? cfg.SftpPort : 22;
+            int port = cfg.SftpPort > 0 ? cfg.SftpPort : BotConfig.DefaultSftpPort;
             string user = string.IsNullOrWhiteSpace(cfg.SftpUser)
                 ? Environment.UserName
                 : cfg.SftpUser.Trim();

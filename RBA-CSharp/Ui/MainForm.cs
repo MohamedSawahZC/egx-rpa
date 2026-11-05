@@ -304,7 +304,7 @@ namespace RbaUi
             _numSftpPort = new NumericUpDown();
             _numSftpPort.Minimum = 1;
             _numSftpPort.Maximum = 65535;
-            _numSftpPort.Value = 22;
+            _numSftpPort.Value = BotConfig.DefaultSftpPort;
             AddSettingsLabeledControl(canvas, "Port", _numSftpPort, ref y, 90, left, labelW, fieldX, rowH);
             _txtSftpUser = AddSettingsSimple(canvas, "User", ref y, left, labelW, fieldX, contentW, rowH);
             _txtSftpPassword = AddSettingsPassword(canvas, "Password", ref y, left, labelW, fieldX, contentW, rowH);
@@ -644,7 +644,7 @@ namespace RbaUi
             if (_txtSftpHost != null) { _txtSftpHost.Text = string.IsNullOrEmpty(_cfg.SftpHost) ? BotConfig.DefaultSftpHost : _cfg.SftpHost; }
             if (_numSftpPort != null)
             {
-                int p = _cfg.SftpPort > 0 ? _cfg.SftpPort : 22;
+                int p = _cfg.SftpPort > 0 ? _cfg.SftpPort : BotConfig.DefaultSftpPort;
                 _numSftpPort.Value = Math.Min(_numSftpPort.Maximum, Math.Max(_numSftpPort.Minimum, p));
             }
             if (_txtSftpUser != null)
